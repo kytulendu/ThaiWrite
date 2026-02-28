@@ -5,5 +5,5 @@
 getstr tutil1 cufsetup kbd file +
 fed write int getch popup fontmsg +
 convert stampdat +
-hercf egavgaf c:\tc\lib\graphics.lib +
+.\drv\hercf .\drv\egavgaf c:\tc\lib\graphics.lib +
 ,\tw\twfont,\tw\twfont,c:\tc\lib\cl.lib
