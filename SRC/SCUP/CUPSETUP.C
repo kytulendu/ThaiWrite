@@ -34,40 +34,58 @@ void cupsetup(int argc, char *argv[])
     /* Sorry for the pointer, but easy to expand argument
                         Suttipong
     */
-    while ((--argc > 0) && ((i = (*++argv)[0]) == '/' || i == '-')) {
+    while ((--argc > 0) && ((i = (*++argv)[0]) == '/' || i == '-'))
+    {
         strupr (++argv[0]);
         while (i = *(argv[0]++))
-            switch(i) {
-            case 'H' :  scrmode = HERCMONO;
-                        break;
-            /* e alone = ega, em = ega monochrome */
-            case 'E' :  scrmode = EGA;
-                        break;
-            /* m alone = mcga */
-            case 'M' :  if (scrmode == EGA)
-                            scrmode = EGAMONO;
-                        else
-                            scrmode = MCGA;
-                        break;
-            case 'V' :  scrmode = VGA;
-                        break;
-            case 'A' :  scrmode = ATT400;
-                        break;
-            /* /HL for Hercules, left-justified  */
-            case 'L' :  herc_align = 0;
-                        break;
-            case 'N' :
-            case 'W' :
-            case 'P' :
-                        break;
-            default  :  usage();
+        {
+            switch(i)
+            {
+                case 'H' :
+                    scrmode = HERCMONO;
+                    break;
+                /* e alone = ega, em = ega monochrome */
+                case 'E' :
+                    scrmode = EGA;
+                    break;
+                /* m alone = mcga */
+                case 'M' :
+                    if (scrmode == EGA)
+                    {
+                        scrmode = EGAMONO;
+                    }
+                    else
+                    {
+                        scrmode = MCGA;
+                    }
+                    break;
+                case 'V' :
+                    scrmode = VGA;
+                    break;
+                case 'A' :
+                    scrmode = ATT400;
+                    break;
+                /* /HL for Hercules, left-justified  */
+                case 'L' :
+                    herc_align = 0;
+                    break;
+                case 'N' :
+                case 'W' :
+                case 'P' :
+                    break;
+                default  :
+                    usage();
             }
+        }
     }
     if (argc >= 1 && (file_exist(argv[0]) ||
-        strchr(argv[0], '*') || strchr(argv[0], '?'))) {
+        strchr(argv[0], '*') || strchr(argv[0], '?')))
+    {
         placekey(RETKEY);
         while (i = *argv[0]++)
+        {
             placekey(i);
+        }
         placekey(RETKEY);
     }
 
@@ -93,7 +111,7 @@ void usage(void)
     fputs("\t-a,\t/a  at&t400\n", stderr);
     exit(1);
 }
-    
+
 void set_directory(void)
 {
     char drive[MAXDRIVE], dir[MAXDIR], name[MAXFILE], ext[MAXEXT];
@@ -165,33 +183,47 @@ void readoption(search_file_mode mode)
     set_all_lineperpage(BATCH);
 
     sprintf(fname, "%s\\CUPRINT.CFG", cup_dir);
-    if (mode == CUR_DIR || mode == AUTO_FIND) {
+    if (mode == CUR_DIR || mode == AUTO_FIND)
+    {
         fp = fopen("CUPRINT.CFG","rt");
-    } else {
+    }
+    else
+    {
         fp = fopen(fname, "rt");
     }
-    if (fp == NULL && mode == AUTO_FIND) {
+    if (fp == NULL && mode == AUTO_FIND)
+    {
         /* fopen file not success */
         /* continue searching in cup_dir */
         if ((fp = fopen(fname, "rt")) == NULL)
+        {
             return; /* if not found in both dir use default value */
+        }
     }
-    if (fp == NULL) {
+    if (fp == NULL)
+    {
         showerrno();
         return ;
     }
     /* If we reach here we succesfully open cw.cfg file */
-    for (op = option_setup; op->option_name != NULL; op++) {
+    for (op = option_setup; op->option_name != NULL; op++)
+    {
         field = fscanf(fp, "%s %d", opname, &temp);
         if (field == 2) /* succesfully scan */
+        {
             * (int *) op->p_option_value = temp;
+        }
         else
+        {
             break;
+        }
     }
-    for (op++; op->option_name != NULL; op++) {
+    for (op++; op->option_name != NULL; op++)
+    {
         fscanf(fp, "%s", opname); /* get option name */
         fgets(tstr, 60, fp);      /* get the rest */
-        if (tstr[0]) {
+        if (tstr[0])
+        {
             tstr[strlen(tstr) - 1] = '\0'; /* delete \n */
             strcpy(op->p_option_value, tstr+1); /* skip first blank */
         }
@@ -208,28 +240,37 @@ void saveoption(search_file_mode mode)
     char config_file[MAXPATH];
     each_option_setup *op;
 
-    if (mode == CUR_DIR || mode == AUTO_FIND) {
+    if (mode == CUR_DIR || mode == AUTO_FIND)
+    {
         fp = fopen("CUPRINT.CFG","wt");
-    } else {
+    }
+    else
+    {
         sprintf(config_file, "%s\\CUPRINT.CFG", cup_dir);
         fp = fopen(config_file, "wt");
     }
     if (fp == NULL)
-        return ;
-    for (op = option_setup; op->option_name != NULL; op++) {
+    {
+        return;
+    }
+    for (op = option_setup; op->option_name != NULL; op++)
+    {
         fprintf(fp, "%s %d\n", op->option_name, * (int *) op->p_option_value);
     }
     for (op++; op->option_name != NULL; op++)
+    {
         fprintf(fp, "%s %s\n", op->option_name, (char *) op->p_option_value);
+    }
     fprintf(fp,"\n");
     fclose(fp);
 }
 
-int handler(int errval,int ax,int bp,int si)
+int handler(int errval, int ax, int bp, int si)
 {
-    if (ax >= 0) {
-      disperror(" error on disk drive   ! กดปุ่มใดๆเพื่อทำงานต่อ");
-      ebioskey(0);
+    if (ax >= 0)
+    {
+        disperror(" error on disk drive   ! กดปุ่มใดๆเพื่อทำงานต่อ");
+        ebioskey(0);
     }
     hardretn(-1);
 }
@@ -243,7 +284,7 @@ int handler(int errval,int ax,int bp,int si)
 /*      Written         :       Suttipong Kanakakorn                    */
 /*                              Tue  08-15-1989  00:23:58               */
 /* -------------------------------------------------------------------- */
-void *cp_loadfont (char *fname, unsigned font_size)
+void *cp_loadfont(char *fname, unsigned font_size)
 {
     void *p;
     int handle;
@@ -251,16 +292,22 @@ void *cp_loadfont (char *fname, unsigned font_size)
 
     p = (void *) malloc (font_size);
     if ( p == NULL)
-        execerror ("Insufficient memory\n","");
-    if ((handle = open(fname,O_RDONLY | O_BINARY)) == -1) {
+    {
+        execerror("Insufficient memory\n", "");
+    }
+    if ((handle = open(fname,O_RDONLY | O_BINARY)) == -1)
+    {
         sprintf(fn, "%s\\%s", cup_dir, fname);
         handle = open(fn, O_RDONLY | O_BINARY);
     }
-    if (handle != -1) {
+    if (handle != -1)
+    {
         read(handle, p, font_size);
         close(handle);
-    } else {
-        execerror ("Printer font file not found : ", fname);
+    }
+    else
+    {
+        execerror("Printer font file not found : ", fname);
     }
     return (p);
 }

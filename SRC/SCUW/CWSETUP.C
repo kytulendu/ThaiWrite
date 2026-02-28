@@ -16,7 +16,7 @@ static char cup_option[16]; /* assume that only 16 char max for argument */
 
 void cwsetup(int argc, char *argv[])
 {
-    unsigned dummy;
+    unsigned int dummy;
     register int i;
 
     progname = argv[0];
@@ -24,70 +24,104 @@ void cwsetup(int argc, char *argv[])
     /* Sorry for the pointer, but easy to expand argument
                         Suttipong
     */
-    while ((--argc > 0) && ((i = (*++argv)[0]) == '/' || i == '-')) {
+    while ((--argc > 0) && ((i = (*++argv)[0]) == '/' || i == '-'))
+    {
         strcat(cup_option, argv[0]);
         strcat(cup_option, " ");
-        strupr (++argv[0]);
+        strupr(++argv[0]);
         while (i = *argv[0]++)
-            switch(i) {
-            case 'H' :  scrmode = HERCMONO;
-                        break;
-            /* e alone = ega, em = ega monochrome */
-            case 'E' :  scrmode = EGA;
-                        break;
-            /* m alone = mcga */
-            case 'M' :  if (scrmode == EGA)
-                            scrmode = EGAMONO;
-                        else
-                            scrmode = MCGA;
-                        break;
-            case 'V' :  scrmode = VGA;
-                        break;
-            case 'A' :  scrmode = ATT400;
-                        break;
-            /* /L for Hercules,  left-justified  */
-            case 'L' :  herc_align = 0;
-                        break;
-            case 'N' :  create_bak = NO;
-                        break;
-            case 'W' :  wordwrap = NO;
-                        break;
-            case 'P' :  pagebreak = NO;
-                        break;
-            case 'S' :  cu_song = YES;
-                        break;
-            default  :  usage();
+        {
+            switch(i)
+            {
+                case 'H' :
+                    scrmode = HERCMONO;
+                    break;
+                /* e alone = ega, em = ega monochrome */
+                case 'E' :
+                    scrmode = EGA;
+                    break;
+                /* m alone = mcga */
+                case 'M' :
+                    if (scrmode == EGA)
+                    {
+                        scrmode = EGAMONO;
+                    }
+                    else
+                    {
+                        scrmode = MCGA;
+                    }
+                    break;
+                case 'V' :
+                    scrmode = VGA;
+                    break;
+                case 'A' :
+                    scrmode = ATT400;
+                    break;
+                /* /L for Hercules,  left-justified  */
+                case 'L' :
+                    herc_align = 0;
+                    break;
+                case 'N' :
+                    create_bak = NO;
+                    break;
+                case 'W' :
+                    wordwrap = NO;
+                    break;
+                case 'P' :
+                    pagebreak = NO;
+                    break;
+                case 'S' :
+                    cu_song = YES;
+                    break;
+                default  :
+                    usage();
             }
+        }
     }
     if (cup_option[0] == '\0')
+    {
         strcpy(cup_option, "/");
+    }
 
-    if (argc >= 1) {
+    if (argc >= 1)
+    {
         placekey(' ');
         if (file_exist(argv[0]) ||
             strchr(argv[0], '*') ||
             strchr(argv[0], '?'))
+        {
             placekey(DNKEY);
+        }
         placekey(RETKEY);
         while (i = *argv[0]++)
+        {
             placekey(i);
+        }
         placekey(RETKEY);
     }
 
     set_directory();
     if (readoption(AUTO_FIND) == 0)
+    {
         set_option_to_default();
+    }
     readscrfont(dfont, "NORMAL.FON", cw_dir);
     readscrfont(ditalicfont, "ITALIC.FON", cw_dir);
 
     harderr(handler);
     initvalue(&dummy, &dummy);
-    for (i=0;i < MAXCOL; ++i)
+    for (i = 0; i < MAXCOL; ++i)
+    {
         tab[i] = NO;
-    for (i=5; i < (rightmar - 6); i += 5)
+    }
+    for (i = 5; i < (rightmar - 6); i += 5)
+    {
         tab[i] = YES;
-    for (i = 0;i <= 10;i++)
+    }
+    for (i = 0; i <= 10; i++)
+    {
         macro[i][0] = '\0';
+    }
     filename[0] = '\0';
 
     initscrn();
@@ -126,7 +160,7 @@ void set_directory(void)
     cw_dir[strlen(cw_dir) - 1] = '\0'; /* clear \ */
 }
 
-typedef struct  {
+typedef struct {
     char *option_name;
     int *p_option_value;
     int p_option_default;
@@ -171,31 +205,44 @@ int readoption(search_file_mode mode)
 
 
     sprintf(fname, "%s\\CW.CFG", cw_dir);
-    if (mode == CUR_DIR || mode == AUTO_FIND) {
+    if (mode == CUR_DIR || mode == AUTO_FIND)
+    {
         fp = fopen("CW.CFG","rt");
-    } else {
+    }
+    else
+    {
         fp = fopen(fname, "rt");
     }
-    if (fp == NULL && mode == AUTO_FIND) {
+    if (fp == NULL && mode == AUTO_FIND)
+    {
         /* fopen file not succes */
         /* continue searching in cw_dir */
         if ((fp = fopen(fname, "rt")) == NULL)
+        {
             return 0; /* if not found in both dir return 0 for autofind */
+        }
     }
     if (fp == NULL) {
         showerrno();
         /* if search in CUR_DIR or CW_DIR and not found return -1 */
-        return -1 ; 
+        return -1 ;
     }
     /* If we reach here we succesfully open cw.cfg file */
-    for (op = option_setup; op < option_setup + NELEM_OPTION; op++) {
+    for (op = option_setup; op < option_setup + NELEM_OPTION; op++)
+    {
         field = fscanf(fp, "%d", &temp);
-        if (field == 1) { /* succesfully scan */
+        if (field == 1)     /* succesfully scan */
+        {
             if (*op->p_option_value == -1) /* not set from command line */
+            {
                 /* so set it */
                 *op->p_option_value = temp;
-        } else /* error */
+            }
+        }
+        else /* error */
+        {
             break;
+        }
     }
     fclose(fp);
     return 1;
@@ -208,15 +255,21 @@ void saveoption(search_file_mode mode)
     char config_file[MAXPATH];
     each_option_setup *op;
 
-    if (mode == CUR_DIR || mode == AUTO_FIND) {
+    if (mode == CUR_DIR || mode == AUTO_FIND)
+    {
         fp = fopen("CW.CFG","wt");
-    } else {
+    }
+    else
+    {
         sprintf(config_file, "%s\\CW.CFG", cw_dir);
         fp = fopen(config_file, "wt");
     }
     if (fp == NULL)
-        return ;
-    for (op = option_setup; op < option_setup + NELEM_OPTION; op++) {
+    {
+        return;
+    }
+    for (op = option_setup; op < option_setup + NELEM_OPTION; op++)
+    {
         fprintf(fp, "%d ", *op->p_option_value);
     }
     fprintf(fp,"\n");
@@ -227,12 +280,12 @@ void saveoption(search_file_mode mode)
 void dispoption(int i)
 {
 
-    /* dispstrhgc("     ", 65-CENTER_FACTOR+2, i+6, 0); */
+    /* dispstrhgc("     ", 65 - CENTER_FACTOR + 2, i + 6, 0); */
     dispstrhgc(option_setup[i].option_name,
-                65-CENTER_FACTOR-thaistrlen(option_setup[i].option_name),
-                i+6, 0);
-    dispprintf(65-CENTER_FACTOR, i+6, 0, " :%d",
-                *option_setup[i].p_option_value);
+        65 - CENTER_FACTOR-thaistrlen(option_setup[i].option_name),
+        i + 6, 0);
+    dispprintf(65 - CENTER_FACTOR, i + 6, 0, " :%d",
+        *option_setup[i].p_option_value);
 }
 
 
@@ -245,46 +298,62 @@ void setoption(void)
     char st[5];
 
     pagecomplete = NO;
-    if (stdcode == 0) stdcode = 2;
-    if (pagebreak == 0) pagebreak = 2;
-    if (wordwrap == 0) wordwrap = 2;
-    if (create_bak == 0) create_bak = 2;
-    if (cu_song == 0) cu_song = 2;
-    framebox(14-CENTER_FACTOR, 5, 14-CENTER_FACTOR+67, 5+1+NELEM_OPTION, 0);
-    for (i = 0; i < NELEM_OPTION; i++) {
+    if (stdcode == 0) { stdcode = 2; }
+    if (pagebreak == 0) { pagebreak = 2; }
+    if (wordwrap == 0) { wordwrap = 2; }
+    if (create_bak == 0) { create_bak = 2; }
+    if (cu_song == 0) { cu_song = 2; }
+    framebox(14 - CENTER_FACTOR, 5, 14 - CENTER_FACTOR + 67, 5 + 1 + NELEM_OPTION, 0);
+    for (i = 0; i < NELEM_OPTION; i++)
+    {
         dispoption(i);
     }
     i = 0;
-    do {
+    do
+    {
         itoa(*option_setup[i].p_option_value, st, 10);
-        c = getstring(st, 65+2-CENTER_FACTOR ,6 + i, option_setup[i].maxlen,
-                      0, option_setup[i].stype);
+        c = getstring(st, 65 + 2-CENTER_FACTOR ,6 + i, option_setup[i].maxlen,
+            0, option_setup[i].stype);
         *option_setup[i].p_option_value = atoi(st);
 
-        switch(c) {
-        case UPKEY  : dispoption(i);
-                      if (i == 0)
-                        i = NELEM_OPTION - 1;
-                      else
-                        i--;
-                      break;
-        case DNKEY  : dispoption(i);
-                      if (i == NELEM_OPTION - 1)
-                        i = 0;
-                      else
-                        i++;
-                      break;
-        case YES    : dispoption(i);
-                      if (i < NELEM_OPTION - 1) {
-                        i++;
-                        break;
-                      }
-        case ESCKEY : if (stdcode == 2) stdcode = 0;
-                      if (pagebreak == 2) pagebreak = 0;
-                      if (wordwrap == 2) wordwrap = 0;
-                      if (create_bak == 2) create_bak = 0;
-                      if (cu_song == 2) cu_song = 0;
-                      return;
+        switch(c)
+        {
+            case UPKEY:
+                dispoption(i);
+                if (i == 0)
+                {
+                    i = NELEM_OPTION - 1;
+                }
+                else
+                {
+                    i--;
+                }
+                break;
+            case DNKEY:
+                dispoption(i);
+                if (i == NELEM_OPTION - 1)
+                {
+                    i = 0;
+                }
+                else
+                {
+                    i++;
+                }
+                break;
+            case YES:
+                dispoption(i);
+                if (i < NELEM_OPTION - 1)
+                {
+                    i++;
+                    break;
+                }
+            case ESCKEY:
+                if (stdcode == 2) { stdcode = 0; }
+                if (pagebreak == 2) { pagebreak = 0; }
+                if (wordwrap == 2) { wordwrap = 0; }
+                if (create_bak == 2) { create_bak = 0; }
+                if (cu_song == 2) { cu_song = 0; }
+                return;
         }
     } while(1);
 }
@@ -293,15 +362,18 @@ void set_option_to_default(void)
 {
     each_option_setup *op;
 
-    for (op = option_setup; op < option_setup + NELEM_OPTION; op++) {
+    for (op = option_setup; op < option_setup + NELEM_OPTION; op++)
+    {
         /* not set from command line, or from config file */
         if (*op->p_option_value == -1)
+        {
             /* so set it */
             *op->p_option_value = op->p_option_default;
+        }
     }
 }
 
-void initvalue(unsigned *x,unsigned *y)
+void initvalue(unsigned int *x, unsigned int *y)
 {
     lineno = 1;
     *x = 0;
@@ -320,30 +392,33 @@ void print_file(void)
     char ncup[40];
 
     savepic ();
-    if (changeflag) {
-        framebox(4, 3, 4+2+37+thaistrlen(filename)+2, 10, NORMALATTR);
-        dispprintf(4+(2+37+thaistrlen(filename)+2-13)/2, 4, BOLDATTR,
-                   "**โปรดสังเกตุ**");
-        dispprintf(4+2, 5, NORMALATTR,
-                   "CUPRINT จะพิมพ์ข้อมูลจากไฟล์ ในดิสก์เท่านั้น");
-        dispprintf(4+2, 6, NORMALATTR,
-                   "แต่ไฟล์  %.30s  ในดิสก์ไม่ตรงกับข้อมูลในหน่วยความจำ", filename);
-        dispprintf(4+2, 7, NORMALATTR,
-                   "ดังนั้นผลการพิมพ์จะไม่ตรงกับข้อมูลในหน่วยความจำ");
-        dispprintf(4+(2+37+thaistrlen(filename)+2-17)/2, 9, NORMALATTR,
-                    "กดปุ่มใดๆเพื่อทำงานต่อ");
+    if (changeflag)
+    {
+        framebox(4, 3, 4 + 2 + 37 + thaistrlen(filename) + 2, 10, NORMALATTR);
+        dispprintf(4 + (2 + 37 + thaistrlen(filename) + 2 - 13) / 2, 4, BOLDATTR,
+            "**โปรดสังเกตุ**");
+        dispprintf(4 + 2, 5, NORMALATTR,
+            "CUPRINT จะพิมพ์ข้อมูลจากไฟล์ ในดิสก์เท่านั้น");
+        dispprintf(4 + 2, 6, NORMALATTR,
+            "แต่ไฟล์  %.30s  ในดิสก์ไม่ตรงกับข้อมูลในหน่วยความจำ", filename);
+        dispprintf(4 + 2, 7, NORMALATTR,
+            "ดังนั้นผลการพิมพ์จะไม่ตรงกับข้อมูลในหน่วยความจำ");
+        dispprintf(4 + (2 + 37 + thaistrlen(filename) + 2 - 17) / 2, 9, NORMALATTR,
+            "กดปุ่มใดๆเพื่อทำงานต่อ");
         ebioskey(0);
     }
     settext();
     /* Find CUPRINT by PATH */
-    if (spawnlp(P_WAIT,cup,cup,cup_option,filename,NULL) == -1) {
-      strcpy(ncup,cw_dir);                         /* Not found */
-      strcat(ncup,"\\");                           /* Search at CW dir */
-      strcat(ncup,cup);
-      if (spawnl(P_WAIT,ncup,ncup,cup_option,filename,NULL) == -1) {
-	printf("\n\nCannot find file : CUPRINT.EXE\nPress any key\n\007");
-	getch();
-      }
+    if (spawnlp(P_WAIT, cup, cup, cup_option, filename, NULL) == -1)
+    {
+        strcpy(ncup,cw_dir);                         /* Not found */
+        strcat(ncup,"\\");                           /* Search at CW dir */
+        strcat(ncup,cup);
+        if (spawnl(P_WAIT, ncup, ncup, cup_option, filename, NULL) == -1)
+        {
+            printf("\n\nCannot find file : CUPRINT.EXE\nPress any key\n\007");
+            getch();
+        }
     }
     initscrn ();
     retpic();
@@ -354,17 +429,19 @@ void edit_font(void)
 {
     static char cuf[] = "CUFONT.EXE";
 
-    if (spawnlp(P_WAIT,cuf,cuf,cup_option,NULL) == -1)
-           showerrno();
+    if (spawnlp(P_WAIT, cuf, cuf, cup_option, NULL) == -1)
+    {
+        showerrno();
+    }
     initscrn();
     showpageall();
 }
 
 void offbreak()
 {
-  union REGS inreg,outreg;
+    union REGS inreg, outreg;
 
-  inreg.x.ax=0x3301;
-  inreg.h.dl=0;
-  intdos(&inreg,&outreg);
-}
+    inreg.x.ax = 0x3301;
+    inreg.h.dl = 0;
+    intdos(&inreg, &outreg);
+}

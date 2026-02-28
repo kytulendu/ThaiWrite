@@ -4,19 +4,19 @@ By Suttipong Kanakakorn Fri  08-25-1989  22:34:30
 */
 
 /***GETSTR.C*****************************************************************/
-int getstring(char textst[],unsigned x,unsigned y,
-                unsigned maxlen,char attr,strtype mode);
-int getname(char textst[],unsigned x,unsigned y,unsigned maxlen,char attr);
+int getstring(char textst[], unsigned int x, unsigned int y,
+    unsigned maxlen, char attr, strtype mode);
+int getname(char textst[], unsigned int x, unsigned int y, unsigned int maxlen, char attr);
 
 /* TUTIL1.c */
-unsigned thaistrlen(register unsigned char *thaist);
+unsigned int thaistrlen(register unsigned char *thaist);
 
 /* cufsetup.c */
 void cufsetup(int argc, char *argv[]);
 void readfont(void *font_buffer, char *fontname);
 
 /***KBD.C********************************************************************/
-void waitkbd(unsigned x,unsigned y);
+void waitkbd(unsigned int x, unsigned int y);
 int readkbd(void);
 
 /***FILE.C*******************************************************************/

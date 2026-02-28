@@ -1,7 +1,7 @@
 /*------------------Global Reference------------------*/
 
-extern unsigned char *(*FuncPtr[])(char *);
-extern unsigned char *ThaiEngCutRtn(char *);
+extern unsigned char *(*FuncPtr[])(unsigned char *);
+extern unsigned char *ThaiEngCutRtn(unsigned char *);
 extern unsigned char *Indx, *RightMargin, *EndOfText, *LeftLimit;
 
 /* Sat  07-29-1989  03:46:20  By Suttipong K.

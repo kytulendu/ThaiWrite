@@ -1,6 +1,4 @@
-unsigned char *SaraUmRtn(TempIndx)
-	register unsigned char *TempIndx;
+unsigned char *SaraUmRtn(register unsigned char *TempIndx)
 {
-	return(TempIndx);
+    return(TempIndx);
 }
-

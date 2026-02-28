@@ -1,3 +1,4 @@
+#include "cwtype.h"
 
 /*****************************************************************************/
 /* find length of thai string                                                */
@@ -9,12 +10,15 @@
 /*****************************************************************************/
 int thaistrlen(char *thaist)
 {
-  register int count = 0;
+    register int count = 0;
 
-  while (*thaist) {
+    while (*thaist)
+    {
         if (whatlevel(*thaist) == MIDDLE)
-           count++;
+        {
+            count++;
+        }
         thaist++;
-  }
-  return(count);
+    }
+    return(count);
 }

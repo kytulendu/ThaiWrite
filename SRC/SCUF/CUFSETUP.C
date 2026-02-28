@@ -9,6 +9,7 @@
 #undef   DEFINE_VAR
 #include "..\common\cwgrphc.h"
 #include "..\common\grdetect.h"
+
 /*
     cufsetup.c -> cufont setup
     By Suttipong Kanakakorn
@@ -17,7 +18,7 @@
     
 void set_directory(void);
 void usage(void);
-int handler(int errval,int ax,int bp,int si);
+int handler(int errval, int ax, int bp, int si);
 
 void cufsetup(int argc, char *argv[])
 {
@@ -30,35 +31,50 @@ void cufsetup(int argc, char *argv[])
     /* Sorry for the pointer, but easy to expand argument
                         Suttipong
     */
-    while ((--argc > 0) && ((i = (*++argv)[0]) == '/' || i == '-')) {
+    while ((--argc > 0) && ((i = (*++argv)[0]) == '/' || i == '-')) 
+	{
         strupr (++argv[0]);
         while (i = *(argv[0]++))
-            switch(i) {
-            case 'H' :  scrmode = HERCMONO;
-                        break;
-            /* e alone = ega, em = ega monochrome */
-            case 'E' :  scrmode = EGA;
-                        break;
-            /* m alone = mcga */
-            case 'M' :  if (scrmode == EGA)
-                            scrmode = EGAMONO;
-                        else
-                            scrmode = MCGA;
-                        break;
-            case 'V' :  scrmode = VGA;
-                        break;
-            case 'A' :  scrmode = ATT400;
-                        break;
-            /* /HL for Hercules, left-justified  */
-            case 'L' :  herc_align = 0;
-                        align = 0;
-                        break;
-            case 'N' :
-            case 'W' :
-            case 'P' :
-                        break;
-            default  :  usage();
+		{
+            switch(i) 
+			{
+				case 'H':
+					scrmode = HERCMONO;
+					break;
+				/* e alone = ega, em = ega monochrome */
+				case 'E': 
+					scrmode = EGA;
+					break;
+				/* m alone = mcga */
+				case 'M':  
+					if (scrmode == EGA)
+					{
+						scrmode = EGAMONO;
+					}
+					else
+					{
+						scrmode = MCGA;
+					}
+					break;
+				case 'V':  
+					scrmode = VGA;
+					break;
+				case 'A':  
+					scrmode = ATT400;
+					break;
+				/* /HL for Hercules, left-justified  */
+				case 'L' :  
+					herc_align = 0;
+					align = 0;
+					break;
+				case 'N':
+				case 'W':
+				case 'P':
+					break;
+				default:  
+					usage();
             }
+		}
     }
 
     set_directory();
@@ -88,22 +104,22 @@ void set_directory(void)
     cuf_dir[strlen(cuf_dir) - 1] = '\0'; /* clear \ */
 }
 
-int handler(int errval,int ax,int bp,int si)
+int handler(int errval, int ax, int bp, int si)
 {
     /* char drive; */
 
     /* errorsound(); */
-    if (ax >= 0) {
-      /* drive = 'A' + (ax & 0x00FF); */
-      savepic();
-      blockmsg(10);
-      dispprintf(20,10,2,
-                 "Disk error on drive %c ! กดปุ่มใดๆเพื่อทำงานต่อ", 
-                  'A' + (ax & 0x00FF));
-      /* prchar(drive,REVERSEATTR,45-CENTER_FACTOR,10); */
+    if (ax >= 0) 
+	{
+        /* drive = 'A' + (ax & 0x00FF); */
+        savepic();
+        blockmsg(10);
+        dispprintf(20, 10, 2,
+			"Disk error on drive %c ! กดปุ่มใดๆเพื่อทำงานต่อ", 
+            'A' + (ax & 0x00FF));
+      /* prchar(drive, REVERSEATTR, 45 - CENTER_FACTOR, 10); */
       ebioskey(0);
       retpic();
     }
     hardretn(-1);
 }
-

@@ -4,6 +4,5 @@
 #define DIRECT 2
 #define HIGH_LIGHT 3
 
-popup_message(char**);
-popup_menu(char **,char**);
-restore_menu(char**);
+void popup_message(char *item[]);
+int popup_menu(char *item[], char** buff);

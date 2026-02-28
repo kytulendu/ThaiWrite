@@ -15,11 +15,11 @@ typedef enum Graphics_hardware
     HERCMONO, ATT400, VGA, PC3270,                   /* 7 - 10 */
     MDA = 128,
     UNKNOWN_HW = -1
- } graphics_hardware;
+} graphics_hardware;
 
-void graph_detecthardware (graphics_hardware *mode_ptr);
-void egavga_class (graphics_hardware *mode_ptr);
+void graph_detecthardware(graphics_hardware *mode_ptr);
+void egavga_class(graphics_hardware *mode_ptr);
 
-int is_egavga (void);
-int is_mcga (void);
-int check_vretrace (void);
+int is_egavga(void);
+int is_mcga(void);
+int check_vretrace(void);

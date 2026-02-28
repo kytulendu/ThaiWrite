@@ -9,23 +9,23 @@
     Last Updated    : Monday, 16 May, 1988 4:26:17 PM
 */
 
-unsigned char *SaraORtn(TempIndx)
-register unsigned char *TempIndx;
+unsigned char *SaraORtn(register unsigned char *TempIndx)
 {
-    register short       i;
-    unsigned char    *TempIndxm1 = TempIndx -1;
-    short    SoreSeoTbLen       = 6;    /*7-1*/
-    short   OrAngTbLen      = 8;        /*9-1*/
-    short   MoreMarTbLen    = 6;    /*7-1*/
-    short   NoreNooTbLen        = 1;    /*2-1*/
-    short   ShoreChangTbLen = 3;        /*4-1*/
-    static char *SoreSeoTable[] = {"สโลว์","สโนว์","สโตร์","สโมสร","สโตน","สโคป","สโลแกน"};
-    static char *OrAngTable[] = {"อโณทัย","อโรคยา","อโหสิ","อโนชา",
-                                "อโทสะ","อโมหะ","อโลภะ","อโลหะ","อโศก"};
-    static char *MoreMarTable[] = {"มโหระทึก","มโหรสพ","มโหฬาร","มโหรี","มโหสถ",
-                                "มโนภาพ","มโนธรรม"};
-    static char *NoreNooTable[] = {"นโยบาย","นโรดม"};
-    static char *ShoreChangTable[] = {"ชโลบล","ชโลธร","ชโลม","ชโย"};
+    register short i;
+    unsigned char *TempIndxm1 = TempIndx -1;
+    short SoreSeoTbLen    = 6;      /*7-1*/
+    short OrAngTbLen      = 8;      /*9-1*/
+    short MoreMarTbLen    = 6;      /*7-1*/
+    short NoreNooTbLen    = 1;      /*2-1*/
+    short ShoreChangTbLen = 3;      /*4-1*/
+    static char *SoreSeoTable[] = {"สโลว์", "สโนว์", "สโตร์", "สโมสร",
+        "สโตน", "สโคป", "สโลแกน"};
+    static char *OrAngTable[] = {"อโณทัย", "อโรคยา", "อโหสิ", "อโนชา",
+        "อโทสะ", "อโมหะ", "อโลภะ", "อโลหะ", "อโศก"};
+    static char *MoreMarTable[] = {"มโหระทึก", "มโหรสพ", "มโหฬาร", "มโหรี",
+        "มโหสถ", "มโนภาพ", "มโนธรรม"};
+    static char *NoreNooTable[] = {"นโยบาย", "นโรดม"};
+    static char *ShoreChangTable[] = {"ชโลบล", "ชโลธร", "ชโลม", "ชโย"};
     static char ToreTaharnWord[] = "ทโมน";
     static char RoreReoWord[] = "รโหฐาน";
     static char YoreYakWord[] = "ยโส";
@@ -35,71 +35,130 @@ register unsigned char *TempIndx;
     {
         case SoreSeo:           /* สโลว์ สโนว์ สโตร์ สโมสร สโตน สโคป สโลแกน*/
             for (i = 0; i <= SoreSeoTbLen; ++i)
-                if (!(nstrcmp(SoreSeoTable[i],TempIndxm1)))
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
-            return(TempIndxm1); /* cut before sara O */
+            {
+                if (!(nstrcmp(SoreSeoTable[i], TempIndxm1)))
+                {
+                    /* cut before consonant that before Sara O */
+                    return(TempIndx - 2);
+                }
+            }
+            /* cut before sara O */
+            return(TempIndxm1);
             break;
 
         case OrAng:         /* อโณทัย อโรคยา อโหสิ อโนชา อโทสะ อโมหะ อโลภะ อโลหะ อโศก*/
-            for (i=0; i<= OrAngTbLen; ++i)
-                if (!(nstrcmp(OrAngTable[i],TempIndxm1)))
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
-            return(TempIndxm1); /* cut before sara O */
+            for (i = 0; i <= OrAngTbLen; ++i)
+            {
+                if (!(nstrcmp(OrAngTable[i], TempIndxm1)))
+                {
+                    /* cut before consonant that before Sara O */
+                    return(TempIndx - 2);
+                }
+            }
+            /* cut before sara O */
+            return(TempIndxm1);
             break;
 
         case MoreMar:       /* มโหระทึก, มโหรสพ,มโหฬาร,มโหร,มโหสถ */
-            for (i =0; i<= MoreMarTbLen; ++i)
-                if (!(nstrcmp(MoreMarTable[i],TempIndxm1)))
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
-            return(TempIndxm1); /* cut before sara O */
+            for (i = 0; i <= MoreMarTbLen; ++i)
+            {
+                if (!(nstrcmp(MoreMarTable[i], TempIndxm1)))
+                {
+                    /* cut before consonant that before Sara O */
+                    return(TempIndx - 2);
+                }
+            }
+            /* cut before sara O */
+            return(TempIndxm1);
             break;
 
         case NoreNoo:       /* นโยบาย นโรดม */
-            if (!(nstrcmp("นโม",TempIndxm1)) && !(istlvwl(*(TempIndx-2))))
-                if(!(isttnl(*(TempIndx+2))))
-                    return(TempIndx -2); /*cut before NoreNoo */
-            for (i=0; i<= NoreNooTbLen; ++i)
-                if (!(nstrcmp(NoreNooTable[i],TempIndxm1)))
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
-            return(TempIndxm1); /* cut before sara O */
+            if (!(nstrcmp("นโม", TempIndxm1)) && !(istlvwl(*(TempIndx - 2))))
+            {
+                if(!(isttnl(*(TempIndx + 2))))
+                {
+                    /* cut before NoreNoo */
+                    return(TempIndx - 2);
+                }
+            }
+            for (i = 0; i <= NoreNooTbLen; ++i)
+            {
+                if (!(nstrcmp(NoreNooTable[i], TempIndxm1)))
+                {
+                    /* cut before consonant that before Sara O */
+                    return(TempIndx - 2);
+                }
+            }
+            /* cut before sara O */
+            return(TempIndxm1);
             break;
 
         case ShoreChang:        /* ชโลบล ชโลธร ชโลม ชโย */
-            for (i=0; i<= ShoreChangTbLen; ++i)
-                if (!(nstrcmp(ShoreChangTable[i],TempIndxm1)))
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
-            return(TempIndxm1); /* cut before sara O */
+            for (i = 0; i <= ShoreChangTbLen; ++i)
+            {
+                if (!(nstrcmp(ShoreChangTable[i], TempIndxm1)))
+                {
+                    /* cut before consonant that before Sara O */
+                    return(TempIndx - 2);
+                }
+            }
+            /* cut before sara O */
+            return(TempIndxm1);
             break;
 
         case ToreTaharn:        /* ทโมน */
-            if (nstrcmp(ToreTaharnWord,TempIndxm1))
-                    return(TempIndxm1); /* cut before sara O */
-                else
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
+            if (nstrcmp(ToreTaharnWord, TempIndxm1))
+            {
+                /* cut before sara O */
+                return(TempIndxm1);
+            }
+            else
+            {
+                /* cut before consonant that before Sara O */
+                return(TempIndx - 2);
+            }
             break;
 
         case RoreReo:           /* รโหฐาน */
-            if (nstrcmp(RoreReoWord,TempIndxm1))
-                    return(TempIndxm1); /* cut before sara O */
-                else
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
+            if (nstrcmp(RoreReoWord, TempIndxm1))
+            {
+                /* cut before sara O */
+                return(TempIndxm1);
+            }
+            else
+            {
+                /* cut before consonant that before Sara O */
+                return(TempIndx - 2);
+            }
             break;
 
         case YoreYak:       /* ยโส */
-            if (nstrcmp(YoreYakWord,TempIndxm1))
-                    return(TempIndxm1); /* cut before sara O */
-                else
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
+            if (nstrcmp(YoreYakWord, TempIndxm1))
+            {
+                /* cut before sara O */
+                return(TempIndxm1);
+            }
+            else
+            {
+                /* cut before consonant that before Sara O */
+                return(TempIndx - 2);
+            }
             break;
 
         case KorKai:        /* ขโมย */
-            if (nstrcmp(KorKaiWord,TempIndxm1))
-                    return(TempIndxm1); /* cut before sara O */
-                else
-                    return(TempIndx-2); /* cut before consonant that before Sara O */
+            if (nstrcmp(KorKaiWord, TempIndxm1))
+            {
+                /* cut before sara O */
+                return(TempIndxm1);
+            }
+            else
+            {
+                /* cut before consonant that before Sara O */
+                return(TempIndx - 2);
+            }
             break;
 
         default:
-            return(TempIndx -1);
+            return(TempIndx - 1);
     }
-}/* end of Sara O Rtn */
+}

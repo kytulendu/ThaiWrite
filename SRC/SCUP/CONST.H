@@ -58,4 +58,3 @@
 #define ML_TEXT_9       (((pagelength)-1) * 216 / IPL_TEXT_9)
 #define ML_GRPH_24      (((pagelength)-1) * 180 / IPL_GRPH_24)
 #define ML_GRPH_9       (((pagelength)-1) * 216 / IPL_GRPH_9)
-

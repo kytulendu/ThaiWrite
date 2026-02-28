@@ -10,13 +10,14 @@
     Last Updated :  Saturday, 7 May, 1988 9:53:28 AM
     ------------------------------------------- */
 
-unsigned char *ThaiEngCutRtn(TempIndx)
-unsigned char *TempIndx;
+unsigned char *ThaiEngCutRtn(unsigned char *TempIndx)
 {
     unsigned char *TempIndxm1 = TempIndx -1;
 
     if ((isthai(*TempIndx) && isalpha(*TempIndxm1)) ||
-      (isthai(*TempIndxm1) && isalpha(*TempIndx)))
+        (isthai(*TempIndxm1) && isalpha(*TempIndx)))
+    {
         return(TempIndxm1); /* cut before thai and after English */
-    return (FAIL);
+    }
+    return(FAIL);
 }

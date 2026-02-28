@@ -20,13 +20,13 @@ extern char *bbelow3;
 extern char *extbar1;
 extern char *extbar2;
 extern char *extbar3;
-extern int  table[];
+extern int table[];
 extern char tablev[];
-extern int  tgtable[];
+extern int tgtable[];
 extern char mask241[8][3];
 extern char mask242[8][3];
 extern FILE *fp;
-extern int  fileready;
+extern int fileready;
 extern char blankline[];
 extern char oldfilename[];
 extern char filename[];
@@ -40,17 +40,17 @@ extern char mlenght;
 /**************************
    Dotcommand global area .
  **************************/
-extern   FILE   *mfp;                  /* define mailmerge file ptr  */
-extern   char   *fieldname[];          /* define array of fieldnames */
-extern   char   *fieldcontent[];       /* define array of strings    */
-extern   int    fieldcount;            /* define number of fields    */
-extern   int    mailmergeflag;         /* each field content ready   */
-extern   int    mergefileexist;        /* .df successful             */
-extern   int    fieldnameexist;        /* .rv successful             */
+extern FILE *mfp;               /* define mailmerge file ptr */
+extern char *fieldname[];       /* define array of fieldnames */
+extern char *fieldcontent[];    /* define array of strings */
+extern int fieldcount;          /* define number of fields */
+extern int mailmergeflag;       /* each field content ready */
+extern int mergefileexist;      /* .df successful */
+extern int fieldnameexist;      /* .rv successful */
 /*** Printer Data Area ****/
 extern int graphicprint;
-extern int prtcodestd;              /* YES standard,NO ku */
-extern int cpi;                      /* number of characters per inch */
+extern int prtcodestd;          /* YES standard, NO ku */
+extern int cpi;                 /* number of characters per inch */
 extern int lineperpage;
 extern int userlineperpage;
 extern int pagelength;
@@ -102,4 +102,3 @@ extern char prog_date[];
 extern char prog_time[];
 
 extern int extbarprinting;
-

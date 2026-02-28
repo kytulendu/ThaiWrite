@@ -3,7 +3,7 @@
 */
 
 /* kbd.c */
-void waitkbd(unsigned x, unsigned y);
+void waitkbd(unsigned int x, unsigned int y);
 int readkbd(void);
 
 /* getstr.c */
@@ -62,24 +62,24 @@ int find_max_line_perpage(void);
 int find_max_userline_perpage(void);
 int find_line_space(void);
 void set_all_lineperpage(set_linespace_mode mode);
-void line_feed(unsigned n);
-void skip_line(unsigned n);
+void line_feed(unsigned int n);
+void skip_line(unsigned int n);
 
 /* prtt.c */
 void PrinterLoadLineText(unsigned char line[]);
 
 /* prncntrl.c */
-void putp(unsigned c);
+void putp(unsigned int c);
 int  PrinterReadstatus(void);
 void PrinterInitialize(void);
-void PrinterSetFormLenghtInch(unsigned n);
-void PrinterSetFormLenghtLine(unsigned n);
+void PrinterSetFormLenghtInch(unsigned int n);
+void PrinterSetFormLenghtLine(unsigned int n);
 void PrinterSkipLine(int n);
 void PrinterFormFeed(void);
-void PrinterLineFeed(unsigned n);
-void PrinterMasterSelectMode(unsigned n);
-void PrinterSetGraphicMode9pinQuadrupleDensity(unsigned n);
-void PrinterSetGraphicMode24pinTripleDensity(unsigned n);
+void PrinterLineFeed(unsigned int n);
+void PrinterMasterSelectMode(unsigned int n);
+void PrinterSetGraphicMode9pinQuadrupleDensity(unsigned int n);
+void PrinterSetGraphicMode24pinTripleDensity(unsigned int n);
 void PrinterSet10cpi(void);
 
 /* dot.c */
@@ -101,7 +101,7 @@ void read_picture_file(void);
 void charwidth(char buf1[]);
 
 /* pic.c */
-void get_argument(char arg[][40],char st[],int *no_arg);
+void get_argument(char arg[][40], char st[], int *no_arg);
 void analyze_picture_file(char *st);
 void initialize_read(char *st);
 
@@ -112,13 +112,13 @@ void set_directory(void);
 void readoption(search_file_mode mode);
 void saveoption(search_file_mode mode);
 void readfont(void *font_buffer, char *fontname);
-int handler(int errval,int ax,int bp,int si);
-void *cp_loadfont (char *fname, unsigned font_size);
+int handler(int errval, int ax, int bp, int si);
+void *cp_loadfont(char *fname, unsigned int font_size);
 
 /* 24pins.c (24pins.h) */
-void	execerror ( char *s, char *t);
+void execerror(char *s, char *t);
 
 /* smenu.c */
 int smenu(register int x, register int y, int number,
             char *messege[], int *curmenu);
-unsigned find_menu_len(register int number, char *messege[]);
+unsigned int find_menu_len(register int number, char *messege[]);

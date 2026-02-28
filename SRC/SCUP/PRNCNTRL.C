@@ -13,7 +13,7 @@
 #include "const.h"
 #include "cuptype.h"
 
-void putp(unsigned c)
+void putp(unsigned int c)
 {
     /*
     union REGS regs;
@@ -24,7 +24,7 @@ void putp(unsigned c)
     intr(0x17,&regs,&regs);
     */
     biosprint(0, c, 0);
-}  
+}
 
 int PrinterReadstatus(void)
 {
@@ -46,7 +46,7 @@ void PrinterInitialize(void)
 }
 
 /*
-void PrinterSetFormLenghtLine(register unsigned n)
+void PrinterSetFormLenghtLine(register unsigned int n)
 {
     putp(ESC);
     putp('C');
@@ -54,7 +54,7 @@ void PrinterSetFormLenghtLine(register unsigned n)
 }
 */
 
-void PrinterSetFormLenghtInch(register unsigned n)
+void PrinterSetFormLenghtInch(register unsigned int n)
 {
     putp(ESC);
     putp('C');
@@ -64,7 +64,8 @@ void PrinterSetFormLenghtInch(register unsigned n)
 
 void PrinterSkipLine(register int n)
 {
-    for (;n>0; n--) {
+    for (; n > 0; n--)
+    {
         putp(CR);
         putp(LF);
     }
@@ -76,39 +77,41 @@ void PrinterFormFeed(void)
 }
 
 /* modify by Suttipong Kanakakorn Tue  08-29-1989  12:56:39 */
-void PrinterLineFeed(register unsigned n)
+void PrinterLineFeed(register unsigned int n)
 {
     putp(CR);
     if (n == 0)
+    {
         return;
+    }
     putp(ESC);
     putp('J');
     putp(n);    /* will feed n/180 inches on 24 pins printer and */
                 /*           n/216 inches on  9 pins printer */
 }
 
-void PrinterMasterSelectMode(register unsigned n)
+void PrinterMasterSelectMode(register unsigned int n)
 {
     putp(ESC);
     putp('!');
     putp(n);
 }
 
-void PrinterSetGraphicMode9pinQuadrupleDensity(register unsigned n)
+void PrinterSetGraphicMode9pinQuadrupleDensity(register unsigned int n)
 {
     putp(ESC);
     putp('Z');
-    putp(n%256);
-    putp(n/256);
+    putp(n % 256);
+    putp(n / 256);
 }
 
-void PrinterSetGraphicMode24pinTripleDensity(register unsigned n)
+void PrinterSetGraphicMode24pinTripleDensity(register unsigned int n)
 {
     putp(ESC);
     putp('*');
     putp(39);
-    putp(n%256);
-    putp(n/256);
+    putp(n % 256);
+    putp(n / 256);
 }
 
 void PrinterSet10cpi(void)

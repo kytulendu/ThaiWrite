@@ -1,2 +1,2 @@
-ewritech(int,int,char);
-hgcwritech(int,int,char);
+void hgcwritech(int x, int y, char ch);
+void ewritech(int x, int y, char ch);

@@ -17,8 +17,8 @@
 #define FED_FONT	9
 
 extern int first_file;
-extern unsigned pos_x,pos_y,BYTE,sel_x,sel_y;
-extern char WIDTH_X,WIDTH_Y,X,Y;
+extern unsigned int pos_x, pos_y, BYTE, sel_x, sel_y;
+extern char WIDTH_X, WIDTH_Y, X, Y;
 extern char *all_font;
 extern char *char_block_image;
 extern int align;

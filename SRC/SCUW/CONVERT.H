@@ -17,4 +17,3 @@
 
 #define SHRINK_FACTOR   10           /* Columns decreased    */
 #define CENTER_FACTOR    5           /* Shifting left factor */
-

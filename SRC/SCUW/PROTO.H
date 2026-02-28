@@ -8,43 +8,43 @@ void cls(void);
 
 /***EDIT.C*******************************************************************/
 void findstrcode(char fontcode[], font_attr attr);
-unsigned findlineno(struct line_node *line);
-struct line_node *linepointer(unsigned linenum);
-void displine(struct line_node *line,unsigned y,unsigned linenum);
-void disppagebreak(unsigned y);
+unsigned int findlineno(struct line_node *line);
+struct line_node *linepointer(unsigned int linenum);
+void displine(struct line_node *line, unsigned int y, unsigned int linenum);
+void disppagebreak(unsigned int y);
 void showpage(void);
 void showpageall(void);
-unsigned findrow(void);
-void adjustcol(unsigned *x);
+unsigned int findrow(void);
+void adjustcol(unsigned int *x);
 void loadtoline(char *text);
 void storeline(struct line_node *line);
-void refreshline(unsigned x,unsigned y);
+void refreshline(unsigned int x, unsigned int y);
 
 /***INS.C********************************************************************/
-void insertblank(unsigned j,char code);
+void insertblank(unsigned int j, char code);
 void insert_line(struct line_node *currentline,struct line_node *newline);
-void shiftscrn(unsigned count,unsigned *x);
+void shiftscrn(unsigned int count, unsigned int *x);
 void linetoolong(void);
-void inscntrl(char cntrl,unsigned x,unsigned y);
-void printcntrl(unsigned x,unsigned y);
-int insert_char(char c,unsigned *x,unsigned *y);
-int ovrwrite_char(char c,unsigned *x,unsigned *y);
-void insertreturn(struct line_node *line,unsigned thaicol);
-void insert_ret(unsigned *x);
-void returnkey(unsigned *x,unsigned y);
-void ret_with_ins(unsigned *x,unsigned y);
-void insertmacro(char *macro,unsigned *x,unsigned *y);
+void inscntrl(char cntrl, unsigned int x, unsigned int y);
+void printcntrl(unsigned int x, unsigned int y);
+int insert_char(char c, unsigned int *x, unsigned int *y);
+int ovrwrite_char(char c, unsigned int *x,unsigned int *y);
+void insertreturn(struct line_node *line, unsigned int thaicol);
+void insert_ret(unsigned int *x);
+void returnkey(unsigned int *x, unsigned int y);
+void ret_with_ins(unsigned *x, unsigned int y);
+void insertmacro(char *macro, unsigned int *x, unsigned int *y);
 void blankmaro(int y);
 void dispmacro(int i);
 void editmacro(void);
 
 /***DEL.C********************************************************************/
-void delete_char(unsigned x);
+void delete_char(unsigned int x);
 void deletereturn(struct line_node *line);
 void del_return(void);
-void backspace(unsigned *x);
-void delete_word(unsigned x);
-void deltoendline(unsigned x,unsigned y);
+void backspace(unsigned int *x);
+void delete_word(unsigned int x);
+void deltoendline(unsigned int x, unsigned int y);
 void deleteline(struct line_node *line);
 void delete_line(void);
 
@@ -55,40 +55,40 @@ void writepage(void);
 void writeline(void);
 void writelineno(void);
 void writepageline(void);
-void writecolno(unsigned x);
+void writecolno(unsigned int x);
 void writeinsmode(void);
 void writelanguage(void);
 void writeattr(void);
 void writefilename(void);
 void writedriveno(void);
-void writestatus(unsigned x);
+void writestatus(unsigned int x);
 
 /***KBD.C********************************************************************/
-void waitkbd(unsigned x,unsigned y);
+void waitkbd(unsigned int x, unsigned int y);
 int changekey(int key);
 int readkbd(void);
 int alt_char_map (int c);
 
 /***MOVE.C*******************************************************************/
-void goline(unsigned linetogo);
-void gocol(unsigned coltogo,unsigned *x);
-void home(unsigned *x);
-void endline(unsigned *x);
-void topfile(unsigned *x);
-void endfile(unsigned *x);
-void backword(unsigned *x);
-void nextword(unsigned *x,unsigned y);
+void goline(unsigned int linetogo);
+void gocol(unsigned int coltogo, unsigned int *x);
+void home(unsigned int *x);
+void endline(unsigned int *x);
+void topfile(unsigned int *x);
+void endfile(unsigned int *x);
+void backword(unsigned int *x);
+void nextword(unsigned int *x, unsigned int y);
 void gotopage(void);
 void gotoline(void);
-void gobeginblk(unsigned *x);
-void goendblk(unsigned *x);
-void quick(unsigned *x,unsigned *y);
+void gobeginblk(unsigned int *x);
+void goendblk(unsigned int *x);
+void quick(unsigned int *x, unsigned int *y);
 
 /***MOVEMENT.C***************************************************************/
 void cursor_up(void);
-void cursor_down(unsigned y);
-void cursor_left(unsigned *x);
-void cursor_right(unsigned *x,unsigned y);
+void cursor_down(unsigned int y);
+void cursor_left(unsigned int *x);
+void cursor_right(unsigned int *x, unsigned int y);
 void page_up(void);
 void page_down(void);
 void scroll_up(void);
@@ -98,27 +98,27 @@ void bottom_of_page(void);
 
 /***WRAP.C*******************************************************************/
 void justify_right(void);
-unsigned genrule1(unsigned nominal);
-unsigned genrule3(unsigned nominal);
-unsigned genrule4(unsigned nominal);
-unsigned genrule5(unsigned nominal);
-unsigned genrule7(unsigned nominal);
-unsigned breakpoint(void);
-void manualwrap(unsigned *x,unsigned *y);
-void autowrap(unsigned *x,unsigned *y);
+unsigned int genrule1(unsigned int nominal);
+unsigned int genrule3(unsigned int nominal);
+unsigned int genrule4(unsigned int nominal);
+unsigned int genrule5(unsigned int nominal);
+unsigned int genrule7(unsigned int nominal);
+unsigned int breakpoint(void);
+void manualwrap(unsigned int *x, unsigned int *y);
+void autowrap(unsigned int *x, unsigned int *y);
 void reform(void);
 void compress_blank(unsigned char *);
 
 /***ONSCRN.C*****************************************************************/
 void writetab(void);
-void centerline(unsigned y);
-void doonscrn(unsigned key,unsigned x,unsigned y);
-void movetotab(unsigned *x,unsigned y);
-void onscreen(unsigned x,unsigned y);
+void centerline(unsigned int y);
+void doonscrn(unsigned int key, unsigned int x, unsigned int y);
+void movetotab(unsigned int *x, unsigned int y);
+void onscreen(unsigned int x, unsigned int y);
 void readconfig(void);
 
 /***FILE.C*******************************************************************/
-int handler(int errval,int ax,int bp,int si);
+int handler(int errval, int ax, int bp, int si);
 int havewild(char filname[]);
 int read_file(char *file_name);
 void abandonfile(void);
@@ -131,55 +131,56 @@ int optionglobal(void);
 int optionupper(void);
 int optionword(void);
 int optionnoask(void);
-char *searchline(char *textline,int startpos);
+char *searchline(char *textline, int startpos);
 void wordnotfound(void);
-int searchfwd(unsigned *x,unsigned *y);
+int searchfwd(unsigned int *x, unsigned int *y);
 void addblank(void);
-void searching(unsigned *x,unsigned *y);
-void replaceword(unsigned *x,unsigned *y);
-int searchreplace(unsigned *x,unsigned *y);
-void replacing(unsigned *x,unsigned *y);
+void searching(unsigned int *x, unsigned int *y);
+void replaceword(unsigned int *x, unsigned int *y);
+int searchreplace(unsigned int *x, unsigned int *y);
+void replacing(unsigned int *x, unsigned int *y);
 
 /***BLOCK.C******************************************************************/
 void toggleblk(void);
-void markbegin(unsigned x);
-void markend(unsigned x);
+void markbegin(unsigned int x);
+void markend(unsigned int x);
 int haveblock(void);
-int inblock(unsigned linenum,unsigned colnum);
-struct line_node *copytospace(struct line_node *fline,struct line_node *lline,unsigned fcol,unsigned lcol);
-void insertlinklist(struct line_node *sourceline,struct line_node *destline,unsigned destcol);
-void deletelinklist(struct line_node *fline,struct line_node *lline,unsigned fcol,unsigned lcol);
-unsigned spacesize(struct line_node *space);
+int inblock(unsigned int linenum, unsigned int colnum);
+struct line_node *copytospace(struct line_node *fline, struct line_node *lline, unsigned int fcol, unsigned int lcol);
+void insertlinklist(struct line_node *sourceline, struct line_node *destline, unsigned int destcol);
+void deletelinklist(struct line_node *fline, struct line_node *lline, unsigned int fcol, unsigned int lcol);
+unsigned int spacesize(struct line_node *space);
 struct line_node *rdfiletospace(char file_name[]);
-void copyblk(unsigned *x);
+void copyblk(unsigned int *x);
 void deleteblk(void);
-void moveblk(unsigned *x);
-readblk(unsigned *x);
+void moveblk(unsigned int *x);
+void readblk(unsigned int *x);
 unsigned long getfilesize(void);
 unsigned long diskfree(int driveno);
-void writeblk(char file_name[],struct line_node *linebegin,unsigned colbegin,struct line_node *lineend,unsigned colend);
+void writeblk(char file_name[], struct line_node *linebegin, unsigned int colbegin,
+              struct line_node *lineend, unsigned int colend);
 void writeblock(void);
-void blkcmd(unsigned key,unsigned *x);
-void blockcommand(unsigned *x);
+void blkcmd(unsigned int key, unsigned int *x);
+void blockcommand(unsigned int *x);
 int chkspace(char *);
 
 /***CW.C*********************************************************************/
-void dispkey(unsigned key);
+void dispkey(unsigned int key);
 void setupnode(void);
 char *chulaname(void);
 void initscrn(void);
-unsigned menu_to_key(unsigned curmenu);
+unsigned int menu_to_key(unsigned int curmenu);
 void norighttoused(void);
 void main(int argc, char *argv[]);
 
 
 /***THAICUT.C****************************************************************/
-unsigned char *FINDCUT(char *lm,char *eot,char *rm);
+unsigned char *FINDCUT(char *lm, char *eot, char *rm);
 
 /***GRPH.C*******************************************************************/
 char *readgraph(char *filename);
-paintlinegraph(char *graph,unsigned linewant);
-paintgraph(char *graph,unsigned linewant);
+paintlinegraph(char *graph, unsigned int linewant);
+paintgraph(char *graph, unsigned int linewant);
 
 /* cwsetup.c */
 void cwsetup(int argc, char *argv[]);
@@ -190,27 +191,28 @@ void saveoption(search_file_mode mode);
 void blankoption(int y);
 void dispoption(int i);
 void setoption(void);
-void initvalue(unsigned *x, unsigned *y);
+void initvalue(unsigned int *x, unsigned int *y);
 void edit_font(void);
 void offbreak(void);
 
 /***MENU.C*******************************************************************/
-char *savescrn(int x1,int y1,int x2,int y2);
-void resscrn(char *scrnindex,int x1,int y1,int x2,int y2);
-int selectmenu(unsigned x,unsigned y,unsigned number,char *message[],unsigned *curmenu);
-void headmenu(unsigned topmenu,char attr);
-unsigned findcurmenu(unsigned lev1,unsigned lev2,unsigned lev3,unsigned lev4);
-void findcurlevel(unsigned curmenu,unsigned *lev1,unsigned *lev2,unsigned *lev3,unsigned *lev4);
-unsigned pulled_down_menu(unsigned *curmenu,unsigned *x,unsigned *y);
+char *savescrn(int x1, int y1, int x2, int y2);
+void resscrn(char *scrnindex, int x1, int y1, int x2, int y2);
+int selectmenu(unsigned int x, unsigned int y, unsigned int number,
+               char *message[], unsigned int *curmenu);
+void headmenu(unsigned int topmenu, char attr);
+unsigned int findcurmenu(unsigned int lev1, unsigned int lev2, unsigned int lev3,
+                         unsigned int lev4);
+void findcurlevel(unsigned int curmenu, unsigned int *lev1, unsigned *lev2,
+                  unsigned int *lev3, unsigned int *lev4);
+unsigned int pulled_down_menu(unsigned int *curmenu, unsigned int *x, unsigned int *y);
 void print_file(void);
 void showerrno(void);
 
 /* TUTIL1.c */
-unsigned thaistrlen(register unsigned char *thaist);
-unsigned linearcolumn(char *textstream, unsigned thaicol, font_attr *font);
+unsigned int thaistrlen(register unsigned char *thaist);
+unsigned int linearcolumn(char *textstream, unsigned int thaicol, font_attr *font);
 
 /***GETSTR.C*****************************************************************/
-int getstring(char textst[],unsigned x,unsigned y,
-                unsigned maxlen,char attr,strtype mode);
-int getname(char textst[],unsigned x,unsigned y,unsigned maxlen,char attr);
-
+int getstring(char textst[], unsigned int x, unsigned int y, unsigned int maxlen, char attr, strtype mode);
+int getname(char textst[], unsigned int x, unsigned int y, unsigned int maxlen, char attr);

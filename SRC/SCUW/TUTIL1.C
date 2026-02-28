@@ -19,18 +19,24 @@ unsigned thaistrlen(register unsigned char *thaist)
     register int count = 0;
     font_attr curfont = 0;
 
-    while (*thaist) {
-      if (whatlevel(*thaist) == MIDDLE) {
-        if (*thaist < 32) {
-           togglefont(&curfont,*thaist);
-        } else {
-          count++;
-          if ((curfont & ENLARGEATTR) == ENLARGEATTR) {
-            count++;
-          }
+    while (*thaist)
+    {
+        if (whatlevel(*thaist) == MIDDLE)
+        {
+            if (*thaist < 32)
+            {
+                togglefont(&curfont, *thaist);
+            }
+            else
+            {
+                count++;
+                if ((curfont & ENLARGEATTR) == ENLARGEATTR)
+                {
+                    count++;
+                }
+            }
         }
-      }
-      thaist++;
+        thaist++;
     }
     return(count);
 }
@@ -40,25 +46,40 @@ unsigned thaistrlen(register unsigned char *thaist)
 /*  character & attribute code of font. Column is origin 0. Find current    */
 /*  attribute of font of string via *font too.                              */
 /****************************************************************************/
-unsigned linearcolumn(char *textstream, unsigned thaicol, font_attr *font)
+unsigned linearcolumn(char *textstream, unsigned int thaicol, font_attr *font)
 {
-    register unsigned logiccol = 0;  /* origin 0 */
+    register unsigned int logiccol = 0;  /* origin 0 */
+
     *font = 0;
-    while ((thaicol > 0) && (*textstream != '\0')) {
-      if (whatlevel(*textstream) == MIDDLE) {
-        if (*textstream < 32) {
-          togglefont(font,*textstream);
-        } else {
-          if ((*font & ENLARGEATTR) == ENLARGEATTR) thaicol--;
-          if (thaicol > 0) thaicol--;
+    while ((thaicol > 0) && (*textstream != '\0'))
+    {
+        if (whatlevel(*textstream) == MIDDLE)
+        {
+            if (*textstream < 32)
+            {
+                togglefont(font,*textstream);
+            }
+            else
+            {
+                if ((*font & ENLARGEATTR) == ENLARGEATTR)
+                {
+                    thaicol--;
+                }
+                if (thaicol > 0)
+                {
+                    thaicol--;
+                }
+            }
         }
-      }
-      textstream++;
-      logiccol++;
-    }
-    if (*textstream != MIDDLE) {
-      while (whatlevel(*(textstream++)) != MIDDLE)
+        textstream++;
         logiccol++;
+    }
+    if (*textstream != MIDDLE)
+    {
+        while (whatlevel(*(textstream++)) != MIDDLE)
+        {
+            logiccol++;
+        }
     }
     return(logiccol);
 }

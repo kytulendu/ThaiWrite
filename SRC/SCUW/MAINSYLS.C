@@ -23,29 +23,37 @@ Last Update  : Thueday, 19 May, 1988 10:07:31 AM
 
 /* Function name must be capital letter for asm call */
 
-unsigned char *FINDCUT(lm, eot, rm)
-    unsigned char *lm, *eot, *rm;   /* receive value from assembly call */
+unsigned char *FINDCUT(unsigned char *lm, unsigned char *eot, unsigned char *rm)
 {
-    register unsigned char  *CutPt;
+    register unsigned char *CutPt;
 
     LeftLimit = lm;                 /* give value to C's global variable */
     EndOfText = eot;                /* give value to C's global variable */
     RightMargin = rm;               /* give value to C's global variable */
 
-/*  Back searching to find cut point until left limit */
+    /* Back searching to find cut point until left limit */
 
     if (isbpunc(*(RightMargin + 1)) || istspmk(*(RightMargin + 1)))
+    {
         --RightMargin;
+    }
     for (Indx = RightMargin; Indx >= LeftLimit; --Indx)
+    {
+        if ((CutPt = ThaiEngCutRtn(Indx)) != NULL)
         {
-            if ((CutPt = ThaiEngCutRtn(Indx)) != NULL)
-                return((CutPt >= LeftLimit)? CutPt : NULL);
-            else
-                if ((CutPt = (*FuncPtr[*Indx])(Indx)) != NULL)
-                    if (CutPt >= LeftLimit && CutPt <= RightMargin
-                        && !isfpunc(*CutPt) && !isbpunc(*(CutPt+1))
-                        && !istspmk(*(CutPt+1)))
-                            return (CutPt);
+            return((CutPt >= LeftLimit)? CutPt : NULL);
         }
+        else if ((CutPt = (*FuncPtr[*Indx])(Indx)) != NULL)
+        {
+            if (CutPt >= LeftLimit &&
+                CutPt <= RightMargin &&
+                !isfpunc(*CutPt) &&
+                !isbpunc(*(CutPt + 1)) &&
+                !istspmk(*(CutPt + 1)))
+            {
+                return (CutPt);
+            }
+        }
+    }
     return(RightMargin);   /* Reach LeftLimit, return RightMargin */
-}
+}

@@ -5,13 +5,10 @@
 ;               Date    :     12/01/88
 ;               Updated :     12/01/88
 
+shift_down  MACRO reg
+    add     &reg&,80
+            ENDM
 
-    shift_down            macro reg
-                          add &reg&,80
-                          endm
-
-    shift_up              macro reg
-                          sub &reg&,80
-                          endm
-
-
+shift_up    MACRO reg
+    sub     &reg&,80
+            ENDM

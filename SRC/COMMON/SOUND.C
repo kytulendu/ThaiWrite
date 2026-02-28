@@ -4,6 +4,7 @@
               Sun  08-06-1989  18:30:55
               Mon  10-23-1989  23:18:49                                     */
 /****************************************************************************/
+
 #include <bios.h>
 #include <dos.h>
 
@@ -31,46 +32,49 @@
 
 #ifdef NOSOUND
 
-void soundnoise(unsigned freq,unsigned time) {}
+void soundnoise(unsigned int freq,unsigned int time) {}
 void errorsound(void) {}
 
 #else
 
-void biosdelay(long millisecs);
+void biosdelay(long int millisecs);
 
-void soundnoise(unsigned freq,unsigned time)
+void soundnoise(unsigned int freq,unsigned int time)
 {
     sound(freq);
-    biosdelay((long)time);
+    biosdelay((long int) time);
     nosound();
 }
 
 void errorsound(void)
 {
-    /* soundnoise(C*2,300); */
-    soundnoise(C,40);
-    soundnoise(D,40);
-    soundnoise(E,40);
-    soundnoise(F,40);
-    soundnoise(G,40);
-    soundnoise(A,40);
-    soundnoise(B,40);
-    soundnoise(C*2,40);
+    /* soundnoise(C * 2, 300); */
+    soundnoise(C, 40);
+    soundnoise(D, 40);
+    soundnoise(E, 40);
+    soundnoise(F, 40);
+    soundnoise(G, 40);
+    soundnoise(A, 40);
+    soundnoise(B, 40);
+    soundnoise(C * 2, 40);
 }
 
 /* we can not use delay() because it call dos, so it is not reentrant */
 
-void biosdelay(long millisecs)
+void biosdelay(long int millisecs)
 {
     long i;
 
     i = biostime(0, 0);
     millisecs = i + 182L * millisecs / 10000L;
-    if (millisecs == i) millisecs++;
-    do {
-	i = biostime(0, 0);
+    if (millisecs == i)
+    {
+        millisecs++;
+    }
+    do
+    {
+        i = biostime(0, 0);
     } while (i < millisecs);
 }
 
 #endif
-

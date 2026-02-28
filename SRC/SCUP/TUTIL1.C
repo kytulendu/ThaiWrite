@@ -12,9 +12,12 @@ int thaistrlen(char *thaist)
 {
     register int count = 0;
 
-    while (*thaist) {
+    while (*thaist)
+    {
         if (whatlevel(*thaist) == MIDDLE)
+        {
             count++;
+        }
         thaist++;
     }
     return(count);

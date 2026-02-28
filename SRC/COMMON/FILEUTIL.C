@@ -14,8 +14,11 @@ boolean file_exist(char *filename)
 
     fd = open(filename, O_RDONLY || O_BINARY);
     if (fd == -1)
+    {
         return NO;
-    else {
+    }
+    else
+    {
         close(fd);
         return YES;
     }
@@ -27,18 +30,25 @@ search_file_mode find_file(char *filename, char *search_path)
     char p[MAXPATH];
 
     if (findfirst(filename, &ffblk, 0) == 0)
+    {
         return CUR_DIR;
+    }
     sprintf(p, "%s\\%s", search_path, filename);
     if (findfirst(p, &ffblk, 0) == 0)
+    {
         return CW_DIR;
+    }
     return NOT_FOUND;
 }
 */
 int havewild(char *filname)
 {
-    while (*filname) {
+    while (*filname)
+    {
         if ((*filname == '*') || (*filname == '?'))
+        {
             return(YES);
+        }
         filname++;
     }
     return(NO);
@@ -54,15 +64,19 @@ void readscrfont(void *font_buffer, char *fontname, char *search_path)
     /* long filelen; */
     char fn[MAXPATH];
 
-    if ((handle = open(fontname,O_RDONLY || O_BINARY)) == -1) {
+    if ((handle = open(fontname, O_RDONLY || O_BINARY)) == -1)
+    {
         sprintf(fn, "%s\\%s", search_path, fontname);
         handle = open(fn, O_RDONLY || O_BINARY);
     }
-    if (handle != -1) {
+    if (handle != -1)
+    {
         /* filelen = filelength(handle); */
-        read(handle, font_buffer, 20*256);
+        read(handle, font_buffer, 20 * 256);
         close(handle);
-    } else {
+    }
+    else
+    {
         fprintf(stderr,"FONT FILE (%s) NOT FOUND !\n", fontname);
         exit(1);
     }
