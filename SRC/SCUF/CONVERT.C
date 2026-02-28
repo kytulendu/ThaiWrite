@@ -45,8 +45,8 @@ int (*save_func[])() = {
 char *file_name[] = {
     "normal.fon",
     "italic.fon",
-    "normal.prn",
-    "italic.prn",
+    "normal.p9",
+    "italic.p9",
     "normal.p24",
     "italic.p24",
     "normals.p24",

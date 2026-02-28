@@ -146,9 +146,9 @@ void swapwanayuk(char *s)
 /* ------------------------ */
 int PrinterLoadFont9pin(void)
 {
-    font[0] = cp_loadfont("normal.prn", 11264);
-    font[1] = cp_loadfont("italic.prn", 11264);
-    fonts   = cp_loadfont("normals.prn", 11264);
+    font[0] = cp_loadfont("normal.p9", 11264);
+    font[1] = cp_loadfont("italic.p9", 11264);
+    fonts   = cp_loadfont("normals.p9", 11264);
 }
 
 /* -------------------------------------------- */
