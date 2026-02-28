@@ -14,17 +14,17 @@ unsigned int thaistrlen(char thaist[])
 {
     register unsigned index = 0,count = 0;
     char curfont = 0;
-    while (thaist[index] != '\0') 
-	{
-		if (whatlevel(thaist[index]) == MIDDLE) 
-		{
-			count++;
-			if ((curfont & ENLARGEATTR) == ENLARGEATTR) 
-			{
-				count++;
-			}
-		}
-		index++;
+    while (thaist[index] != '\0')
+    {
+        if (whatlevel(thaist[index]) == MIDDLE)
+        {
+            count++;
+            if ((curfont & ENLARGEATTR) == ENLARGEATTR)
+            {
+                count++;
+            }
+        }
+        index++;
     }
     return (count);
 }

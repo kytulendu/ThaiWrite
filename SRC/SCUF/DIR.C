@@ -121,7 +121,7 @@ void setdirpos(struct dirnode *namewant)
     tempdir = dirpage;
     dirrow = 0;
     dircol = 0;
-    while(tempdir != namewant)
+    while (tempdir != namewant)
     {
         for (count = (DIRCOLMAX - 1); (count != 0) && (tempdir != namewant); count--)
         {
@@ -253,7 +253,7 @@ int selectfile(char mask[])
         do
         {
             c = bioskey(0);
-            switch(c)
+            switch (c)
             {
                 case UPKEY:
                     showfile(dircol, dirrow, 2);
@@ -307,7 +307,7 @@ int selectfile(char mask[])
                 case ESCKEY:
                     freedir();
                     mask[0] = '\0';
-                    return(NO);
+                    return (NO);
             }
         } while (c != RETKEY);
         tempdir = dirpage;
@@ -330,7 +330,9 @@ int selectfile(char mask[])
         }
         freedir();
         return (YES);
-    } else {
+    }
+    else
+    {
         mask[0] = '\0';
         return (NO);
     }

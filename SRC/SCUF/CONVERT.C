@@ -524,9 +524,9 @@ void conv_22x16_to_fed(char *buff, char *result)
 {
     int i;
     for (i = 0; i <= 255; i++)
-	{
+    {
         prn_to_fed_ch(buff + i * 44, result + i * 3 * 16);
-	}
+    }
 }
 
 int load_scr()
