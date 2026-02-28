@@ -6,7 +6,7 @@
 # TCC_OPTION -w = enable all warning
 #
 #
-TCC_OPTION=-w -DCW
+TCC_OPTION=-w -DCW -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
 
 project: edisp.obj hdisp.obj adisp.obj \
          grdetect.obj cwgrphc.obj cwegrph.obj cwagrph.obj \
@@ -25,13 +25,13 @@ hdisp.obj: hdisp.asm cwfnthm.asm
     tasm /mx hdisp
 
 adisp.obj: adisp.asm cwfntam.asm
-     tasm /mx adisp
+    tasm /mx adisp
 
 grdetect.obj: grdetect.c grdetect.h
-    tcc -c  $(TCC_OPTION) grdetect.c
+    tcc -c $(TCC_OPTION) grdetect.c
 
 cwgrphc.obj: cwgrphc.c cwgrphc.h grdetect.h
-    tcc -c  $(TCC_OPTION) cwgrphc.c
+    tcc -c $(TCC_OPTION) cwgrphc.c
 
 cwegrph.obj: cwegrph.c cwgrphc.h
     tcc -c $(TCC_OPTION) cwegrph.c
@@ -56,4 +56,3 @@ sound.obj: sound.c
 
 cusong.obj: cusong.c
     tcc -c -v $(TCC_OPTION) cusong.c
-

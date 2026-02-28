@@ -5,10 +5,10 @@
 #
 # TCC_OPTION -w = enable all warning
 #
-TCC_OPTION=-DALIGN
-TCC_OPTION2= -w -DALIGN
+TCC_OPTION=-DALIGN -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
+TCC_OPTION2= -w -DALIGN -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
 
-\cw\cufont.exe: \
+\tw\cufont.exe: \
         ..\common\edisp.obj ..\common\hdisp.obj ..\common\adisp.obj \
         ..\common\grdetect.obj \
         ..\common\cwgrphc.obj ..\common\cwegrph.obj ..\common\cwagrph.obj \
@@ -19,7 +19,7 @@ TCC_OPTION2= -w -DALIGN
         fed.obj write.obj int.obj getch.obj popup.obj \
         fontmsg.obj convert.obj
     tcc -c ..\common\stampdate.c
-    tlink   @scuf.tlr
+    tlink @scuf.tlr
 
 getstr.obj: getstr.c var.h
     tcc -c  $(TCC_OPTION2) getstr.c
@@ -34,26 +34,25 @@ kbd.obj: kbd.c var.h
     tcc -c $(TCC_OPTION2) kbd.c
 
 file.obj: file.c
-    tcc -c $(TCC_OPTION2) file.c
+	tcc -c $(TCC_OPTION2) file.c
 
 fed.obj: fed.c
-   tcc -c -v $(TCC_OPTION2) fed.c
+    tcc -c -v $(TCC_OPTION2) fed.c
 
 write.obj: write.c
-   tcc -c -v $(TCC_OPTION) write.c
+    tcc -c -v $(TCC_OPTION) write.c
 
 int.obj: int.c
-   tcc -c $(TCC_OPTION) int.c
+    tcc -c $(TCC_OPTION) int.c
 
 getch.obj: getch.c
-   tcc -c $(TCC_OPTION) getch.c
+    tcc -c $(TCC_OPTION) getch.c
 
 popup.obj: popup.c
-   tcc -c -v $(TCC_OPTION) popup.c
+    tcc -c -v $(TCC_OPTION) popup.c
 
 fontmsg.obj: fontmsg.c
-   tcc -c $(TCC_OPTION) fontmsg.c
+    tcc -c $(TCC_OPTION) fontmsg.c
 
 convert.obj: convert.c
-   tcc -c $(TCC_OPTION) convert.c
-
+    tcc -c $(TCC_OPTION) convert.c

@@ -1,4 +1,4 @@
-/x/n/d/c \tc\lib\c0l +
+/x/n/d/c c:\tc\lib\c0l +
 ..\common\edisp ..\common\hdisp ..\common\adisp ..\common\grdetect +
 ..\common\cwgrphc ..\common\cwegrph ..\common\cwagrph ..\common\ekbd +
 ..\common\cscrn ..\common\fileutil ..\common\dir + ..\common\sound +
@@ -6,8 +6,7 @@
 scrn getstr tutil1 edit ins del +
 menu status kbd move movement wrap onscrn file search block cw +
 cwsetup stampdat +
-mainsyls thaieng worewaan FINDCHAR HOREHEEB HUNAKAD JULCUT KARAN LEADCON +
-MAIMALAI MAIMUAN NOPCUT NSTRCMP ROREREO RORERU SARAA SARAAH SARAAIR SARAIE +
-SARAO SARAR SARAU SARAUE SARAUEE SARAUM GLOBAL +
-,\cw\cw,\cw\cw,\tc\lib\cl.lib
-
+mainsyls thaieng worewaan findchar horeheeb hunakad julcut karan leadcon +
+maimalai maimuan nopcut nstrcmp rorereo roreru saraa saraah saraair saraie +
+sarao sarar sarau saraue sarauee saraum global +
+,\tw\cw,\tw\cw,c:\tc\lib\cl.lib
