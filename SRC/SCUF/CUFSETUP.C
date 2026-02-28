@@ -84,7 +84,7 @@ void cufsetup(int argc, char *argv[])
 
 void usage(void)
 {
-    fputs("Usage: cuprint [option] [file]\n", stderr);
+    fputs("Usage: twprint [option] [file]\n", stderr);
     fputs("Options\n", stderr);
     fputs("\t-h,  /h  Hercules graphic adapter\n", stderr);
     fputs("\t-hl, /hl Hercules graphic adapter, left justify\n", stderr);

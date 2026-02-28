@@ -7,4 +7,4 @@ printing prt prtt prtg +
 pic dot cpi global prncntrl +
 error preproc 24pins attr cpthai +
 prtbuf24 stampdat +
-,\tw\cuprint,\tw\curint,c:\tc\lib\cl.lib
+,\tw\twprint,\tw\twprint,c:\tc\lib\cl.lib

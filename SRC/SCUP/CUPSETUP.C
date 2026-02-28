@@ -100,7 +100,7 @@ void cupsetup(int argc, char *argv[])
 
 void usage(void)
 {
-    fputs("Usage: cuprint [option] [file]\n", stderr);
+    fputs("Usage: twprint [option] [file]\n", stderr);
     fputs("Options\n", stderr);
     fputs("\t-h,\t/h  Hercules graphic adapter\n", stderr);
     fputs("\t-hl,\t/hl Hercules graphic adapter, left justify\n", stderr);
@@ -182,10 +182,10 @@ void readoption(search_file_mode mode)
 
     set_all_lineperpage(BATCH);
 
-    sprintf(fname, "%s\\CUPRINT.CFG", cup_dir);
+    sprintf(fname, "%s\\TWPRINT.CFG", cup_dir);
     if (mode == CUR_DIR || mode == AUTO_FIND)
     {
-        fp = fopen("CUPRINT.CFG","rt");
+        fp = fopen("TWPRINT.CFG","rt");
     }
     else
     {
@@ -242,11 +242,11 @@ void saveoption(search_file_mode mode)
 
     if (mode == CUR_DIR || mode == AUTO_FIND)
     {
-        fp = fopen("CUPRINT.CFG","wt");
+        fp = fopen("TWPRINT.CFG","wt");
     }
     else
     {
-        sprintf(config_file, "%s\\CUPRINT.CFG", cup_dir);
+        sprintf(config_file, "%s\\TWPRINT.CFG", cup_dir);
         fp = fopen(config_file, "wt");
     }
     if (fp == NULL)

@@ -6,7 +6,7 @@
 #
 TCC_OPTION=-w -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
 
-\tw\cuprint.exe: \
+\tw\twprint.exe: \
         ..\common\edisp.obj ..\common\hdisp.obj ..\common\adisp.obj \
         ..\common\grdetect.obj \
         ..\common\cwgrphc.obj ..\common\cwegrph.obj ..\common\cwagrph.obj \
