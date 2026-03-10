@@ -38,7 +38,7 @@ boolean keypressed(void);
 /***CSCRN.C***************************************************************/
 int sign(int x);
 void _line(int x1, int y1, int x2, int y2);
-void box(int x1, int y1, int x2, int y2);
+void _rectangle(int x1, int y1, int x2, int y2);
 void dispstrhgc(char *st, unsigned int x, unsigned int y, font_attr attr);
 void dispprintf(unsigned int x, unsigned int y, font_attr attr, char *format,...);
 void dispblank(unsigned int x, unsigned int y, unsigned int count, font_attr attr);

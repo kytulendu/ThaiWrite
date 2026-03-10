@@ -46,7 +46,7 @@ int selectmenu(unsigned int x, unsigned int y, unsigned int number,
     }
 
     dispstrhgc(message[(*curmenu) - 1], x, y + (*curmenu) - 1, REVERSEATTR);
-    box((x * 8) - 2, (y * 20) + 2, ((x + length - 1) * 8) + 9, ((y + number) * 20) + 5);
+    _rectangle((x * 8) - 2, (y * 20) + 2, ((x + length - 1) * 8) + 9, ((y + number) * 20) + 5);
     for (;;)
     {
         out = YES;
@@ -605,7 +605,7 @@ unsigned int pulled_down_menu(unsigned int *curmenu, unsigned int *x, unsigned i
                     {
                         dispstrhgc(" ãÊèª×èÍá¿éÁ¢éÍÁÙÅ·ÕèµéÍ§¡ÒÃÊÃéÒ§ãËÁè :                        ",
                                    0, 5, 0);
-                        box(0, 103, 424, 124);
+                        _rectangle(0, 103, 424, 124);
                         i = getname(filename, 29, 5, 22, 0);
                         if ((i == YES) && (filename[0] != '\0'))
                         {
@@ -680,7 +680,7 @@ unsigned int pulled_down_menu(unsigned int *curmenu, unsigned int *x, unsigned i
                         initvalue(x, y);
                         dispstrhgc(" ãÊèª×èÍá¿éÁ¢éÍÁÙÅ·ÕèµéÍ§¡ÒÃá¡éä¢ :                        ",
                                    0, 6, 0);
-                        box(0, 123, 400, 144);
+                        _rectangle(0, 123, 400, 144);
                         setupnode();
                         strcpy(filename,"*.*");
                         i = getname(filename, 26, 6, 22, 0);
@@ -741,7 +741,7 @@ unsigned int pulled_down_menu(unsigned int *curmenu, unsigned int *x, unsigned i
                     savepic();
                     dispstrhgc(" à»ÅÕèÂ¹ªèÍ§à¡çº(Logged Drive)¨Ò¡  : à»ç¹   ", 0, 9, 0);
                     prchar('A' + getdisk(), BOLDATTR, 30, 9);
-                    box(0, 183, 312, 204);
+                    _rectangle(0, 183, 312, 204);
                     waitkbd(37, 9);
                     key = ebioskey(0) & 0xff;
                     if ((key >= 'a') && (key <= 'p'))
@@ -764,7 +764,7 @@ unsigned int pulled_down_menu(unsigned int *curmenu, unsigned int *x, unsigned i
                 case 0x1600 :
                     savepic();
                     dispstrhgc("                                     ", 0, 10, 0);
-                    box(0, 203, 312, 224);
+                    _rectangle(0, 203, 312, 224);
                     getstring(getcwd(cur_dir, 37), 1, 10, 37, 0, ENGUPCASE);
                     chdir(cur_dir);
                     retpic();

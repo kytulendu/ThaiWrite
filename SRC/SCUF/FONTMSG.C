@@ -57,8 +57,8 @@ void put_box(int x1, int y1, int x2, int y2)
     free(buff);
     x1 -= align;
     x2 -= align;
-    box(x1, y1, x2, y2);
-    box(x1 + 2, y1 + 2, x2 - 2, y2 - 2);
+    _rectangle(x1, y1, x2, y2);
+    _rectangle(x1 + 2, y1 + 2, x2 - 2, y2 - 2);
 }
 
 int fontnamebox(char *pname, int creat)

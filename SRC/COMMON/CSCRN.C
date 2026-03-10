@@ -80,7 +80,7 @@ void _line(int x1, int y1, int x2, int y2)
     }
 }
 
-void box(int x1, int y1, int x2, int y2)
+void _rectangle(int x1, int y1, int x2, int y2)
 {
     _line(x1, y1, x1, y2);
     _line(x1, y1, x2, y1);

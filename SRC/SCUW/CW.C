@@ -69,7 +69,7 @@ void initscrn(void)
     int countcol;
     setgraph();              /* set to graphic mode */
     clsall();
-    box(0, 0, 639, (scrmode == VGA) ? 479 : (scrmode == ATT400) ? 399 : 347);
+    _rectangle(0, 0, 639, (scrmode == VGA) ? 479 : (scrmode == ATT400) ? 399 : 347);
     prakeaw();
     dispstrhgc(chulaname(), 6, 0, BOLDATTR);
 /*    dispstrhgc("–  ESC <-> MENU  ", 72, 1, BOLDATTR);   */

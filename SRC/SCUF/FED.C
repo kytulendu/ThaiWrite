@@ -150,9 +150,9 @@ void setup_screen(void)
 
     clsall();
     /*
-    box(0 + align, 0, 639 + align, 347);
+    _rectangle(0 + align, 0, 639 + align, 347);
     */
-    box(0, 0, 639, 347);
+    _rectangle(0, 0, 639, 347);
     prakeaw();
     dispstrhgc("จุฬาลงกรณ์มหาวิทยาลัย", 6, 0, BOLDATTR);
     /*
