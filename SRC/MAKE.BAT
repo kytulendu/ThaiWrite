@@ -1,7 +1,0 @@
-@ECHO OFF
-ECHO This will make CU-Writer 1.41
-ECHO.
-PAUSE
-CD COMMON
-MAKE
-CD..
