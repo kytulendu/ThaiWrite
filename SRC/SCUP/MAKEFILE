@@ -2,9 +2,10 @@
 # by Suttipong Kanakakorn
 # Sun  08-06-1989  16:24:05
 #
-# TCC_OPTION -w = enable all warning
-#
-TCC_OPTION=-w -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
+
+!include "..\config.mak"
+
+CFLAGS = $(CCFLAGS) -I$(INCPATH)
 
 \tw\twprint.exe: \
         ..\common\edisp.obj ..\common\hdisp.obj ..\common\adisp.obj \
@@ -19,74 +20,74 @@ TCC_OPTION=-w -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
         pic.obj dot.obj cpi.obj global.obj prncntrl.obj \
         error.obj preproc.obj 24pins.obj attr.obj cpthai.obj \
         prtbuf24.obj
-    tcc -c $(TCC_OPTION) ..\common\stampdate.c
-    tlink @scup.tlr
+    $(CC) -c ..\common\stampdate.c
+    $(LINKER) $(LFLAGS) @scup.tlr
 
 kbd.obj: kbd.c
-    tcc -c $(TCC_OPTION) kbd.c
+    $(CC) $(CFLAGS) kbd.c
 
 getstr.obj: getstr.c
-    tcc -c $(TCC_OPTION) getstr.c
+    $(CC) $(CFLAGS) getstr.c
 
 tutil1.obj: tutil1.c
-    tcc -c $(TCC_OPTION) tutil1.c
+    $(CC) $(CFLAGS) tutil1.c
 
 cupsetup.obj: cupsetup.c
-    tcc -c $(TCC_OPTION) cupsetup.c
+    $(CC) $(CFLAGS) cupsetup.c
 
 pmenu.obj: pmenu.c
-    tcc -c $(TCC_OPTION) pmenu.c
+    $(CC) $(CFLAGS) pmenu.c
 
 smenu.obj: smenu.c
-    tcc -c $(TCC_OPTION) smenu.c
+    $(CC) $(CFLAGS) smenu.c
 
 #pconfig.obj: pconfig.c
-#    tcc -c $(TCC_OPTION) pconfig.c
+#    $(CC) $(CFLAGS) pconfig.c
 
 prtutil.obj: prtutil.c
-    tcc -c $(TCC_OPTION) prtutil.c
+    $(CC) $(CFLAGS) prtutil.c
 
 printing.obj: printing.c
-    tcc -c $(TCC_OPTION) printing.c
+    $(CC) $(CFLAGS) printing.c
 
 prt.obj: prt.c
-    tcc -c $(TCC_OPTION) prt.c
+    $(CC) $(CFLAGS) prt.c
 
 prtt.obj: prtt.c
-    tcc -c $(TCC_OPTION) prtt.c
+    $(CC) $(CFLAGS) prtt.c
 
 prtg.obj: prtg.c
-    tcc -c $(TCC_OPTION) prtg.c
+    $(CC) $(CFLAGS) prtg.c
 
 pic.obj: pic.c
-    tcc -c $(TCC_OPTION) pic.c
+    $(CC) $(CFLAGS) pic.c
 
 dot.obj: dot.c
-    tcc -c $(TCC_OPTION) dot.c
+    $(CC) $(CFLAGS) dot.c
 
 cpi.obj: cpi.c
-    tcc -c $(TCC_OPTION) cpi.c
+    $(CC) $(CFLAGS) cpi.c
 
 global.obj: global.c
-    tcc -c $(TCC_OPTION) global.c
+    $(CC) $(CFLAGS) global.c
 
 prncntrl.obj: prncntrl.c
-    tcc -c $(TCC_OPTION) prncntrl.c
+    $(CC) $(CFLAGS) prncntrl.c
 
 error.obj: error.c
-    tcc -c $(TCC_OPTION) error.c
+    $(CC) $(CFLAGS) error.c
 
 preproc.obj: preproc.c
-    tcc -c $(TCC_OPTION) preproc.c
+    $(CC) $(CFLAGS) preproc.c
 
 24pins.obj: 24pins.c
-    tcc -c $(TCC_OPTION) 24pins.c
+    $(CC) $(CFLAGS) 24pins.c
 
 attr.obj: attr.c
-    tcc -c $(TCC_OPTION) attr.c
+    $(CC) $(CFLAGS) attr.c
 
 cpthai.obj: cpthai.c
-    tcc -c $(TCC_OPTION) cpthai.c
+    $(CC) $(CFLAGS) cpthai.c
 
 prtbuf24.obj: prtbuf24.c
-    tcc -c $(TCC_OPTION) prtbuf24.c
+    $(CC) $(CFLAGS) prtbuf24.c

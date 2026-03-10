@@ -3,9 +3,12 @@
 # Updated: Suttipong Kanakakorn
 #          Sun  08-06-1989  16:25:44
 #
-# TCC_OPTION -w = enable all warning
-#
-TCC_OPTION=-w -DCW -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
+
+!include "..\config.mak"
+
+#INCPATH1 = ..\scuw\thaisyls
+#CFLAGS = $(CCFLAGS) -I$(INCPATH);$(INCPATH1)
+CFLAGS = $(CCFLAGS) -I$(INCPATH)
 
 \tw\tw.exe: \
         ..\common\edisp.obj ..\common\hdisp.obj ..\common\adisp.obj \
@@ -18,122 +21,122 @@ TCC_OPTION=-w -DCW -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
         menu.obj \
         kbd.obj status.obj move.obj movement.obj wrap.obj \
         onscrn.obj file.obj search.obj block.obj cw.obj cwsetup.obj \
-        mainsyls.obj thaieng.obj worewaan.obj FINDCHAR.obj HOREHEEB.obj \
-        HUNAKAD.obj JULCUT.obj KARAN.obj LEADCON.obj \
-        MAIMALAI.obj MAIMUAN.obj NOPCUT.obj NSTRCMP.obj ROREREO.obj \
-        RORERU.obj SARAA.obj SARAAH.obj SARAAIR.obj SARAIE.obj \
-        SARAO.obj SARAR.obj SARAU.obj SARAUE.obj SARAUEE.obj \
-        SARAUM.obj GLOBAL.obj
-    tcc -c ..\common\stampdate.c
-    tlink @scuw.tlr
+        mainsyls.obj thaieng.obj worewaan.obj findchar.obj horeheeb.obj \
+        hunakad.obj julcut.obj karan.obj leadcon.obj \
+        maimalai.obj maimuan.obj nopcut.obj nstrcmp.obj rorereo.obj \
+        roreru.obj saraa.obj saraah.obj saraair.obj saraie.obj \
+        sarao.obj sarar.obj sarau.obj saraue.obj sarauee.obj \
+        saraum.obj global.obj
+    $(CC) -c ..\common\stampdate.c
+    $(LINKER) $(LFLAGS) @scuw.tlr
 
 scrn.obj: scrn.c var.h
-    tcc -c $(TCC_OPTION) scrn.c
+    $(CC) $(CFLAGS) scrn.c
 
 getstr.obj: getstr.c var.h
-    tcc -c $(TCC_OPTION) getstr.c
+    $(CC) $(CFLAGS) getstr.c
 
 tutil1.obj: tutil1.c var.h
-    tcc -c $(TCC_OPTION) tutil1.c
+    $(CC) $(CFLAGS) tutil1.c
 
 edit.obj: edit.c var.h
-    tcc -c -v $(TCC_OPTION) edit.c
+    $(CC) $(CFLAGS) edit.c
 
 ins.obj: ins.c var.h
-    tcc -c -v $(TCC_OPTION) ins.c
+    $(CC) $(CFLAGS) ins.c
 
 del.obj: del.c var.h
-    tcc -c $(TCC_OPTION) del.c
+    $(CC) $(CFLAGS) del.c
 
 menu.obj: menu.c var.h ..\common\cwgrphc.h
-    tcc -c $(TCC_OPTION) menu.c
+    $(CC) $(CFLAGS) menu.c
 
 kbd.obj: kbd.c var.h
-    tcc -c $(TCC_OPTION) kbd.c
+    $(CC) $(CFLAGS) kbd.c
 
 status.obj:  status.c var.h
-    tcc -c $(TCC_OPTION) status.c
+    $(CC) $(CFLAGS) status.c
 
 move.obj: move.c var.h
-    tcc -c $(TCC_OPTION) move.c
+    $(CC) $(CFLAGS) move.c
 
 movement.obj: movement.c var.h
-    tcc -c $(TCC_OPTION) movement.c
+    $(CC) $(CFLAGS) movement.c
 
 wrap.obj: wrap.c var.h
-    tcc -c $(TCC_OPTION) wrap.c
+    $(CC) $(CFLAGS) wrap.c
 
 onscrn.obj: onscrn.c var.h
-    tcc -c $(TCC_OPTION) onscrn.c
+    $(CC) $(CFLAGS) onscrn.c
 
 file.obj: file.c var.h
-    tcc -c $(TCC_OPTION) file.c
+    $(CC) $(CFLAGS) file.c
 
 search.obj: search.c var.h
-    tcc -c $(TCC_OPTION) search.c
+    $(CC) $(CFLAGS) search.c
 
 block.obj: block.c var.h
-    tcc -c -v $(TCC_OPTION) block.c
+    $(CC) $(CFLAGS) block.c
 
 cw.obj: cw.c var.h ..\common\cwgrphc.h
-    tcc -c $(TCC_OPTION) cw.c
+    $(CC) $(CFLAGS) cw.c
 
 cwsetup.obj: cwsetup.c var.h
-    tcc -c $(TCC_OPTION) cwsetup.c
+    $(CC) $(CFLAGS) cwsetup.c
 
 #
-# TUD KUM
+# Thai word separation
 #
 
-MAINSYLS.OBJ: mainsyls.c
-    tcc -c $(TCC_OPTION) mainsyls.c
-THAIENG.OBJ: thaieng.c
-    tcc -c $(TCC_OPTION) THAIENG.c
-WOREWAAN.OBJ: worewaan.c
-    tcc -c $(TCC_OPTION) worewaan.c
-FINDCHAR.OBJ: findchar.c
-    tcc -c $(TCC_OPTION) findchar.c
-HOREHEEB.OBJ: horeheeb.c
-    tcc -c $(TCC_OPTION) horeheeb.c
-HUNAKAD.OBJ: hunakad.c
-    tcc -c $(TCC_OPTION) hunakad.c
-JULCUT.OBJ: julcut.c
-    tcc -c $(TCC_OPTION) julcut.c
-KARAN.OBJ: karan.c
-    tcc -c $(TCC_OPTION) karan.c
-LEADCON.OBJ: leadcon.c
-    tcc -c $(TCC_OPTION) leadcon.c
-MAIMALAI.OBJ: maimalai.c
-    tcc -c $(TCC_OPTION) maimalai.c
-MAIMUAN.OBJ: maimuan.c
-    tcc -c $(TCC_OPTION) maimuan.c
-NOPCUT.OBJ: nopcut.c
-    tcc -c $(TCC_OPTION) nopcut.c
-NSTRCMP.OBJ: nstrcmp.c
-    tcc -c $(TCC_OPTION) nstrcmp.c
-ROREREO.OBJ: rorereo.c
-    tcc -c $(TCC_OPTION) rorereo.c
-RORERU.OBJ: roreru.c
-    tcc -c $(TCC_OPTION) roreru.c
-SARAA.OBJ: saraa.c
-    tcc -c $(TCC_OPTION) saraa.c
-SARAAH.OBJ: saraah.c
-    tcc -c $(TCC_OPTION) saraah.c
-SARAAIR.OBJ: saraair.c
-    tcc -c $(TCC_OPTION) saraair.c
-SARAIE.OBJ: saraie.c
-    tcc -c $(TCC_OPTION) saraie.c
-SARAO.OBJ: sarao.c
-    tcc -c $(TCC_OPTION) sarao.c
-SARAR.OBJ: sarar.c
-    tcc -c $(TCC_OPTION) sarar.c
-SARAU.OBJ: sarau.c
-    tcc -c $(TCC_OPTION) sarau.c
-SARAUE.OBJ: saraue.c
-    tcc -c $(TCC_OPTION) saraue.c
-SARAUEE.OBJ: sarauee.c
-    tcc -c $(TCC_OPTION) sarauee.c
-SARAUM.OBJ: saraum.c
-    tcc -c $(TCC_OPTION) saraum.c
-GLOBAL.OBJ: global.c
-    tcc -c $(TCC_OPTION) global.c
+mainsyls.obj: mainsyls.c
+    $(CC) $(CFLAGS) mainsyls.c
+thaieng.obj: thaieng.c
+    $(CC) $(CFLAGS) thaieng.c
+worewaan.obj: worewaan.c
+    $(CC) $(CFLAGS) worewaan.c
+findchar.obj: findchar.c
+    $(CC) $(CFLAGS) findchar.c
+horeheeb.obj: horeheeb.c
+    $(CC) $(CFLAGS) horeheeb.c
+hunakad.obj: hunakad.c
+    $(CC) $(CFLAGS) hunakad.c
+julcut.obj: julcut.c
+    $(CC) $(CFLAGS) julcut.c
+karan.obj: karan.c
+    $(CC) $(CFLAGS) karan.c
+leadcon.obj: leadcon.c
+    $(CC) $(CFLAGS) leadcon.c
+maimalai.obj: maimalai.c
+    $(CC) $(CFLAGS) maimalai.c
+maimuan.obj: maimuan.c
+    $(CC) $(CFLAGS) maimuan.c
+nopcut.obj: nopcut.c
+    $(CC) $(CFLAGS) nopcut.c
+nstrcmp.obj: nstrcmp.c
+    $(CC) $(CFLAGS) nstrcmp.c
+rorereo.obj: rorereo.c
+    $(CC) $(CFLAGS) rorereo.c
+roreru.obj: roreru.c
+    $(CC) $(CFLAGS) roreru.c
+saraa.obj: saraa.c
+    $(CC) $(CFLAGS) saraa.c
+saraah.obj: saraah.c
+    $(CC) $(CFLAGS) saraah.c
+saraair.obj: saraair.c
+    $(CC) $(CFLAGS) saraair.c
+saraie.obj: saraie.c
+    $(CC) $(CFLAGS) saraie.c
+sarao.obj: sarao.c
+    $(CC) $(CFLAGS) sarao.c
+sarar.obj: sarar.c
+    $(CC) $(CFLAGS) sarar.c
+sarau.obj: sarau.c
+    $(CC) $(CFLAGS) sarau.c
+saraue.obj: saraue.c
+    $(CC) $(CFLAGS) saraue.c
+sarauee.obj: sarauee.c
+    $(CC) $(CFLAGS) sarauee.c
+saraum.obj: saraum.c
+    $(CC) $(CFLAGS) saraum.c
+global.obj: global.c
+    $(CC) $(CFLAGS) global.c

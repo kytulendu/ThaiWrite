@@ -3,10 +3,10 @@
 # Written by: Suttipong Kanakakorn
 #             Fri  08-25-1989  21:38:46
 #
-# TCC_OPTION -w = enable all warning
-#
-TCC_OPTION=-DALIGN -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
-TCC_OPTION2= -w -DALIGN -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
+
+!include "..\config.mak"
+
+CFLAGS = $(CCFLAGS) -I$(INCPATH)
 
 \tw\twfont.exe: \
         ..\common\edisp.obj ..\common\hdisp.obj ..\common\adisp.obj \
@@ -18,41 +18,41 @@ TCC_OPTION2= -w -DALIGN -ml -f- -K -C -O -Z -k- -d -IC:\TC\INCLUDE -LC:\TC\LIB
         getstr.obj tutil1.obj cufsetup.obj kbd.obj file.obj \
         fed.obj write.obj int.obj getch.obj popup.obj \
         fontmsg.obj convert.obj
-    tcc -c ..\common\stampdate.c
-    tlink @scuf.tlr
+    $(CC) -c ..\common\stampdate.c
+    $(LINKER) $(LFLAGS) @scuf.tlr
 
 getstr.obj: getstr.c var.h
-    tcc -c  $(TCC_OPTION2) getstr.c
+    $(CC) $(CFLAGS) getstr.c
 
 tutil1.obj: tutil1.c
-    tcc -c  $(TCC_OPTION2) tutil1.c
+    $(CC) $(CFLAGS) tutil1.c
 
 cufsetup.obj: cufsetup.c var.h
-    tcc -c $(TCC_OPTION2) cufsetup.c
+    $(CC) $(CFLAGS) cufsetup.c
 
 kbd.obj: kbd.c var.h
-    tcc -c $(TCC_OPTION2) kbd.c
+    $(CC) $(CFLAGS) kbd.c
 
 file.obj: file.c
-	tcc -c $(TCC_OPTION2) file.c
+    $(CC) $(CFLAGS) file.c
 
 fed.obj: fed.c
-    tcc -c -v $(TCC_OPTION2) fed.c
+    $(CC) $(CFLAGS) fed.c
 
 write.obj: write.c
-    tcc -c -v $(TCC_OPTION) write.c
+    $(CC) $(CFLAGS) write.c
 
 int.obj: int.c
-    tcc -c $(TCC_OPTION) int.c
+    $(CC) $(CFLAGS) int.c
 
 getch.obj: getch.c
-    tcc -c $(TCC_OPTION) getch.c
+    $(CC) $(CFLAGS) getch.c
 
 popup.obj: popup.c
-    tcc -c -v $(TCC_OPTION) popup.c
+    $(CC) $(CFLAGS) popup.c
 
 fontmsg.obj: fontmsg.c
-    tcc -c $(TCC_OPTION) fontmsg.c
+    $(CC) $(CFLAGS) fontmsg.c
 
 convert.obj: convert.c
-    tcc -c $(TCC_OPTION) convert.c
+    $(CC) $(CFLAGS) convert.c

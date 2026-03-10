@@ -1,9 +1,10 @@
-/x/n/d/c c:\tc\lib\c0l +
+c:\tc\lib\c0l +
 ..\common\edisp ..\common\hdisp ..\common\adisp ..\common\grdetect +
 ..\common\cwgrphc ..\common\cwegrph ..\common\cwagrph ..\common\ekbd +
 ..\common\cscrn ..\common\fileutil ..\common\dir + ..\common\sound +
 getstr tutil1 cufsetup kbd file +
 fed write int getch popup fontmsg +
-convert stampdat +
+convert +
+stampdat +
 .\drv\hercf .\drv\egavgaf c:\tc\lib\graphics.lib +
 ,\tw\twfont,\tw\twfont,c:\tc\lib\cl.lib
