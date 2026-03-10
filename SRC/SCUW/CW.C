@@ -48,22 +48,6 @@ void setupnode(void)
     loadtoline(curline->text);
 }
 
-char chulaencript[] = {'ß','÷','…','Œ','¿','°',0x9a,'ª','™','‚','\0'};
-char chuladecript[22];
-
-char *chulaname(void)
-{
-    register int i;
-    strcpy(chuladecript,chulaencript);
-    for (i = 0; chuladecript[i] != '\0'; i++)
-    {
-        chuladecript[i] = chuladecript[i] + i + 1;
-    }
-    strcat(chuladecript,"¡À“«‘∑¬“≈—¬");
-    protect2 = 1;
-    return(chuladecript);
-}
-
 void initscrn(void)
 {
     int countcol;
@@ -71,8 +55,7 @@ void initscrn(void)
     clsall();
     _rectangle(0, 0, 639, (scrmode == VGA) ? 479 : (scrmode == ATT400) ? 399 : 347);
     prakeaw();
-    dispstrhgc(chulaname(), 6, 0, BOLDATTR);
-/*    dispstrhgc("ñ  ESC <-> MENU  ", 72, 1, BOLDATTR);   */
+    dispstrhgc( "®ÿÃ“≈ß°√≥Ï¡À“«‘∑¬“≈—¬", 6, 0, BOLDATTR );
     dispstrhgc("ñ ESC<->MENU", 66, 1, BOLDATTR);
     for (countcol = 1; countcol <= 10; countcol++)
     {
@@ -88,13 +71,6 @@ unsigned menu_to_key(register unsigned int curmenu)
     return(command_tab[i + 1]);
 }
 
-void norighttoused(void)
-{
-    settext();
-    puts("BUFFALO !");
-    exit(1);
-}
-
 void main(int argc, char *argv[])
 {
     extern char prog_date[], prog_time[];
@@ -107,7 +83,6 @@ void main(int argc, char *argv[])
     writestatus(0);
     writetab();
 
-    if (protect1 != 1) { norighttoused(); }
 #ifndef EDA_VERSION
     dispstrhgc(" òïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïïô ", 21 - CENTER_FACTOR, 5, REVERSEATTR);
     dispstrhgc(" ñ            CU  WRITER            ñ ", 21 - CENTER_FACTOR, 6, REVERSEATTR);
@@ -138,11 +113,6 @@ void main(int argc, char *argv[])
     }
     ebioskey(0);
     cls();
-    if (protect2 != 1)
-    {
-        settext();
-        exit(2);
-    }
     do
     {
         dispstrhgc("   ",wind.col,2,0);

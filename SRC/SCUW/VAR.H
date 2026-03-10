@@ -111,9 +111,6 @@ EXTERN int lineperpage;             /* number of lines perpage */
 
 EXTERN unsigned int command_tab[];
 
-EXTERN char protect1;
-EXTERN char protect2;
-
 #else
 /* EXTERN will be declared as null already */
 
@@ -244,8 +241,6 @@ EXTERN unsigned int command_tab[] = {
     0,0
 };
 
-EXTERN char protect1 = 0x00;
-EXTERN char protect2 = 0x00;
 #endif
 
 #undef EXTERN /* restore it */

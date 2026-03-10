@@ -23,7 +23,7 @@ INCLUDE cwfntm.asm
 DGROUP          GROUP _DATA,_BSS
 _DATA           SEGMENT WORD PUBLIC 'DATA'
 
-EXTRN _dfont:byte, _ditalicfont:byte, _protect1:byte
+EXTRN _dfont:byte, _ditalicfont:byte
 EXTRN curfont:byte, enlargefont:byte, offsetfont:word
 EXTRN chulalogo1:word, chulalogo2:word, _chardot:byte
 EXTRN _graph_seg:word
@@ -979,8 +979,6 @@ _eprakeaw       PROC FAR
     mov     ax,ds:[si+26]
     mov     es:[di],ax
     shift_down di
-    mov     al,1
-    mov     ds:_protect1[0],al
 
     mov     ax,ds:[si+28]
     mov     es:[di],ax

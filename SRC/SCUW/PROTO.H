@@ -170,7 +170,6 @@ void setupnode(void);
 char *chulaname(void);
 void initscrn(void);
 unsigned int menu_to_key(unsigned int curmenu);
-void norighttoused(void);
 void main(int argc, char *argv[]);
 
 

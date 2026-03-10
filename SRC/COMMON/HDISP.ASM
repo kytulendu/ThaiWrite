@@ -40,7 +40,7 @@ INCLUDE cwfnthm.asm
 DGROUP          GROUP _DATA,_BSS
 _DATA           SEGMENT WORD PUBLIC 'DATA'
 
-EXTRN _dfont:byte, _ditalicfont:byte, _protect1:byte
+EXTRN _dfont:byte, _ditalicfont:byte
 EXTRN _screen_buffptr:dword
 
 _herc_align     dw  5
@@ -1111,8 +1111,6 @@ _hprakeaw       PROC FAR
     mov     es:[di+270+4000h],ax
     mov     ax,ds:[si+26]
     mov     es:[di+270+6000h],ax
-    mov     al,1
-    mov     ds:_protect1[0],al
 
     mov     ax,ds:[si+28]
     mov     es:[di+360],ax
