@@ -2,6 +2,7 @@
 #include "Ctype.h"
 #include "TCtype.h"
 #include "routine.h"
+#include "global.h"
 
 /*  -----------------------------------------
     Programmer : Subun & Tanat
