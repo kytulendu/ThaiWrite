@@ -1,6 +1,9 @@
 /* Modified Suttipong Kanakakorn Mon  08-14-1989  10:57:02 */
 /* By CUCC 22 June 90 */
 
+#ifndef _GLOBAL_H
+#define _GLOBAL_H
+
 #include <stdio.h>
 
 /*  ******************************* */
@@ -102,3 +105,5 @@ extern char prog_date[];
 extern char prog_time[];
 
 extern int extbarprinting;
+
+#endif /* _GLOBAL_H */
