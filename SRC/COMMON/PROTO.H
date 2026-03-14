@@ -21,7 +21,7 @@ void setgraph(void);
 void settext(void);
 char stdtoku(char c);
 char kutostd(char c);
-int thaikey(unsigned c);
+int thaikey(int c);
 int asm_keypressed(void);
 void savepic(void);
 void retpic(void);
