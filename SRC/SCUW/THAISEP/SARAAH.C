@@ -2,12 +2,12 @@
 #include "Global.h"
 #include "TCtype.h"
 
-unsigned char *SaraAhRtn(register unsigned char *TempIndx)
+unsigned char *Sara_ARtn(register unsigned char *TempIndx)
 {
     unsigned char *TempIndxm2 = TempIndx - 2;
 
-    if (*(TempIndx + 1) == HorHeeb &&
-        *(TempIndx + 2) == Karan) /* กรณีนี้เป็น ห์ เช่น เคราะห์ */
+    if (*(TempIndx + 1) == HOHIP &&
+        *(TempIndx + 2) == KARAN) /* กรณีนี้เป็น ห์ เช่น เคราะห์ */
     {
         return((TempIndx + 2 <= RightMargin) ? (TempIndx + 2) : FAIL);
     }
@@ -21,32 +21,32 @@ unsigned char *SaraAhRtn(register unsigned char *TempIndx)
         {
             switch (*(TempIndx - 1))
             {
-                case NoreNoo:
-                    if (*TempIndxm2 != ShoreChang)
+                case NONU:
+                    if (*TempIndxm2 != CHOCHANG)
                     {
                         /* cut before NoreNue */
                         return(TempIndxm2);
                     }
                     break;
-                case RoreReo:
+                case RORUA:
                     if (!findchar(*TempIndxm2, "กขตทปพสห"))
                     {
                         return(TempIndxm2);
                     }
                     break;
-                case WoreWaan:
+                case WOWAEN:
                     if (!findchar(*TempIndxm2, "สห"))
                     {
                         return(TempIndxm2);
                     }
                     break;
-                case LoreLing:
+                case LOLING:
                     if (!findchar(*TempIndxm2, "คผสห"))
                     {
                         return(TempIndxm2);
                     }
                     break;
-                case NoreNane:
+                case NONEN:
                     if (!findchar(*TempIndxm2, "ขคษ"))
                     {
                         return(TempIndxm2);

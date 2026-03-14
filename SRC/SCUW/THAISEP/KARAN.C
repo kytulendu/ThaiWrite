@@ -17,57 +17,58 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
     unsigned char *TempIndxm3 = TempIndx - 3;
     unsigned char *TempIndxm4 = TempIndx - 4;
     unsigned char *TempIndxm5 = TempIndx - 5;
-/* RoreReo */
-    static unsigned char *MoreMarRoreReoTable5[] = {"ฟอร์ม", "ฟาร์ม",
+
+    /* RORUA */
+    static unsigned char *MoMaRoRuaTable5[] = {"ฟอร์ม", "ฟาร์ม",
         "วอร์ม", "อาร์ม"};
-    static unsigned char *ToreTaoRoreReoTable5[] = {"มาร์ต", "ชอร์ต", "ปอร์ต",
+    static unsigned char *ToTaoRoRuaTable5[] = {"มาร์ต", "ชอร์ต", "ปอร์ต",
         "อาร์ต"};
-    static unsigned char *DoreDekRoreReoTable5[] = {"บอร์ด", "ฮาร์ด", "ตาร์ด",
+    static unsigned char *DoDekRoRuaTable5[] = {"บอร์ด", "ฮาร์ด", "ตาร์ด",
         "การ์ด","ลอร์ด", "ฟอร์ด"};
-    static unsigned char *KoreKwaiRoreReoTable5[] = {"ยอร์ค", "ปาร์ค", "มาร์ค"};
-    static unsigned char *KoreGaiRoreReoTable5[] = {"ตาร์ก"};
-    static unsigned char *LoreLingRoreReoTable5[] = {"มาร์ล"};
-    static unsigned char *PorePlaRoreReoTable5[] = {"ชาร์ป"};
-    static unsigned char *JoreJarnRoreReoTable5[] = {"ชาร์จ"};
-    static unsigned char *PoreParnRoreReoTable5[] = {"ชาร์พ"};
-    static unsigned char *ShoreChangRoreReoTable5[] = {"มาร์ช"};
-    static unsigned char *SoreSeoRoreReoTable5[] = {"มอร์ส"};
-    static unsigned char *ToreTaharnRoreReoTable5[] = {"มาร์ท"};
+    static unsigned char *KhoKhwaiRoRuaTable5[] = {"ยอร์ค", "ปาร์ค", "มาร์ค"};
+    static unsigned char *KoKaiRoRuaTable5[] = {"ตาร์ก"};
+    static unsigned char *LoLingRoRuaTable5[] = {"มาร์ล"};
+    static unsigned char *PoPlaRoRuaTable5[] = {"ชาร์ป"};
+    static unsigned char *ChoChanRoRuaTable5[] = {"ชาร์จ"};
+    static unsigned char *PhoPhanRoRuaTable5[] = {"ชาร์พ"};
+    static unsigned char *ChoChangRoRuaTable5[] = {"มาร์ช"};
+    static unsigned char *SoSuaRoRuaTable5[] = {"มอร์ส"};
+    static unsigned char *ThoThaHanRoRuaTable5[] = {"มาร์ท"};
 
-    static unsigned char *ToreTaharnRoreReoTable6[] = {"สมาร์ท", "สตาร์ท", "อพาร์ท"};
-    static unsigned char *ToreTaoRoreReoTable6[] = {"สปอร์ต", "สตาร์ต", "อพาร์ต"};
-    static unsigned char *DoreDekRoreReoTable6[] = {"เบิร์ด", "เวิร์ด"};
-    static unsigned char *KoreKwaiRoreReoTable6[] = {"เบอร์ค", "เวิร์ค"};
-    static unsigned char *MoreMarRoreReoTable6[] = {"เทอร์ม", "เยิร์ม"}; /* 2*/
-    static unsigned char *NoreNooRoreReoTable6[] = {"เดิร์น", "เฟิร์น"};
-    static unsigned char *KoreGaiRoreReoTable6[] = {"เตอร์ก", "เบอร์ก"};
-    static unsigned char *ForeFunRoreReoTable6[] = {"เสิร์ฟ"};
-    static unsigned char *LoreLingRoreReoTable6[] = {"เอิร์ล"};
+    static unsigned char *ThoThaHanRoRuaTable6[] = {"สมาร์ท", "สตาร์ท", "อพาร์ท"};
+    static unsigned char *ToTaoRoRuaTable6[] = {"สปอร์ต", "สตาร์ต", "อพาร์ต"};
+    static unsigned char *DoDekRoRuaTable6[] = {"เบิร์ด", "เวิร์ด"};
+    static unsigned char *KhoKhwaiRoRuaTable6[] = {"เบอร์ค", "เวิร์ค"};
+    static unsigned char *MoMaRoRuaTable6[] = {"เทอร์ม", "เยิร์ม"}; /* 2*/
+    static unsigned char *NoNuRoRuaTable6[] = {"เดิร์น", "เฟิร์น"};
+    static unsigned char *KoKaiRoRuaTable6[] = {"เตอร์ก", "เบอร์ก"};
+    static unsigned char *FoFanRoRuaTable6[] = {"เสิร์ฟ"};
+    static unsigned char *LoLingRoRuaTable6[] = {"เอิร์ล"};
 
-    static unsigned char *MoreMarRoreReoTable7[] = {"สเปอร์ม", "สเปิร์ม"};/* 2 */
+    static unsigned char *MoMaRoRuaTable7[] = {"สเปอร์ม", "สเปิร์ม"};/* 2 */
 
-    /* LoreLing */
-    static unsigned char *MoreMarLoreLingTable5[] = {"ปาล์ม", "โฮล์ม", "บาล์ม",
+    /* LoLing */
+    static unsigned char *MoMaLoLingTable5[] = {"ปาล์ม", "โฮล์ม", "บาล์ม",
                         "ฟิล์ม"};
-    static unsigned char *KoreKwaiLoreLingTable5[] = {"ชอร์ค", "ทอล์ค", "วอล์ค", "โฟล์ค"};
-    static unsigned char *KoreGaiLoreLingTable5[] = {"ชอล์ก"};
-    static unsigned char *ForeFunLoreLingTable5[] = {"กอล์ฟ", "ฮาล์ฟ"};
-    static unsigned char *WoreWaanLoreLingTable5[] = {"วาล์ว"};
+    static unsigned char *KhoKhwaiLoLingTable5[] = {"ชอร์ค", "ทอล์ค", "วอล์ค", "โฟล์ค"};
+    static unsigned char *KoKaiLoLingTable5[] = {"ชอล์ก"};
+    static unsigned char *FoFanLoLingTable5[] = {"กอล์ฟ", "ฮาล์ฟ"};
+    static unsigned char *WoWaenLoLingTable5[] = {"วาล์ว"};
 
     if(istrvwl(*(TempIndx + 2)))
     {
-        /* cut after karan */
+        /* cut after Karan */
         return(TempIndx);
     }
     switch (*TempIndxm1)
     {
-        case RoreReo:
+        case RORUA:
             switch (*TempIndxp1)
             {
-                case MoreMar:
+                case MOMA:
                     for (i = 0; i <= 1; ++i)
                     {
-                        if (!(nstrcmp(MoreMarRoreReoTable7[i], (TempIndx - 5))))
+                        if (!(nstrcmp(MoMaRoRuaTable7[i], (TempIndx - 5))))
                         {
                             /* cut after following-consonant */
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : (TempIndx - 6));
@@ -75,7 +76,7 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
                     }
                     for (i = 0; i <= 1; ++i)
                     {
-                        if (!(nstrcmp(MoreMarRoreReoTable6[i], TempIndxm4)))
+                        if (!(nstrcmp(MoMaRoRuaTable6[i], TempIndxm4)))
                         {
                             /* cut after following-consonant */
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
@@ -83,24 +84,24 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
                     }
                     for (i = 0; i <= 3; ++i)
                     {
-                        if (!(nstrcmp(MoreMarRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(MoMaRoRuaTable5[i], TempIndxm3)))
                         {
                             /* cut after following-consonant */
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case ToreTao:
+                case TOTAO:
                     for (i = 0; i <= 2; ++i)
                     {
-                        if (!(nstrcmp(ToreTaoRoreReoTable6[i], TempIndxm4)))
+                        if (!(nstrcmp(ToTaoRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     for (i = 0;i <= 3; ++i)
                     {
-                        if (!(nstrcmp(ToreTaoRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(ToTaoRoRuaTable5[i], TempIndxm3)))
                         {
                             /* cut after following-consonant */
                             return((TempIndxp1 <= RightMargin ) ? TempIndxp1 : TempIndxm4);
@@ -108,144 +109,144 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
                     }
                     break;
 
-                case DoreDek:
+                case DODEK:
                     for (i = 0;i <= 1; ++i)
                     {
-                        if (!(nstrcmp(DoreDekRoreReoTable6[i], TempIndxm4)))
+                        if (!(nstrcmp(DoDekRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin)? TempIndxp1 : TempIndxm5);
                         }
                     }
                     for(i = 0; i <= 5;++i)
                     {
-                        if (!(nstrcmp(DoreDekRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(DoDekRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin )? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case KoreKwai:
+                case KHOKHWAI:
                     for (i = 0; i <= 1; ++i)
                     {
-                        if(!(nstrcmp(KoreKwaiRoreReoTable6[i], TempIndxm4)))
+                        if(!(nstrcmp(KhoKhwaiRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     for (i = 0; i <= 2; ++i)
                     {
-                        if (!(nstrcmp(KoreKwaiRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(KhoKhwaiRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case KoreGai:
+                case KOKAI:
                     for (i = 0; i <= 1; ++i)
                     {
-                        if(!(nstrcmp(KoreGaiRoreReoTable6[i], TempIndxm4)))
+                        if(!(nstrcmp(KoKaiRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     for (i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(KoreGaiRoreReoTable5[i], TempIndxm3)))
+                        if(!(nstrcmp(KoKaiRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case ToreTaharn:
+                case THOTHAHAN:
                     for (i = 0;i <= 2; ++i)
                     {
-                        if(!(nstrcmp(ToreTaharnRoreReoTable6[i], TempIndxm4)))
+                        if(!(nstrcmp(ThoThaHanRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     for (i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(ToreTaharnRoreReoTable5[i], TempIndxm3)))
+                        if(!(nstrcmp(ThoThaHanRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case LoreLing:
+                case LOLING:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(LoreLingRoreReoTable6[i], TempIndxm4)))
+                        if(!(nstrcmp(LoLingRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     for (i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(LoreLingRoreReoTable5[i], TempIndxm3)))
+                        if(!(nstrcmp(LoLingRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case PorePla:
+                case POPLA:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(LoreLingRoreReoTable5[i],TempIndxm3)))
+                        if(!(nstrcmp(LoLingRoRuaTable5[i],TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case ShoreChang:
+                case CHOCHANG:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if (!(nstrcmp(ShoreChangRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(ChoChangRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case JoreJarn:
+                case CHOCHAN:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if (!(nstrcmp(JoreJarnRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(ChoChanRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case PoreParn:
+                case PHOPHAN:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if (!(nstrcmp(PoreParnRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(PhoPhanRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
                     }
                     break;
-                case SoreSeo:
+                case SOSUA:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if (!(nstrcmp(SoreSeoRoreReoTable5[i], TempIndxm3)))
+                        if (!(nstrcmp(SoSuaRoRuaTable5[i], TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1: TempIndxm4);
                         }
                     }
                     break;
-                case ForeFun:
+                case FOFAN:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if (!(nstrcmp(ForeFunRoreReoTable6[i], TempIndxm4)))
+                        if (!(nstrcmp(FoFanRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     break;
-                case NoreNoo:
+                case NONU:
                     for (i = 0; i <= 1; ++i)
                     {
-                        if (!(nstrcmp(NoreNooRoreReoTable6[i], TempIndxm4)))
+                        if (!(nstrcmp(NoNuRoRuaTable6[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
@@ -255,49 +256,49 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
                     return(TempIndx);
             }
 
-        case LoreLing:
+        case LOLING:
             switch (*TempIndxp1)
             {
-                case MoreMar:
+                case MOMA:
                     for(i = 0; i <= 3; ++i)
                     {
-                        if(!(nstrcmp(MoreMarLoreLingTable5[i], TempIndxm4)))
+                        if(!(nstrcmp(MoMaLoLingTable5[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     break;
-                case KoreKwai:
+                case KHOKHWAI:
                     for (i = 0;i <= 3; ++i)
                     {
-                        if(!(nstrcmp(KoreKwaiLoreLingTable5[i], TempIndxm4)))
+                        if(!(nstrcmp(KhoKhwaiLoLingTable5[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     break;
-                case KoreGai:
+                case KOKAI:
                     for(i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(KoreGaiLoreLingTable5[i], TempIndxm4)))
+                        if(!(nstrcmp(KoKaiLoLingTable5[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     break;
-                case ForeFun:
+                case FOFAN:
                     for(i = 0; i <= 1; ++i)
                     {
-                        if(!(nstrcmp(ForeFunLoreLingTable5[i], TempIndxm4)))
+                        if(!(nstrcmp(FoFanLoLingTable5[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
                     }
                     break;
-                case WoreWaan:
+                case WOWAEN:
                     for(i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(WoreWaanLoreLingTable5[i], TempIndxm4)))
+                        if(!(nstrcmp(WoWaenLoLingTable5[i], TempIndxm4)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm5);
                         }
@@ -307,26 +308,26 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
                     return(TempIndx);
             }
 
-        case SoreSeo:
+        case SOSUA:
             if (!(nstrcmp("สาส์น", TempIndxm3)) || !(nstrcmp("ศาส์น", TempIndxm3)))
             {
-                /* cut after following-consonant or before SoreSeo or SoreSara */
+                /* cut after following-consonant or before SoSua or SoreSara */
                 return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
             }
             break;
 
-        case WoreWaan:
+        case WOWAEN:
             if (!(nstrcmp("โบว์ล", TempIndxm3)))
             {
-                /* cut after following-consonant or before SaraO */
+                /* cut after following-consonant or before Sara O */
                 return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
             }
             break;
 
-        case HorHeeb:
+        case HOHIP:
             if (!(nstrcmp("โอห์ม", TempIndxm3)))
             {
-                /* cut after following-consonant or before SaraO */
+                /* cut after following-consonant or before Sara O */
                 return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
             }
             break;

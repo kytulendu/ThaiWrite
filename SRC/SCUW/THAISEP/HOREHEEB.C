@@ -3,7 +3,7 @@
 #include "Global.h"
 
 /*  -----------------------------------
-    Module Name : HorHeebRtn
+    Module Name : HoHipRtn
     Programmer  : Subun yenjaichon
     Date Written    : Friday, 20 May, 1988 2:04:06 PM
     Last Updated    : date
@@ -11,7 +11,7 @@
     return value    : pointer that pointer to cut pointer.
     ------------------------------------    */
 
-unsigned char *HorHeebRtn(unsigned char *TempIndx)
+unsigned char *HoHipRtn(unsigned char *TempIndx)
 {
     unsigned char *TempIndxm1 = TempIndx - 1;
     unsigned char *TempIndxp1 = TempIndx + 1;
@@ -20,29 +20,29 @@ unsigned char *HorHeebRtn(unsigned char *TempIndx)
     {
         switch (*TempIndxm1)
         {
-            case KoreKwai:
-            case MoreMar:
-            case SoreSeo:
+            case KHOKHWAI:
+            case MOMA:
+            case SOSUA:
                 return(FAIL);
-            case ToreTaharn:
-                if (*TempIndxp1 != SaraR)
+            case THOTHAHAN:
+                if (*TempIndxp1 != SARA_AA)
                 {
-                    /* cut before HorHeeb */
+                    /* cut before HoHip */
                     return(TempIndxm1);
                 }
                 break;
-            case RoreReo:
-            case OrAng:
-                if (*TempIndxp1 != HunAkad)
+            case RORUA:
+            case OANG:
+                if (*TempIndxp1 != MAIHUNAKAT)
                 {
-                    /* cut before HorHeeb */
+                    /* cut before HoHip */
                     return(TempIndxm1);
                 }
                 break;
-            case PoreParn:
-                if (*TempIndxp1 != SaraU && *TempIndxp1 != SaraUU)
+            case PHOPHAN:
+                if (*TempIndxp1 != SARA_U && *TempIndxp1 != SARA_UU)
                 {
-                    /* cut before HorHeeb */
+                    /* cut before HoHip */
                     return(TempIndxm1);
                 }
                 break;

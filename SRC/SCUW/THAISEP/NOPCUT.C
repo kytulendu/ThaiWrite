@@ -15,7 +15,7 @@ Date Written : Friday, 6 May, 1988 8:38:18 AM
 Last Update  : Wednesday, 18 May, 1988
 ------------------------------------------------------------------------*/
 
-unsigned char *OrAngRtn(unsigned char *TempIndx)
+unsigned char *OAngRtn(unsigned char *TempIndx)
 {
     unsigned char *TempIndxp1 = TempIndx + 1;
     unsigned char *TempIndxm1 = TempIndx - 1;
@@ -25,7 +25,7 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
 
     switch (*(TempIndxm1))
     {
-        case MaiEk:
+        case MAIEK:
             if (findchar(*(TempIndxm2), "¢¤§©¹»¼ÇÍ"))
             {
                 if ((TempIndxp1) <= RightMargin)
@@ -35,96 +35,96 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
             {
                 switch (*(TempIndxm2))              /* Check to cut behind */
                 {
-                    case PoreParn:
-                    case ForFa:
+                    case PHOPHAN:
+                    case FOFA:
                         return(TempIndx);
-                    case KoreGai:
-                    case HorHeeb:
-                        if (*(TempIndxp1) != NoreNoo)
+                    case KOKAI:
+                    case HOHIP:
+                        if (*(TempIndxp1) != NONU)
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case JoreJarn:
-                        if (*(TempIndxp1) != MoreMar)
+                    case CHOCHAN:
+                        if (*(TempIndxp1) != MOMA)
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ShoreChang:
+                    case CHOCHANG:
                         if (!findchar(*(TempIndxp1), "§¹"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ForeFun:
+                    case FOFAN:
                         if (!findchar(*(TempIndxp1), "§¹"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case SoreSeo:
+                    case SOSUA:
                         if (!findchar(*(TempIndxp1), "§¹"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case SoreSoe:
+                    case SOSO:
                         if (!findchar(*(TempIndxp1), "§¹Á"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ToreTaharn:
+                    case THOTHAHAN:
                         if (!findchar(*(TempIndxp1), "§¹Á"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ToreTao:
+                    case TOTAO:
                         if (!findchar(*(TempIndxp1), "§ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ThorToong:
+                    case THOTHUNG:
                         if (!findchar(*(TempIndxp1), "§ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case YoreYak:
+                    case YOYAK:
                         if (!findchar(*(TempIndxp1), "§¹ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case BoreBaimai:
+                    case BOBAIMAI:
                         if (!findchar(*(TempIndxp1), "¹Â"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case MoreMar:
+                    case MOMA:
                         if (!findchar(*(TempIndxp1), "§ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case RoreReo:
+                    case RORUA:
                         if (!findchar(*(TempIndxp1), "§¹ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case LoreLing:
+                    case LOLING:
                         if (!findchar(*(TempIndxp1), "¡§¹ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case HorNokHook:
-                        if (*(TempIndxp1) != NgorNgoo)
+                    case HONOKHUK:
+                        if (*(TempIndxp1) != NGONGU)
                         {
                             return(TempIndx);
                         }
@@ -142,42 +142,42 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
 
             switch (*(TempIndxm2))                  /* Check to cut in front */
             {
-                case RoreReo:
+                case RORUA:
                     if (findchar(*(TempIndxm3), "¡¤¾Í"))
                     {
                         return(FAIL);
                     }
                     break;                          /* Check vowel */
-                case LoreLing:
-                    if (*(TempIndxm3) == HorHeeb)
+                case LOLING:
+                    if (*(TempIndxm3) == HOHIP)
                     {
-                        return(TempIndxm4);         /* cut before HorHeeb */
+                        return(TempIndxm4);         /* cut before HoHip */
                     }
                     if (findchar(*(TempIndxm3), "¡¤»¾Í"))
                     {
                         return(FAIL);
                     }
                     break;                          /* Check vowel */
-                case NoreNoo:
-                    if (*(TempIndxm3) == HorHeeb)
+                case NONU:
+                    if (*(TempIndxm3) == HOHIP)
                     {
                         return(TempIndxm4);
                     }
                     break;                          /* Check vowel */
-                case YoreYak:
-                    if (*(TempIndxm3) == HorHeeb)
+                case YOYAK:
+                    if (*(TempIndxm3) == HOHIP)
                     {
                         return(FAIL);
                     }
                     break;                          /* Check vowel */
-                case MoreMar:
+                case MOMA:
                     if (findchar(*(TempIndxm3), "¢Ë"))
                     {
                         return(TempIndxm4);
                     }
                     break;                          /* Check vowel */
-                case NgorNgoo:
-                    if (*(TempIndxm3) == HorHeeb)
+                case NGONGU:
+                    if (*(TempIndxm3) == HOHIP)
                     {
                         return(TempIndxm4);
                     }
@@ -185,7 +185,7 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
             }
             return(TempIndxm3);
 
-        case MaiToe:
+        case MAITHO:
             if (findchar(*(TempIndxm2), "ª´¹ÂÊ"))
             {
                 if ((TempIndxp1) <= RightMargin)
@@ -197,80 +197,80 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
             {
                 switch (*(TempIndxm2))              /* Check to cut behind */
                 {
-                    case RoreReo:
-                        if (*(TempIndxm3) != KoreGai && TempIndxp1 <= RightMargin)
+                    case RORUA:
+                        if (*(TempIndxm3) != KOKAI && TempIndxp1 <= RightMargin)
                         {
                             return(TempIndxp1);
                         }
                         break;
-                    case NgorNgoo:
-                    case ChorChing:
-                    case HorNokHook:
+                    case NGONGU:
+                    case CHOCHING:
+                    case HONOKHUK:
                         return(TempIndx);
-                    case KoreGai:
-                    case JoreJarn:
+                    case KOKAI:
+                    case CHOCHAN:
                         if (!findchar(*(TempIndxp1), "§¹Â"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case KorKai:
+                    case KHOKHAI:
                         if (!findchar(*(TempIndxp1), "§Â"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case KoreKwai:
-                        if (*(TempIndxp1) != NoreNoo)
+                    case KHOKHWAI:
+                        if (*(TempIndxp1) != NONU)
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case SoreSoe:
-                    case PorePla:
+                    case SOSO:
+                    case POPLA:
                         if (!findchar(*(TempIndxp1), "§¹Á"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ToreTao:
+                    case TOTAO:
                         if (!findchar(*(TempIndxp1), "§¹ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case ToreTaharn:
-                    case ForeFun:
+                    case THOTHAHAN:
+                    case FOFAN:
                         if (!findchar(*(TempIndxp1), "§¹"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case BoreBaimai:
+                    case BOBAIMAI:
                         if (!findchar(*(TempIndxp1), "§Á"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case PoreParn:
-                        if (*(TempIndxp1) != NgorNgoo)
+                    case PHOPHAN:
+                        if (*(TempIndxp1) != NGONGU)
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case LoreLing:
+                    case LOLING:
                         if (!(findchar(*(TempIndxp1), "§Â¹Á")))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case HorHeeb:
+                    case HOHIP:
                         if (!findchar(*(TempIndxp1), "§ÁÂ"))
                         {
                             return(TempIndx);
                         }
                         break;                      /* Check vowel */
-                    case OrAng:
+                    case OANG:
                         if (!findchar(*(TempIndxp1), "¹ÁÂ"))
                         {
                             return(TempIndx);
@@ -285,14 +285,14 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
             }
             switch (*(TempIndxm2))                  /* Check to cut in front */
             {
-                case RoreReo:
+                case RORUA:
                     if (findchar(*(TempIndxm3), "¡¾Ê"))
                     {
                         return(FAIL);
                     }
                     break;                          /* Check vowel */
-                case LoreLing:
-                    if (*(TempIndxm3) == KoreGai)
+                case LOLING:
+                    if (*(TempIndxm3) == KOKAI)
                     {
                         return(FAIL);
                     }
@@ -304,13 +304,13 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
                         }
                     }
                     break;                          /* Check vowel */
-                case YoreYak:
-                    if (*(TempIndxm3) == KorKai)
+                case YOYAK:
+                    if (*(TempIndxm3) == KHOKHAI)
                     {
                         return(TempIndxm4);
                     }
                     break;                          /* Check vowel */
-                case MoreMar:
+                case MOMA:
                     if (findchar(*(TempIndxm3), "ªË"))
                     {
                         return(TempIndxm4);
@@ -319,7 +319,7 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
             }
             return(TempIndxm3);
 
-        case MaiTaiKuu:
+        case MAITAIKHU:
         {
             if ((TempIndxp1) <= RightMargin)
             {
@@ -337,12 +337,12 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
             {
                 switch(*(TempIndxm2))
                 {
-                    case SaraAir:
-                    case SaraO:
-                    case MaiMuan:
-                    case MaiMalai:
+                    case SARA_AE:
+                    case SARA_O:
+                    case MAIMUAN:
+                    case MAIMALAI:
                         return(TempIndxm1);
-                    case SaraA:
+                    case SARA_E:
                         Indx = TempIndxm2;
                         return((*FuncPtr[*Indx])(Indx));
                 }
@@ -351,18 +351,18 @@ unsigned char *OrAngRtn(unsigned char *TempIndx)
                 {
                     switch(*TempIndxm1)
                     {
-                        case KorKai:
-                        case SoreSoe:
-                        case ForeFun:
-                            return((*TempIndxm2 != OrAng) ? TempIndxm2 : FAIL);
-                        case OrAng:
+                        case KHOKHAI:
+                        case SOSO:
+                        case FOFAN:
+                            return((*TempIndxm2 != OANG) ? TempIndxm2 : FAIL);
+                        case OANG:
                             if (findchar(*TempIndxp1, "¡¹¿ÁÊ"))
                             {
                                 return(FAIL);
                             }
                             else
                             {
-                                return((*TempIndxm2 == LoreLing) ? FAIL: TempIndxm1);
+                                return((*TempIndxm2 == LOLING) ? FAIL: TempIndxm1);
                             }
                         default:
                             return(FAIL);

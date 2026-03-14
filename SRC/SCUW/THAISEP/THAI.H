@@ -1,100 +1,101 @@
 /*
-    thai.h -- thai characters
-
-    Copyright Subun & Tanat
-    Used with permission, Sahaviriya System
-    All rights reserved.
-*/
+ * Thai Industrial Standard -- TIS 620-2529 (1986)
+ * Naming convention as TISO proposed to ISO/ECMA for
+ * draft ISO 8859-xx for Thailand.
+ */
 
 #ifndef _THAI_H
 #define _THAI_H
 
-#define KoreGai     (unsigned char) 0xA1    /*  ก    */
-#define KorKai      (unsigned char) 0xA2    /*  ข    */
-#define KorKuad     (unsigned char) 0xA3    /*      */
-#define KoreKwai    (unsigned char) 0xA4    /*  ค    */
-#define KoreKon     (unsigned char) 0xA5    /*      */
-#define KoreRakung  (unsigned char) 0xA6    /*  ฆ    */
-#define NgorNgoo    (unsigned char) 0xA7    /*  ง    */
-#define JoreJarn    (unsigned char) 0xA8    /*  จ    */
-#define ChorChing   (unsigned char) 0xA9    /*  ฉ    */
-#define ShoreChang  (unsigned char) 0xAA    /*  ช    */
-#define SoreSoe     (unsigned char) 0xAB    /*  ซ    */
-#define ShoreKracher    (unsigned char) 0xAC    /*  ฌ    */
-#define YoreYing    (unsigned char) 0xAD    /*  ญ    */
-#define DoreChada   (unsigned char) 0xAE    /*  ฎ    */
-#define TorePatak   (unsigned char) 0xAF    /*  ฏ    */
-#define ThorSantan  (unsigned char) 0xB0    /*  ฐ    */
-#define ToreMontoe  (unsigned char) 0xB1    /*  ฑ    */
-#define TorePootao  (unsigned char) 0xB2    /*  ฒ    */
-#define NoreNane    (unsigned char) 0xB3    /*  ณ    */
-#define DoreDek     (unsigned char) 0xB4    /*  ด    */
-#define ToreTao     (unsigned char) 0xB5    /*  ต    */
-#define ThorToong   (unsigned char) 0xB6    /*  ถ    */
-#define ToreTaharn  (unsigned char) 0xB7    /*  ท    */
-#define ToreTong    (unsigned char) 0xB8    /*  ธ    */
-#define NoreNoo     (unsigned char) 0xB9    /*  น    */
-#define BoreBaimai  (unsigned char) 0xBA    /*  บ    */
-#define PorePla     (unsigned char) 0xBB    /*  ป    */
-#define PorPeng     (unsigned char) 0xBC    /*  ผ    */
-#define ForFa       (unsigned char) 0xBD    /*  ฝ    */
-#define PoreParn    (unsigned char) 0xBE    /*  พ    */
-#define ForeFun     (unsigned char) 0xBF    /*  ฟ    */
-#define PoreSumpao  (unsigned char) 0xC0    /*  ภ   */
-#define MoreMar     (unsigned char) 0xC1    /*  ม   */
-#define YoreYak     (unsigned char) 0xC2    /*  ย   */
-#define RoreReo     (unsigned char) 0xC3    /*  ร   */
-#define RoreRu      (unsigned char) 0xC4    /*  ฤ   */
-#define LoreLing    (unsigned char) 0xC5    /*  ล   */
-#define WoreWaan    (unsigned char) 0xC7    /*  ว   */
-#define SoreSala    (unsigned char) 0xC8    /*  ศ   */
-#define SoreRusi    (unsigned char) 0xC9    /*  ษ   */
-#define SoreSeo     (unsigned char) 0xCA    /*  ส   */
-#define HorHeeb     (unsigned char) 0xCB    /*  ห   */
-#define LorChula    (unsigned char) 0xCC    /*  ฬ   */
-#define OrAng       (unsigned char) 0xCD    /*  อ   */
-#define HorNokHook  (unsigned char) 0xCE    /*  ฮ   */
+#define KOKAI               0xA1    /* ก */
+#define KHOKHAI             0xA2    /* ข */
+#define KHOKHUAT            0xA3    /* ฃ */
+#define KHOKHWAI            0xA4    /* ค */
+#define KHOKHON             0xA5    /* ฅ */
+#define KHORAKHANG          0xA6    /* ฆ */
+#define NGONGU              0xA7    /* ง */
+#define CHOCHAN             0xA8    /* จ */
+#define CHOCHING            0xA9    /* ฉ */
+#define CHOCHANG            0xAA    /* ช */
+#define SOSO                0xAB    /* ซ */
+#define CHOCHOE             0xAC    /* ฌ */
+#define YOYING              0xAD    /* ญ */
+#define DOCHADA             0xAE    /* ฎ */
+#define TOPATAK             0xAF    /* ฏ */
+#define THOTHAN             0xB0    /* ฐ */
+#define THONANGMONTHO       0xB1    /* ฑ */
+#define THOPHUTHAO          0xB2    /* ฒ */
+#define NONEN               0xB3    /* ณ */
+#define DODEK               0xB4    /* ด */
+#define TOTAO               0xB5    /* ต */
+#define THOTHUNG            0xB6    /* ถ */
+#define THOTHAHAN           0xB7    /* ท */
+#define THOTHONG            0xB8    /* ธ */
+#define NONU                0xB9    /* น */
+#define BOBAIMAI            0xBA    /* บ */
+#define POPLA               0xBB    /* ป */
+#define PHOPHUNG            0xBC    /* ผ */
+#define FOFA                0xBD    /* ฝ */
+#define PHOPHAN             0xBE    /* พ */
+#define FOFAN               0xBF    /* ฟ */
+#define PHOSAMPHAO          0xC0    /* ภ */
+#define MOMA                0xC1    /* ม */
+#define YOYAK               0xC2    /* ย */
+#define RORUA               0xC3    /* ร */
+#define RU                  0xC4    /* ฤ */
+#define LOLING              0xC5    /* ล */
+#define LU                  0xC6    /* ฦ */
+#define WOWAEN              0xC7    /* ว */
+#define SOSALA              0xC8    /* ศ */
+#define SORUSI              0xC9    /* ษ */
+#define SOSUA               0xCA    /* ส */
+#define HOHIP               0xCB    /* ห */
+#define LOCHULA             0xCC    /* ฬ */
+#define OANG                0xCD    /* อ */
+#define HONOKHUK            0xCE    /* ฮ */
+#define PAIYANNOI           0xCF    /* ฯ */
+#define SARA_A              0xD0    /* สระอะ */
+#define MAIHUNAKAT          0xD1    /* ไม้หันอากาศ */
+#define SARA_AA             0xD2    /* สระอา */
+#define SARA_AM             0xD3    /* สระอำ */
+#define SARA_I              0xD4    /* สระอิ */
+#define SARA_II             0xD5    /* สระอี */
+#define SARA_UE             0xD6    /* สระอึ */
+#define SARA_UEE            0xD7    /* สระอือ */
+#define SARA_U              0xD8    /* สระอุ */
+#define SARA_UU             0xD9    /* สระอู */
+#define PHINTHU             0xDA    /* . */
+#define BAHT                0xDF    /* ฿ */
+#define SARA_E              0xE0    /* สระเอ */
+#define SARA_AE             0xE1    /* สระแอ */
+#define SARA_O              0xE2    /* สระโอ */
+#define MAIMUAN             0xE3    /* ไม้ม้วน */
+#define MAIMALAI            0xE4    /* ไม้มลาย */
+#define LAKKHANGYAO         0xE5    /* ลากข้างยาว */
+#define MAIYAMOK            0xE6    /* ไม้ยมก */
+#define MAITAIKHU           0xE7    /* ไม้ไต่คู้ */
+#define MAIEK               0xE8    /* ไม้เอก */
+#define MAITHO              0xE9    /* ไม้โท */
+#define MAITRI              0xEA    /* ไม้ตรี */
+#define MAICHATTAWA         0xEB    /* ไม้จัตวา */
+#define THANTHAKHAT         0xEC    /* การันต์ */
+#define NIKHAHIT            0xED    /* นิขหิต */
+#define YAMAKKAN            0xEE    /* ยามักการ */
+#define FONGMAN             0xEE    /* ฟองมัน */
+#define THAIZERO            0xF0    /* ๐ */
+#define THAIONE             0xF1    /* ๑ */
+#define THAITWO             0xF2    /* ๒ */
+#define THAITHREE           0xF3    /* ๓ */
+#define THAIFOUR            0xF4    /* ๔ */
+#define THAIFIVE            0xF5    /* ๕ */
+#define THAISIX             0xF6    /* ๖ */
+#define THAISEVEN           0xF7    /* ๗ */
+#define THAIEIGHT           0xF8    /* ๘ */
+#define THAININE            0xF9    /* ๙ */
+#define ANGKHANHU           0xFA    /* อังคั่น */
+#define KHOMUT              0xFB    /* โคมูตร */
 
-#define PaiYarnnoy  (unsigned char) 0xCF    /*  ฯ   */
-#define SaraAh      (unsigned char) 0xD0    /*  สระอะ   */
-#define HunAkad     (unsigned char) 0xD1    /*  ไม้หันอากาศ   */
-#define SaraR       (unsigned char) 0xD2    /*  สระอา   */
-#define SaraUm      (unsigned char) 0xD3    /*  สระอำ   */
-#define SaraIe      (unsigned char) 0xD4    /*  สระอิ   */
-#define SaraE       (unsigned char) 0xD5    /*  สระอี   */
-#define SaraUe      (unsigned char) 0xD6    /*  สระอึ   */
-#define SaraUee     (unsigned char) 0xD7    /*  สระอือ  */
-#define SaraU       (unsigned char) 0xD8    /*  สระอุ   */
-#define SaraUU      (unsigned char) 0xD9    /*  สระอู   */
-#define ThaiDot     (unsigned char) 0xDA    /*      */
-#define SaraA       (unsigned char) 0xE0    /*  สระเอ   */
-#define SaraAir     (unsigned char) 0xE1    /*  สระแอ   */
-#define SaraO       (unsigned char) 0xE2    /*  สระโอ   */
-#define MaiMuan     (unsigned char) 0xE3    /*  ไม้ม้วน  */
-#define MaiMalai    (unsigned char) 0xE4    /*  ไม้มลาย */
-#define MaiYamok    (unsigned char) 0xE6    /* ไม้ยมก */
-#define MaiTaiKuu   (unsigned char) 0xE7    /*  ไม้ไต่คู้ */
-#define MaiEk       (unsigned char) 0xE8    /*  ไม้เอก   */
-#define MaiToe      (unsigned char) 0xE9    /*  ไม้โท    */
-#define MaiTri      (unsigned char) 0xEA    /*  ไม้ตรี   */
-#define MaiJattawa  (unsigned char) 0xEB    /*  ไม้จัตวา  */
-#define Karan       (unsigned char) 0xEC    /*  การันต์    */
-
-#define _Exclamation    (unsigned char) 0x21    /* ! */
-#define _Dollar     (unsigned char) 0x24    /* $ */
-#define _Percent    (unsigned char) 0x25    /* % */
-#define _OpenParen  (unsigned char) 0x28    /* วงเล็บเปิด*/
-#define _CloseParen (unsigned char) 0x29    /* วงเล็บปิด */
-#define _Hyphen     (unsignec char) 0x2D    /* - */
-#define _FullStop   (unsigned char) 0x2E    /* . */
-
-#define _Colon      (unsigned char) 0x3A
-#define _SemiColon  (unsigned char) 0x3B
-#define _Question   (unsigned char) 0x3F    /* ? */
-#define _LeftBracket    (unsigned char) 0x5B    /* [ */
-#define _RightBracket   (unsigned char) 0x5D    /* ] */
-#define _LeftBrace  (unsigned char) 0x7B    /* { */
-#define _RightBrace (unsigned char) 0x7D    /* } */
-#define _Baht       (unsigned char) 0xDF    /* ฿    */
+/* Allow use of the symbol KARAN inplace of THANTHAKHAT */
+#define KARAN               THANTHAKHAT
 
 # endif _THAI_H

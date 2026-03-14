@@ -25,7 +25,7 @@ unsigned char *MaiMuanRtn(unsigned char *TempIndx)
     /* else, if it is not tonal, it must be consonant */
     switch (*(TempIndxp1))
     {
-        case HorHeeb:
+        case HOHIP:
             if  (findchar(*TempIndxp2,"≠¡≈"))
             {
                 if (isttnl(*TempIndxp3))
@@ -40,8 +40,8 @@ unsigned char *MaiMuanRtn(unsigned char *TempIndx)
                 }
             }
             break;
-        case KoreGai:
-            if (*TempIndxp2 == LoreLing)
+        case KOKAI:
+            if (*TempIndxp2 == LOLING)
             {
                 if(isttnl(*TempIndxp3))
                 {
@@ -55,8 +55,8 @@ unsigned char *MaiMuanRtn(unsigned char *TempIndx)
                 }
             }
             break;
-        case KoreKwai:
-            if (*TempIndxp2 == RoreReo)
+        case KHOKHWAI:
+            if (*TempIndxp2 == RORUA)
             {
                 if(isttnl(*TempIndxp3))
                 {

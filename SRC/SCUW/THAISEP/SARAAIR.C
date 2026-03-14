@@ -3,13 +3,13 @@
 #include "Global.h"
 #include "Routine.h"
 
-/* ------------ SaraAir Rtn ------------ */
+/* ------------ Sara Ae Rtn ------------ */
 /*  Programmer  : Subun Yenjaichon
     Date Written    : Wednesday, 11 May, 1988 4:02:08 PM
     Last Updated    : Saturday, 14 May, 1988 9:39:42 AM
 */
 
-unsigned char *SaraAirRtn(register unsigned char *TempIndx)
+unsigned char *Sara_AeRtn(register unsigned char *TempIndx)
 {
     register short i;
     unsigned char *TempIndxp1 = TempIndx + 1;
@@ -17,10 +17,10 @@ unsigned char *SaraAirRtn(register unsigned char *TempIndx)
     unsigned char *TempIndxp2 = TempIndx + 2;
     unsigned char *TempIndxm2 = TempIndx - 2;
 
-    short SoreSeoTableLen = 6;    /* 7-1 */
-    static char ToreTaharnWd[] = "∑·¬ß";
-    static char ShoreChangWd[] = "™·«ß";
-    static char *SoreSeoTable[] =  {" ·≈Á§ Ï", " ·§«√Ï", " ·µπ¥", " ·°π‡πÕ√Ï",
+    short SoSuaTableLen = 6;    /* 7-1 */
+    static char ThoThaHanWd[] = "∑·¬ß";
+    static char ChoChangWd[] = "™·«ß";
+    static char *SoSuaTable[] =  {" ·≈Á§ Ï", " ·§«√Ï", " ·µπ¥", " ·°π‡πÕ√Ï",
         " ·°π¥‘", " ·πÁ§", " ·≈ß"};
 
     if (TempIndxp1 <= RightMargin && findchar(*(TempIndxp2), "¢®≠∞∂¿Õ"))
@@ -39,33 +39,33 @@ unsigned char *SaraAirRtn(register unsigned char *TempIndx)
     /* check exception words */
     switch (*TempIndxm1)
     {
-        case ShoreChang:
-            if (!(nstrcmp(ShoreChangWd, TempIndxm1))) /* if same return zero */
+        case CHOCHANG:
+            if (!(nstrcmp(ChoChangWd, TempIndxm1))) /* if same return zero */
             {
                 /* cut before consonant */
                 return(TempIndxm2);
             }
-            /* cut before SaraAir */
+            /* cut before Sara Ae */
             return(TempIndxm1);
-        case ToreTaharn:
-            if (!(nstrcmp(ToreTaharnWd,TempIndxm1)))
+        case THOTHAHAN:
+            if (!(nstrcmp(ThoThaHanWd,TempIndxm1)))
             {
                 /* cut before consonant */
                 return(TempIndxm2);
             }
             return(TempIndxm1);
-        case SoreSeo:
-            for (i = 0; i <= SoreSeoTableLen; ++i)
+        case SOSUA:
+            for (i = 0; i <= SoSuaTableLen; ++i)
             {
-                if (!(nstrcmp(SoreSeoTable[i], TempIndxm1)))
+                if (!(nstrcmp(SoSuaTable[i], TempIndxm1)))
                 {
                     /* cut before consonant */
                     return(TempIndxm2);
                 }
             }
-            /* cut before SaraAir */
+            /* cut before Sara Ae */
             return(TempIndxm1);
     }
-    /* cut before SaraAir */
+    /* cut before Sara Ae */
     return(TempIndxm1);
 }

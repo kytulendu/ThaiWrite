@@ -16,9 +16,9 @@ Last Update  : Monday, 9 May, 1988 2:19:20 PM
 
 unsigned char *CheckOther(unsigned char *TempIndx);
 
-unsigned char *MaiTaiKuuRtn(unsigned char *TempIndx)
+unsigned char *MaiTaiKhuRtn(unsigned char *TempIndx)
 {
-    if (*(TempIndx + 1) == OrAng)
+    if (*(TempIndx + 1) == OANG)
     {
         if (TempIndx + 2 <= RightMargin)
         {
@@ -31,9 +31,9 @@ unsigned char *MaiTaiKuuRtn(unsigned char *TempIndx)
     }
     else
     {
-        if (*(TempIndx - 1) == KoreGai)
+        if (*(TempIndx - 1) == KOKAI)
         {
-            if (*(TempIndx - 2) == SaraA || *(TempIndx - 2) == SaraAir)
+            if (*(TempIndx - 2) == SARA_E || *(TempIndx - 2) == SARA_AE)
             {
                 if ((TempIndx + 2) <= RightMargin)
                 {
@@ -51,10 +51,10 @@ unsigned char *MaiTaiKuuRtn(unsigned char *TempIndx)
         }
         else
         {
-            if (*(TempIndx - 2) == SaraA || *(TempIndx - 2) == SaraAir
-              || *(TempIndx - 3) == SaraA || *(TempIndx - 3) == SaraAir)
+            if (*(TempIndx - 2) == SARA_E || *(TempIndx - 2) == SARA_AE
+              || *(TempIndx - 3) == SARA_E || *(TempIndx - 3) == SARA_AE)
             {
-                if (*(TempIndx + 3) == Karan)
+                if (*(TempIndx + 3) == KARAN)
                 {
                     if ((TempIndx + 3) <= RightMargin)
                     {
@@ -73,7 +73,7 @@ unsigned char *MaiTaiKuuRtn(unsigned char *TempIndx)
                     }
                     else
                     {
-                        if (*(TempIndx - 2) == SaraA || *(TempIndx - 2) == SaraAir)
+                        if (*(TempIndx - 2) == SARA_E || *(TempIndx - 2) == SARA_AE)
                         {
                             return(TempIndx - 3);
                         }
@@ -92,53 +92,53 @@ unsigned char *MaiTaiKuuRtn(unsigned char *TempIndx)
     }
 }
 
-unsigned char *SaraUURtn(unsigned char *TempIndx)
+unsigned char *Sara_UuRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 1) <= EndOfText)
     {
         switch (*(TempIndx + 1))
         {
-            case ToreTao:
-                if (!(*(TempIndx - 1) == PoreSumpao ||
-                    *(TempIndx - 1) == ToreTaharn ||
-                    *(TempIndx - 1) == SoreSeo))
+            case TOTAO:
+                if (!(*(TempIndx - 1) == PHOSAMPHAO ||
+                    *(TempIndx - 1) == THOTHAHAN ||
+                    *(TempIndx - 1) == SOSUA))
                 {
                     return(TempIndx);
                 }
                 break;
-            case PorePla:
-                if (!(*(TempIndx - 1) == RoreReo ||
-                    *(TempIndx - 1) == ToreTong ||
-                    *(TempIndx - 1) == ThorToong))
+            case POPLA:
+                if (!(*(TempIndx - 1) == RORUA ||
+                    *(TempIndx - 1) == THOTHONG ||
+                    *(TempIndx - 1) == THOTHUNG))
                 {
                     return(TempIndx);
                 }
                 break;
-            case KorKai:
-            case KoreKwai:
-            case JoreJarn:
-            case ShoreChang:
-            case SoreSoe:
-            case ToreTong:
-            case PoreParn:
-            case PoreSumpao:
-            case YoreYak:
-            case WoreWaan:
-            case ForeFun:
-            case SoreSala:
-            case SoreSeo:
-            case OrAng:
-            case ChorChing:
-            case PorPeng:
-            case ForFa:
-            case HorNokHook:
+            case KHOKHAI:
+            case KHOKHWAI:
+            case CHOCHAN:
+            case CHOCHANG:
+            case SOSO:
+            case THOTHONG:
+            case PHOPHAN:
+            case PHOSAMPHAO:
+            case YOYAK:
+            case WOWAEN:
+            case FOFAN:
+            case SOSALA:
+            case SOSUA:
+            case OANG:
+            case CHOCHING:
+            case PHOPHUNG:
+            case FOFA:
+            case HONOKHUK:
                 return(TempIndx);
-            case MaiToe:
+            case MAITHO:
                 if ((TempIndx + 2) <= EndOfText)
                 {
-                    if (!(*(TempIndx + 2) == DoreDek
-                        || *(TempIndx + 2) == ToreTao
-                        || *(TempIndx + 2) == ForeFun))
+                    if (!(*(TempIndx + 2) == DODEK
+                        || *(TempIndx + 2) == TOTAO
+                        || *(TempIndx + 2) == FOFAN))
                     {
                         if ((TempIndx + 1) <= RightMargin)
                         {
@@ -147,14 +147,14 @@ unsigned char *SaraUURtn(unsigned char *TempIndx)
                     }
                 }
                 break;
-            case MaiTri:
+            case MAITRI:
                 if ((TempIndx + 2) <= EndOfText)
                 {
-                    if (!(*(TempIndx + 2) == DoreDek
-                        || *(TempIndx + 2) == ToreTao
-                        || *(TempIndx + 2) == ToreTaharn
-                        || *(TempIndx + 2) == PorePla
-                        || *(TempIndx + 2) == ForFa))
+                    if (!(*(TempIndx + 2) == DODEK
+                        || *(TempIndx + 2) == TOTAO
+                        || *(TempIndx + 2) == THOTHAHAN
+                        || *(TempIndx + 2) == POPLA
+                        || *(TempIndx + 2) == FOFA))
                     {
                         if ((TempIndx + 1) <= RightMargin)
                         {
@@ -163,8 +163,8 @@ unsigned char *SaraUURtn(unsigned char *TempIndx)
                     }
                 }
                 break;
-            case MaiEk:
-            case MaiJattawa:
+            case MAIEK:
+            case MAICHATTAWA:
                 if ((TempIndx + 1) <= RightMargin)
                 {
                     return(TempIndx + 1);
@@ -177,118 +177,118 @@ unsigned char *SaraUURtn(unsigned char *TempIndx)
     }
     switch (*(TempIndx - 1))
     {
-        case KorKai:
-        case KoreKwai:
-        case KoreRakung:
-        case NgorNgoo:
-        case JoreJarn:
-        case ShoreChang:
-        case SoreSoe:
-        case ShoreKracher:
-        case YoreYing:
-        case DoreChada:
-        case TorePatak:
-        case ToreMontoe:
-        case TorePootao:
-        case ToreTaharn:
-        case ToreTong:
-        case PorePla:
-        case PoreParn:
-        case ForeFun:
-        case PoreSumpao:
-        case SoreSala:
-        case SoreRusi:
-        case LorChula:
-        case OrAng:
-        case ChorChing:
-        case PorPeng:
-        case ForFa:
-        case HorNokHook:
+        case KHOKHAI:
+        case KHOKHWAI:
+        case KHORAKHANG:
+        case NGONGU:
+        case CHOCHAN:
+        case CHOCHANG:
+        case SOSO:
+        case CHOCHOE:
+        case YOYING:
+        case DOCHADA:
+        case TOPATAK:
+        case THONANGMONTHO:
+        case THOPHUTHAO:
+        case THOTHAHAN:
+        case THOTHONG:
+        case POPLA:
+        case PHOPHAN:
+        case FOFAN:
+        case PHOSAMPHAO:
+        case SOSALA:
+        case SORUSI:
+        case LOCHULA:
+        case OANG:
+        case CHOCHING:
+        case PHOPHUNG:
+        case FOFA:
+        case HONOKHUK:
             return(TempIndx - 2);
-        case NoreNoo:
-            if (!(*(TempIndx - 2) == MoreMar
-                || *(TempIndx - 2) == HorHeeb
-                || *(TempIndx - 2) == ToreTong))
+        case NONU:
+            if (!(*(TempIndx - 2) == MOMA
+                || *(TempIndx - 2) == HOHIP
+                || *(TempIndx - 2) == THOTHONG))
             {
                 return(TempIndx - 2);
             }
             break;
-        case RoreReo:
-            if (!(*(TempIndx - 2) == PorePla
-                || *(TempIndx - 2) == HorHeeb
-                || *(TempIndx - 2) == KoreKwai
-                || *(TempIndx - 2) == KoreGai
-                || *(TempIndx - 2) == JoreJarn
-                || *(TempIndx - 2) == ToreTao
-                || *(TempIndx - 2) == PoreParn))
+        case RORUA:
+            if (!(*(TempIndx - 2) == POPLA
+                || *(TempIndx - 2) == HOHIP
+                || *(TempIndx - 2) == KHOKHWAI
+                || *(TempIndx - 2) == KOKAI
+                || *(TempIndx - 2) == CHOCHAN
+                || *(TempIndx - 2) == TOTAO
+                || *(TempIndx - 2) == PHOPHAN))
             {
                 return(TempIndx - 2);
             }
             break;
-        case MoreMar:
-            if (!(*(TempIndx - 2) == HorHeeb || *(TempIndx - 2) == JoreJarn))
+        case MOMA:
+            if (!(*(TempIndx - 2) == HOHIP || *(TempIndx - 2) == CHOCHAN))
             {
                 return(TempIndx - 2);
             }
             break;
-        case YoreYak:
-            if (!(*(TempIndx - 2) == OrAng || *(TempIndx - 2) == HorHeeb))
+        case YOYAK:
+            if (!(*(TempIndx - 2) == OANG || *(TempIndx - 2) == HOHIP))
             {
                 return(TempIndx - 2);
             }
             break;
-        case WoreWaan:
-            if (*(TempIndx - 2) != HorHeeb)
+        case WOWAEN:
+            if (*(TempIndx - 2) != HOHIP)
             {
                 return(TempIndx - 2);
             }
             break;
-        case LoreLing:
-            if (!(*(TempIndx - 2) == PorePla
-                || *(TempIndx - 2) == HorHeeb
-                || *(TempIndx - 2) == OrAng
-                || *(TempIndx - 2) == ForeFun
-                || *(TempIndx - 2) == PoreParn
-                || *(TempIndx - 2) == ShoreChang
-                || *(TempIndx - 2) == KoreGai
-                || *(TempIndx - 2) == PorPeng
-                || *(TempIndx - 2) == ChorChing))
+        case LOLING:
+            if (!(*(TempIndx - 2) == POPLA
+                || *(TempIndx - 2) == HOHIP
+                || *(TempIndx - 2) == OANG
+                || *(TempIndx - 2) == FOFAN
+                || *(TempIndx - 2) == PHOPHAN
+                || *(TempIndx - 2) == CHOCHANG
+                || *(TempIndx - 2) == KOKAI
+                || *(TempIndx - 2) == PHOPHUNG
+                || *(TempIndx - 2) == CHOCHING))
             {
                 return(TempIndx - 2);
             }
             break;
-        case ToreTao:
-            if (*(TempIndx - 2) != SoreSeo)
+        case TOTAO:
+            if (*(TempIndx - 2) != SOSUA)
             {
                 return(TempIndx - 2);
             }
             break;
-        case HorHeeb:
-            if (*(TempIndx - 2) != PoreParn)
+        case HOHIP:
+            if (*(TempIndx - 2) != PHOPHAN)
             {
                 return(TempIndx - 2);
             }
             break;
-        case BoreBaimai:
-            if (*(TempIndx - 2) != SoreSeo)
+        case BOBAIMAI:
+            if (*(TempIndx - 2) != SOSUA)
             {
                 return(TempIndx - 2);
             }
             break;
-        case NoreNane:
-            if (*(TempIndx - 2) != OrAng)
+        case NONEN:
+            if (*(TempIndx - 2) != OANG)
             {
                 return(TempIndx - 2);
             }
             break;
-        case KoreGai:
-            if (*(TempIndx - 2) != SoreSeo)
+        case KOKAI:
+            if (*(TempIndx - 2) != SOSUA)
             {
                 return(TempIndx - 2);
             }
             break;
-        case DoreDek:
-            if (*(TempIndx - 2) == RoreRu)
+        case DODEK:
+            if (*(TempIndx - 2) == RU)
             {
                 return(TempIndx - 3);
             }
@@ -296,14 +296,14 @@ unsigned char *SaraUURtn(unsigned char *TempIndx)
             {
                 return(TempIndx - 2);
             }
-        case SoreSeo:
-            if (!(*(TempIndx - 2) == OrAng))
+        case SOSUA:
+            if (!(*(TempIndx - 2) == OANG))
             {
                 return(TempIndx - 2);
             }
             break;
-        case ThorToong:
-            if (*(TempIndx - 2) != SoreSeo)
+        case THOTHUNG:
+            if (*(TempIndx - 2) != SOSUA)
             {
                 return(TempIndx - 2);
             }
@@ -312,7 +312,7 @@ unsigned char *SaraUURtn(unsigned char *TempIndx)
     return(FAIL);
 }
 
-unsigned char *SaraERtn(unsigned char *TempIndx)
+unsigned char *Sara_IIRtn(unsigned char *TempIndx)
 {
     unsigned char *charPtr;
 
@@ -320,129 +320,129 @@ unsigned char *SaraERtn(unsigned char *TempIndx)
     {
         switch (*(TempIndx + 1))
         {
-            case SoreSoe:
-                if (*(TempIndx - 1) != RoreReo)
+            case SOSO:
+                if (*(TempIndx - 1) != RORUA)
                 {
                     return(TempIndx);
                 }
                 break;
-            case ForeFun:
-                if (*(TempIndx - 1) != OrAng)
+            case FOFAN:
+                if (*(TempIndx - 1) != OANG)
                 {
                     return(TempIndx);
                 }
                 break;
-            case HorHeeb:
-                if (*(TempIndx - 1) != SoreSeo)
+            case HOHIP:
+                if (*(TempIndx - 1) != SOSUA)
                 {
                     return(TempIndx);
                 }
                 break;
-            case KoreKwai:
-                if (!(*(TempIndx - 1) == LoreLing
-                    || *(TempIndx - 1) == WoreWaan))
+            case KHOKHWAI:
+                if (!(*(TempIndx - 1) == LOLING
+                    || *(TempIndx - 1) == WOWAEN))
                 {
                     return(TempIndx);
                 }
                 break;
-            case SoreSeo:
-                if (!(*(TempIndx - 1) == YoreYak
-                    || *(TempIndx - 1) == ToreTong
-                    || *(TempIndx - 1) == OrAng))
+            case SOSUA:
+                if (!(*(TempIndx - 1) == YOYAK
+                    || *(TempIndx - 1) == THOTHONG
+                    || *(TempIndx - 1) == OANG))
                 {
                     return(TempIndx);
                 }
                 break;
-            case ShoreChang:
-                if (*(TempIndx - 1) != PoreParn)
+            case CHOCHANG:
+                if (*(TempIndx - 1) != PHOPHAN)
                 {
                     return(TempIndx);
                 }
                 break;
-            case LoreLing:
-                if (!(*(TempIndx -1) == NoreNoo
-                    || *(TempIndx - 1) == ForeFun
-                    || *(TempIndx - 1) == ToreTong
-                    || *(TempIndx - 1) == SoreSala))
+            case LOLING:
+                if (!(*(TempIndx -1) == NONU
+                    || *(TempIndx - 1) == FOFAN
+                    || *(TempIndx - 1) == THOTHONG
+                    || *(TempIndx - 1) == SOSALA))
                 {
                     return(TempIndx);
                 }
                 break;
-            case KoreRakung:
-                if (*(TempIndx - 1) != ToreTaharn)
+            case KHORAKHANG:
+                if (*(TempIndx - 1) != THOTHAHAN)
                 {
                     return(TempIndx);
                 }
                 break;
-            case WoreWaan:
-            case PoreParn:
-                if (*(TempIndx - 1) != ShoreChang)
+            case WOWAEN:
+            case PHOPHAN:
+                if (*(TempIndx - 1) != CHOCHANG)
                 {
                     return(TempIndx);
                 }
                 break;
-            case KoreGai:
-                if (!(*(TempIndx - 1) == ChorChing
-                    || *(TempIndx - 1) == SoreSoe
-                    || *(TempIndx - 1) == PorePla
-                    || *(TempIndx - 1) == OrAng))
+            case KOKAI:
+                if (!(*(TempIndx - 1) == CHOCHING
+                    || *(TempIndx - 1) == SOSO
+                    || *(TempIndx - 1) == POPLA
+                    || *(TempIndx - 1) == OANG))
                 {
                     return(TempIndx);
                 }
                 break;
-            case MoreMar:
-                if (!(*(TempIndx - 1) == KoreKwai
-                    || *(TempIndx - 1) == ToreTaharn
-                    || *(TempIndx - 1) == RoreReo))
+            case MOMA:
+                if (!(*(TempIndx - 1) == KHOKHWAI
+                    || *(TempIndx - 1) == THOTHAHAN
+                    || *(TempIndx - 1) == RORUA))
                 {
                     return(TempIndx);
                 }
                 break;
-            case ToreTao:
-                if (!(*(TempIndx - 1) == KoreKwai
-                    || *(TempIndx - 1) == NoreNane
-                    || *(TempIndx - 1) == RoreReo))
+            case TOTAO:
+                if (!(*(TempIndx - 1) == KHOKHWAI
+                    || *(TempIndx - 1) == NONEN
+                    || *(TempIndx - 1) == RORUA))
                 {
                     return(TempIndx);
                 }
                 break;
-            case PorePla:
-                if (!(*(TempIndx - 1) == KorKai
-                    || *(TempIndx - 1) == ToreTaharn
-                    || *(TempIndx - 1) == WoreWaan))
+            case POPLA:
+                if (!(*(TempIndx - 1) == KHOKHAI
+                    || *(TempIndx - 1) == THOTHAHAN
+                    || *(TempIndx - 1) == WOWAEN))
                 {
                     return(TempIndx);
                 }
                 break;
-            case DoreDek:
+            case DODEK:
                 switch (*(TempIndx - 1))
                 {
-                    case RoreReo:
-                        if (!(*(TempIndx - 2) == KoreGai || *(TempIndx - 2) == HorHeeb))
+                    case RORUA:
+                        if (!(*(TempIndx - 2) == KOKAI || *(TempIndx - 2) == HOHIP))
                         {
                             return(TempIndx - 2);
                         }
                         break;
-                    case WoreWaan:
-                        if (*(TempIndx - 2) != HorHeeb)
+                    case WOWAEN:
+                        if (*(TempIndx - 2) != HOHIP)
                         {
                             return(TempIndx - 2);
                         }
                         break;
                 }
-            case NoreNoo:
+            case NONU:
                 switch (*(TempIndx - 1))
                 {
-                    case RoreReo:
-                        if (*(TempIndx - 2) != KoreGai)
+                    case RORUA:
+                        if (*(TempIndx - 2) != KOKAI)
                         {
                             return(TempIndx - 2);
                         }
                         break;
                 }
-            case RoreReo:
+            case RORUA:
                 break;
-            case YoreYak:
+            case YOYAK:
                 charPtr = CheckOther(TempIndx);
                 if (charPtr!=NULL)
                 {
@@ -452,16 +452,16 @@ unsigned char *SaraERtn(unsigned char *TempIndx)
                 {
                     switch (*(TempIndx - 1))
                     {
-                        case RoreReo:
-                            if (!(*(TempIndx - 2) == ToreTao
-                                || *(TempIndx - 2) == PorePla
-                                || *(TempIndx - 2) == HorHeeb))
+                        case RORUA:
+                            if (!(*(TempIndx - 2) == TOTAO
+                                || *(TempIndx - 2) == POPLA
+                                || *(TempIndx - 2) == HOHIP))
                             {
                                 return(TempIndx - 2);
                             }
                             break;
-                        case NoreNoo:
-                            if (!(*(TempIndx - 1) == SoreSeo))
+                        case NONU:
+                            if (!(*(TempIndx - 1) == SOSUA))
                             {
                                 return(TempIndx - 2);
                             }
@@ -469,26 +469,26 @@ unsigned char *SaraERtn(unsigned char *TempIndx)
                     }
                 }
                 break;
-            case BoreBaimai:
+            case BOBAIMAI:
                 switch (*(TempIndx - 1))
                 {
-                    case LoreLing:
-                        if (*(TempIndx - 2) != KoreGai)
+                    case LOLING:
+                        if (*(TempIndx - 2) != KOKAI)
                         {
                             return(TempIndx - 2);
                         }
                         break;
-                    case RoreReo:
-                        if (*(TempIndx - 2) != KoreKwai)
+                    case RORUA:
+                        if (*(TempIndx - 2) != KHOKHWAI)
                         {
                             return(TempIndx - 2);
                         }
                         break;
                 }
-            case MaiTri:
+            case MAITRI:
                 if ((TempIndx + 2) <= RightMargin)
                 {
-                    if (*(TempIndx + 2) != YoreYak)
+                    if (*(TempIndx + 2) != YOYAK)
                     {
                         return(FAIL);
                     }
@@ -498,12 +498,12 @@ unsigned char *SaraERtn(unsigned char *TempIndx)
                     }
                 }
                 break;
-            case MaiEk:
-            case MaiToe:
-            case MaiJattawa:
+            case MAIEK:
+            case MAITHO:
+            case MAICHATTAWA:
                 if ((TempIndx + 2) <= RightMargin)
                 {
-                    if (*(TempIndx + 2) != YoreYak)
+                    if (*(TempIndx + 2) != YOYAK)
                     {
                         return(TempIndx + 1);
                     }
@@ -519,62 +519,62 @@ unsigned char *SaraERtn(unsigned char *TempIndx)
     }
     switch (*(TempIndx - 1))
     {
-        case KorKai:
-        case KoreKwai:
-        case KoreRakung:
-        case NgorNgoo:
-        case ShoreChang:
-        case SoreSoe:
-        case ShoreKracher:
-        case YoreYing:
-        case DoreChada:
-        case TorePatak:
-        case ThorSantan:
-        case TorePootao:
-        case ToreTao:
-        case ThorToong:
-        case ToreTaharn:
-        case ToreTong:
-        case PorePla:
-        case ForeFun:
-        case PoreSumpao:
-        case SoreSala:
-        case SoreRusi:
-        case SoreSeo:
-        case LorChula:
-        case OrAng:
-        case ChorChing:
-        case PorPeng:
-        case ForFa:
-        case HorNokHook:
+        case KHOKHAI:
+        case KHOKHWAI:
+        case KHORAKHANG:
+        case NGONGU:
+        case CHOCHANG:
+        case SOSO:
+        case CHOCHOE:
+        case YOYING:
+        case DOCHADA:
+        case TOPATAK:
+        case THOTHAN:
+        case THOPHUTHAO:
+        case TOTAO:
+        case THOTHUNG:
+        case THOTHAHAN:
+        case THOTHONG:
+        case POPLA:
+        case FOFAN:
+        case PHOSAMPHAO:
+        case SOSALA:
+        case SORUSI:
+        case SOSUA:
+        case LOCHULA:
+        case OANG:
+        case CHOCHING:
+        case PHOPHUNG:
+        case FOFA:
+        case HONOKHUK:
             return(TempIndx - 2);
-        case KoreGai:
-            if (*(TempIndx - 2) != SoreSeo)
+        case KOKAI:
+            if (*(TempIndx - 2) != SOSUA)
             {
                 return(TempIndx - 2);
             }
             break;
-        case JoreJarn:
-            if (!(*(TempIndx - 2) == KorKai || *(TempIndx - 2) == WoreWaan))
+        case CHOCHAN:
+            if (!(*(TempIndx - 2) == KHOKHAI || *(TempIndx - 2) == WOWAEN))
             {
                 return(TempIndx - 2);
             }
             break;
-        case YoreYak:
-        case NoreNoo:
-            if (*(TempIndx - 2) != HorHeeb)
+        case YOYAK:
+        case NONU:
+            if (*(TempIndx - 2) != HOHIP)
             {
                 return(TempIndx - 2);
             }
             break;
-        case MoreMar:
-            if (!(*(TempIndx - 2) == HorHeeb || *(TempIndx - 2) == SoreSeo))
+        case MOMA:
+            if (!(*(TempIndx - 2) == HOHIP || *(TempIndx - 2) == SOSUA))
             {
                 return(TempIndx - 2);
             }
             break;
-        case PoreParn:
-            if (*(TempIndx - 2) != RoreReo)
+        case PHOPHAN:
+            if (*(TempIndx - 2) != RORUA)
             {
                 return(TempIndx - 2);
             }
@@ -585,52 +585,52 @@ unsigned char *SaraERtn(unsigned char *TempIndx)
 
 unsigned char *CheckOther(unsigned char *TempIndx)
 {
-    unsigned char *SaraErEkRtn();
-    unsigned char *SaraErToeRtn();
-    unsigned char *SaraErRtn();
-    unsigned char *SaraAEEkRtn();
-    unsigned char *SaraAEToeRtn();
-    unsigned char *SaraAETriRtn();
-    unsigned char *SaraAEJatRtn();
-    unsigned char *SaraAERtn();
+    unsigned char *Sara_IIrEkRtn();
+    unsigned char *Sara_IIrToeRtn();
+    unsigned char *Sara_IIrRtn();
+    unsigned char *Sara_EEEkRtn();
+    unsigned char *Sara_EEToeRtn();
+    unsigned char *Sara_EETriRtn();
+    unsigned char *Sara_EEJatRtn();
+    unsigned char *Sara_EERtn();
 
-    if (*(TempIndx - 3) == SaraA)
+    if (*(TempIndx - 3) == SARA_E)
     {
         switch (*(TempIndx + 1))
         {
-            case MaiEk:
-                return(SaraErEkRtn(TempIndx));
-            case MaiToe:
-                return(SaraErToeRtn(TempIndx));
-            case YoreYak:
-                return(SaraErRtn(TempIndx));
+            case MAIEK:
+                return(Sara_IIrEkRtn(TempIndx));
+            case MAITHO:
+                return(Sara_IIrToeRtn(TempIndx));
+            case YOYAK:
+                return(Sara_IIrRtn(TempIndx));
         }
     }
     else
     {
-        if (*(TempIndx - 2) == SaraA)
+        if (*(TempIndx - 2) == SARA_E)
         {
             switch (*(TempIndx + 1))
             {
-                case MaiEk:
-                    return(SaraAEEkRtn(TempIndx));
-                case MaiToe:
-                    return(SaraAEToeRtn(TempIndx));
-                case MaiTri:
-                    return(SaraAETriRtn(TempIndx));
-                case MaiJattawa:
-                    return(SaraAEJatRtn(TempIndx));
-                case YoreYak:
-                    return(SaraAERtn(TempIndx));
+                case MAIEK:
+                    return(Sara_EEEkRtn(TempIndx));
+                case MAITHO:
+                    return(Sara_EEToeRtn(TempIndx));
+                case MAITRI:
+                    return(Sara_EETriRtn(TempIndx));
+                case MAICHATTAWA:
+                    return(Sara_EEJatRtn(TempIndx));
+                case YOYAK:
+                    return(Sara_EERtn(TempIndx));
             }
         }
         else
         {
             switch (*(TempIndx + 1))
             {
-                case MaiEk:
-                case MaiToe:
-                case MaiJattawa:
+                case MAIEK:
+                case MAITHO:
+                case MAICHATTAWA:
                     return(TempIndx + 1);
                 default:
                     return(FAIL);
@@ -639,7 +639,7 @@ unsigned char *CheckOther(unsigned char *TempIndx)
     }
 }
 
-unsigned char *SaraAEEkRtn(unsigned char *TempIndx)
+unsigned char *Sara_EEEkRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
@@ -647,15 +647,15 @@ unsigned char *SaraAEEkRtn(unsigned char *TempIndx)
         {
             switch (*(TempIndx + 3))
             {
-                case NgorNgoo:
-                case WoreWaan:
-                case NoreNoo:
-                case MoreMar:
-                    if (!(*(TempIndx - 1) == KorKai
-                        || *(TempIndx - 1) == ToreTao
-                        || *(TempIndx - 1) == RoreReo
-                        || *(TempIndx - 1) == SoreSeo
-                        || *(TempIndx - 1) == HorHeeb))
+                case NGONGU:
+                case WOWAEN:
+                case NONU:
+                case MOMA:
+                    if (!(*(TempIndx - 1) == KHOKHAI
+                        || *(TempIndx - 1) == TOTAO
+                        || *(TempIndx - 1) == RORUA
+                        || *(TempIndx - 1) == SOSUA
+                        || *(TempIndx - 1) == HOHIP))
                     {
                         return(TempIndx + 3);
                     }
@@ -668,21 +668,21 @@ unsigned char *SaraAEEkRtn(unsigned char *TempIndx)
     return(TempIndx - 3);
 }
 
-unsigned char *SaraAEToeRtn(unsigned char *TempIndx)
+unsigned char *Sara_EEToeRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
-        if (*(TempIndx + 3) == NgorNgoo
-            || *(TempIndx + 3) == MoreMar
-            || *(TempIndx + 3) == NoreNoo
-            || *(TempIndx + 3) == WoreWaan
-            || *(TempIndx + 3) == DoreDek)
+        if (*(TempIndx + 3) == NGONGU
+            || *(TempIndx + 3) == MOMA
+            || *(TempIndx + 3) == NONU
+            || *(TempIndx + 3) == WOWAEN
+            || *(TempIndx + 3) == DODEK)
         {
             if ((TempIndx + 3) <= RightMargin)
             {
-                if (*(TempIndx - 1) == ToreTao
-                    || *(TempIndx - 1) == PorePla
-                    || *(TempIndx - 1) == HorHeeb)
+                if (*(TempIndx - 1) == TOTAO
+                    || *(TempIndx - 1) == POPLA
+                    || *(TempIndx - 1) == HOHIP)
                 {
                     return(TempIndx - 3);
                 }
@@ -707,7 +707,7 @@ unsigned char *SaraAEToeRtn(unsigned char *TempIndx)
     }
 }
 
-unsigned char *SaraAETriRtn(unsigned char *TempIndx)
+unsigned char *Sara_EETriRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 3) <= RightMargin)
     {
@@ -719,11 +719,11 @@ unsigned char *SaraAETriRtn(unsigned char *TempIndx)
     }
 }
 
-unsigned char *SaraAEJatRtn(unsigned char *TempIndx)
+unsigned char *Sara_EEJatRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 3) <= RightMargin)
     {
-        if (*(TempIndx - 1) != KoreGai)
+        if (*(TempIndx - 1) != KOKAI)
         {
             return(TempIndx + 3);
         }
@@ -731,34 +731,34 @@ unsigned char *SaraAEJatRtn(unsigned char *TempIndx)
     return(TempIndx - 3);
 }
 
-unsigned char *SaraAERtn(unsigned char *TempIndx)
+unsigned char *Sara_EERtn(unsigned char *TempIndx)
 {
     if (TempIndx + 1 <= RightMargin)
     {
         switch (*(TempIndx + 2))
         {
-            case KoreGai:
-                if (!(*(TempIndx - 1) == KoreGai
-                    || *(TempIndx - 1) == PorePla
-                    || *(TempIndx - 1) == RoreReo))
+            case KOKAI:
+                if (!(*(TempIndx - 1) == KOKAI
+                    || *(TempIndx - 1) == POPLA
+                    || *(TempIndx - 1) == RORUA))
                 {
                     return(TempIndx + 1);
                 }
                 break;
-            case JoreJarn:
-                if (*(TempIndx - 1) != KoreGai)
+            case CHOCHAN:
+                if (*(TempIndx - 1) != KOKAI)
                 {
                     return(TempIndx + 1);
                 }
                 break;
-            case NgorNgoo:
-            case BoreBaimai:
-            case DoreDek:
-            case NoreNoo:
-            case MoreMar:
-            case RoreReo:
-            case WoreWaan:
-            case YoreYing:
+            case NGONGU:
+            case BOBAIMAI:
+            case DODEK:
+            case NONU:
+            case MOMA:
+            case RORUA:
+            case WOWAEN:
+            case YOYING:
                 break;
             default:
                 return(TempIndx + 1);
@@ -767,17 +767,17 @@ unsigned char *SaraAERtn(unsigned char *TempIndx)
     return(TempIndx - 3);
 }
 
-unsigned char *SaraErEkRtn(unsigned char *TempIndx)
+unsigned char *Sara_IIrEkRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 3) <= RightMargin)
     {
-        if (*(TempIndx + 3) == NgorNgoo
-            || *(TempIndx + 3) == NoreNoo
-            || *(TempIndx + 3) == MoreMar
-            || *(TempIndx + 3) == WoreWaan)
+        if (*(TempIndx + 3) == NGONGU
+            || *(TempIndx + 3) == NONU
+            || *(TempIndx + 3) == MOMA
+            || *(TempIndx + 3) == WOWAEN)
         {
-            if (!((*(TempIndx - 1) == LoreLing && *(TempIndx - 2)==ChorChing)
-                || (*(TempIndx - 1) == LoreLing && *(TempIndx - 2) == KoreGai)))
+            if (!((*(TempIndx - 1) == LOLING && *(TempIndx - 2) == CHOCHING)
+                || (*(TempIndx - 1) == LOLING && *(TempIndx - 2) == KOKAI)))
             {
                 return(TempIndx + 3);
             }
@@ -786,17 +786,17 @@ unsigned char *SaraErEkRtn(unsigned char *TempIndx)
     return(FAIL);
 }
 
-unsigned char *SaraErToeRtn(unsigned char *TempIndx)
+unsigned char *Sara_IIrToeRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
-        if (*(TempIndx + 3) == NgorNgoo || *(TempIndx + 3) == WoreWaan)
+        if (*(TempIndx + 3) == NGONGU || *(TempIndx + 3) == WOWAEN)
         {
-            if (*(TempIndx - 1) == LoreLing)
+            if (*(TempIndx - 1) == LOLING)
             {
-                if (!(*(TempIndx - 2) == KoreGai
-                    || *(TempIndx - 2) == PorePla
-                    || *(TempIndx - 2) == PoreParn))
+                if (!(*(TempIndx - 2) == KOKAI
+                    || *(TempIndx - 2) == POPLA
+                    || *(TempIndx - 2) == PHOPHAN))
                 {
                     return(TempIndx + 2);
                 }
@@ -814,24 +814,24 @@ unsigned char *SaraErToeRtn(unsigned char *TempIndx)
     return(FAIL);
 }
 
-unsigned char *SaraErRtn(unsigned char *TempIndx)
+unsigned char *Sara_IIrRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
         switch (*(TempIndx + 2))
         {
-            case Karan:
+            case KARAN:
                 return(TempIndx + 2);
-            case KoreGai:
-            case NgorNgoo:
-            case NoreNoo:
-            case BoreBaimai:
-            case MoreMar:
-            case WoreWaan:
-            case KoreKwai:
-            case YoreYing:
-            case RoreReo:
-                if (!(*(TempIndx - 1) == LoreLing && *(TempIndx - 2) == PoreParn))
+            case KOKAI:
+            case NGONGU:
+            case NONU:
+            case BOBAIMAI:
+            case MOMA:
+            case WOWAEN:
+            case KHOKHWAI:
+            case YOYING:
+            case RORUA:
+                if (!(*(TempIndx - 1) == LOLING && *(TempIndx - 2) == PHOPHAN))
                 {
                     return(TempIndx + 2);
                 }

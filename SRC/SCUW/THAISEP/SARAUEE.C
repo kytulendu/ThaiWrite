@@ -12,9 +12,9 @@
 
 unsigned char *Ueer1(), *Ueer2(), *Ueer3(), *Ueer4();
 unsigned char *Ueer5(), *Ueer6();
-unsigned char *SaraUeeFC();
+unsigned char *Sara_UeeFC();
 
-unsigned char *SaraUeeRtn(register unsigned char *TempIndx)
+unsigned char *Sara_UeeRtn(register unsigned char *TempIndx)
 {
 /*
     if (findchar(*(TempIndx + 1), "ฌฑภห"))
@@ -25,7 +25,7 @@ unsigned char *SaraUeeRtn(register unsigned char *TempIndx)
 
     if (isttnl(*(TempIndx + 1)))
     {
-        if (*(TempIndx + 2) != OrAng)
+        if (*(TempIndx + 2) != OANG)
         {
             if (TempIndx + 2 <= RightMargin)
             {
@@ -33,21 +33,21 @@ unsigned char *SaraUeeRtn(register unsigned char *TempIndx)
 /*              return((TempIndx + 2 <= RightMargin) ? (TempIndx + 2) : FAIL); */
             }
         }
-        else if (*(TempIndx - 3) == SaraA)  /* *(TempIndx+2) == OrAng */
+        else if (*(TempIndx - 3) == SARA_E)  /* *(TempIndx+2) == OANG */
         {
             switch(*(TempIndx + 1))
             {
-                case MaiEk:     return(Ueer1(TempIndx)); /* เ--ื่อ */
-                case MaiToe:    return(Ueer2(TempIndx)); /* เ--ื้อ */
+                case MAIEK:     return(Ueer1(TempIndx)); /* เ--ื่อ */
+                case MAITHO:    return(Ueer2(TempIndx)); /* เ--ื้อ */
                 default:        return(TempIndx - 4);
             }
         }
-        else if (*(TempIndx - 2) == SaraA)
+        else if (*(TempIndx - 2) == SARA_E)
         {
             switch(*(TempIndx + 1))
             {
-                case MaiEk:     return(Ueer3(TempIndx)); /* เ-ื่อ */
-                case MaiToe:    return(Ueer4(TempIndx)); /* เ-ื้อ */
+                case MAIEK:     return(Ueer3(TempIndx)); /* เ-ื่อ */
+                case MAITHO:    return(Ueer4(TempIndx)); /* เ-ื้อ */
                 default:        return(TempIndx - 3);
             }
         }
@@ -57,19 +57,19 @@ unsigned char *SaraUeeRtn(register unsigned char *TempIndx)
         }
         else
         {
-            return(SaraUeeFC(TempIndx));
+            return(Sara_UeeFC(TempIndx));
 /*            return((TempIndx + 2 <= RightMargin) ? TempIndx + 2 : FAIL); */
         }
     }
     else
     {
-        if (*(TempIndx + 1) == OrAng)
+        if (*(TempIndx + 1) == OANG)
         {
-            if (*(TempIndx - 3) == SaraA)
+            if (*(TempIndx - 3) == SARA_E)
             {
                 return (Ueer5(TempIndx));   /* เ--ือ */
             }
-            else if (*(TempIndx - 2) == SaraA)
+            else if (*(TempIndx - 2) == SARA_E)
             {
                 return (Ueer6(TempIndx));   /* เ-ือ */
             }
@@ -89,39 +89,39 @@ unsigned char *SaraUeeRtn(register unsigned char *TempIndx)
     }
     else
     {
-        return(SaraUeeFC(TempIndx));
+        return(Sara_UeeFC(TempIndx));
     }
 
 /*      return((TempIndx + 1 <= RightMargin) ? (TempIndx + 1) : FAIL);  */
 }
 
-unsigned char *SaraUeeFC(unsigned char *TempIndx)
+unsigned char *Sara_UeeFC(unsigned char *TempIndx)
 {
     unsigned char *TempIndxm2 = TempIndx - 2;
 
     switch (*(TempIndx - 1))
     {
-        case NoreNoo:
-        case MoreMar:
-        case WoreWaan:
-            if (*TempIndxm2 != HorHeeb)
+        case NONU:
+        case MOMA:
+        case WOWAEN:
+            if (*TempIndxm2 != HOHIP)
             {
-                /* cut before NoreNoo */
+                /* cut before NoNu */
                 return(TempIndxm2);
             }
             else
             {
-                /* cut before HorHeeb */
+                /* cut before HoHip */
                 return(TempIndx - 3);
             }
             break;
-        case RoreReo:
+        case RORUA:
             if (!findchar(*TempIndxm2, "คปห"))
             {
                 return(TempIndxm2);
             }
             break;
-        case LoreLing:
+        case LOLING:
             if (!findchar(*TempIndxm2, "กคปห"))
             {
                 return(TempIndxm2);
@@ -156,7 +156,7 @@ unsigned char *Ueer2(unsigned char *TempIndx) /* เ--ื้อ */
     {
         if (!nstrcmp("กล", TempIndx - 2))
         {
-            if (*(TempIndx + 3) != NoreNoo)
+            if (*(TempIndx + 3) != NONU)
             {
                 return(TempIndx + 2);
             }

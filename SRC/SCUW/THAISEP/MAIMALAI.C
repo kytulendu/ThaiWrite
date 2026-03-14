@@ -21,7 +21,7 @@ unsigned char *MaiMalaiRtn(register unsigned char *TempIndx)
     /* TAIL CUT RTN. by rule  äc/c  */
     if (TempIndxp1 <= RightMargin && istcon(*(TempIndx + 2)))
     {
-        if (*(TempIndx + 3) == Karan )
+        if (*(TempIndx + 3) == KARAN)
         {
             if(TempIndx + 3 <= RightMargin)
             {
@@ -73,26 +73,26 @@ unsigned char *MaiMalaiFC(unsigned char *TempIndx)
 {
     register short i;
     register unsigned char *TempIndxm1 = TempIndx - 1;
-    short SoreSeoMMLExNum = 5;  /* 6-1 */
-    static unsigned char ShoreChangEx[]= "ªäÁ¾Ã";
-    static unsigned char *SoreSeoMMLExTable[] = {"ÊäµÃê¤ì", "Êä»Ã·ì", "ÊäÅ«ì",
+    short SoSuaMMLExNum = 5;  /* 6-1 */
+    static unsigned char ChoChangEx[]= "ªäÁ¾Ã";
+    static unsigned char *SoSuaMMLExTable[] = {"ÊäµÃê¤ì", "Êä»Ã·ì", "ÊäÅ«ì",
         "Êäº", "ÊäÅ´ì", "ÊäµÅì"};
 
     switch (*(TempIndxm1))
     {
-        case SoreSeo:
-            for (i = 0; i <= SoreSeoMMLExNum; ++i)
+        case SOSUA:
+            for (i = 0; i <= SoSuaMMLExNum; ++i)
             {
                 /* if same cut before consonant */
-                if (!(nstrcmp(SoreSeoMMLExTable[i], TempIndxm1)))
+                if (!(nstrcmp(SoSuaMMLExTable[i], TempIndxm1)))
                 {
                     return(TempIndx - 2);
                 }
             }
             /* cut before MaiMalai */
             return(TempIndxm1);
-        case ShoreChang:
-            if (nstrcmp(ShoreChangEx, TempIndxm1))
+        case CHOCHANG:
+            if (nstrcmp(ChoChangEx, TempIndxm1))
             {
                 /* cut before MaiMalai */
                 return(TempIndxm1);
@@ -102,7 +102,7 @@ unsigned char *MaiMalaiFC(unsigned char *TempIndx)
                 /* cut before leading-consonant */
                 return(TempIndx - 2);
             }
-        /* case MoreMar is Optional: ÁäËÈÇÃÃÉì ÁäËÈÙÃÂì */
+        /* case MoMa is Optional: ÁäËÈÇÃÃÉì ÁäËÈÙÃÂì */
         default:
             /* cut before MaiMalai */
             return(TempIndxm1);

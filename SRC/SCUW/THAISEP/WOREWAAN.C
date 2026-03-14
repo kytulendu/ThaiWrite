@@ -2,7 +2,7 @@
 #include "Global.h"
 #include "TCtype.h"
 
-unsigned char *WoreWaanRtn(register unsigned char *TempIndx)
+unsigned char *WoWaenRtn(register unsigned char *TempIndx)
 {
     register unsigned char *plus1 = TempIndx + 1, *minus3 = TempIndx - 3;
 
@@ -18,17 +18,17 @@ unsigned char *WoreWaanRtn(register unsigned char *TempIndx)
             {
                 switch(*(TempIndx +1))
                 {
-                    case OrAng:
+                    case OANG:
                         return(FAIL);
-                    case RoreReo:
-                        if (*(TempIndx + 2) == RoreReo)
+                    case RORUA:
+                        if (*(TempIndx + 2) == RORUA)
                         {
                             return(FAIL);
                         }
                     default:
                         if (plus1 <= RightMargin)
                         {
-                            if (*(TempIndx + 3) == Karan)
+                            if (*(TempIndx + 3) == KARAN)
                             {
                                 return(FAIL);
                             }

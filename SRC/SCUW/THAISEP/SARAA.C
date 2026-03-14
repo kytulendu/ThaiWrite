@@ -2,36 +2,36 @@
 #include "Global.h"
 #include "Routine.h"
 
-/* ------------ SaraA Rtn ------------ */
+/* ------------ Sara E Rtn ------------ */
 /*  Programmer  : Subun Yenjaichon
     Date Written    : Monday, 16 May, 1988 9:40:59 AM
     Last Updated    : Monday, 16 May, 1988 9:41:26 AM
 */
 
-unsigned char *SaraARtn(unsigned char *TempIndx)
+unsigned char *Sara_ERtn(unsigned char *TempIndx)
 {
     register short i;
     unsigned char *TempIndxm1 = TempIndx -1;
     unsigned char *TempIndxm2 = TempIndx -2 ;
-    short SoreSeoAlen = 17; /* 18-1 */
-    short OrAngAlen = 7;    /* 8-1 */
-    short MoreMarAlen = 2;  /* 3-1 */
-    static unsigned char *SoreSeoTableA[] = {" ‡°‘Í√Ïµ", " ‡ªÕ√Ï¡", " ‡ª‘√Ï¡",
+    short SoSuaAlen = 17; /* 18-1 */
+    short OAngAlen = 7;    /* 8-1 */
+    short MoMaAlen = 2;  /* 3-1 */
+    static unsigned char *SoSuaTableA[] = {" ‡°‘Í√Ïµ", " ‡ªÕ√Ï¡", " ‡ª‘√Ï¡",
         " ‡µ√‘‚Õ", " ‡°Áµ", " ‡ª‚µ", " ‡µ™—Ëπ", " ‡µÁª", " ‡µ¬Ï", " ‡µÁ§",
         " ‡µÁ–", " ‡°≈", " ‡ª°", " ‡ªπ", " ‡µµ", " ‡µ∑", " ‡µπ", " ‡≈π"};
-    static unsigned char *OrAngTableA[] = {"Õ‡π®", "Õ‡π°—µ∂", "Õ‡¡√‘°—π",
+    static unsigned char *OAngTableA[] = {"Õ‡π®", "Õ‡π°—µ∂", "Õ‡¡√‘°—π",
         "Õ‡¡√‘°“", "Õ‡¡‡®Õ√Ï", "Õ‡«®’", "Õ‡ªÀ‘", "Õ‡π∂"};
-    static unsigned char *MoreMarTableA[] = {"¡‡À»—°¥‘Ï", "¡‡À —°¢Ï", "¡‡À ’"};
-    static unsigned char ToreTongAEx[] = "∏‡π»";
-    static unsigned char JoreJarnAEx[] = "®‡√";
-    static unsigned char PoreParnAEx[] = "æ‡π®√";
+    static unsigned char *MoMaTableA[] = {"¡‡À»—°¥‘Ï", "¡‡À —°¢Ï", "¡‡À ’"};
+    static unsigned char ThoThongAEx[] = "∏‡π»";
+    static unsigned char ChoChanAEx[] = "®‡√";
+    static unsigned char PhoPhanAEx[] = "æ‡π®√";
 
     switch (*TempIndxm1)
     {
-        case SoreSeo:
-            for (i = 0; i <= SoreSeoAlen; ++i)
+        case SOSUA:
+            for (i = 0; i <= SoSuaAlen; ++i)
             {
-                if (!(nstrcmp(SoreSeoTableA[i], TempIndxm1)))
+                if (!(nstrcmp(SoSuaTableA[i], TempIndxm1)))
                 {
                     /* found cut before leading-consonant */
                     return(TempIndxm2);
@@ -39,10 +39,10 @@ unsigned char *SaraARtn(unsigned char *TempIndx)
             }
             break;
 
-        case OrAng:
-            for (i = 0; i <= OrAngAlen; ++i)
+        case OANG:
+            for (i = 0; i <= OAngAlen; ++i)
             {
-                if (!(nstrcmp(OrAngTableA[i], TempIndxm1)))
+                if (!(nstrcmp(OAngTableA[i], TempIndxm1)))
                 {
                     /* found cut before leading-consonant */
                     return(TempIndxm2);
@@ -50,10 +50,10 @@ unsigned char *SaraARtn(unsigned char *TempIndx)
             }
             break;
 
-        case MoreMar:
-            for (i = 0; i <= MoreMarAlen; ++i)
+        case MOMA:
+            for (i = 0; i <= MoMaAlen; ++i)
             {
-                if(!(nstrcmp(MoreMarTableA[i], TempIndxm1)))
+                if(!(nstrcmp(MoMaTableA[i], TempIndxm1)))
                 {
                     /* found cut before leading-consonant */
                     return(TempIndxm2);
@@ -61,26 +61,26 @@ unsigned char *SaraARtn(unsigned char *TempIndx)
             }
             break;
 
-        case PoreParn:
-            if (!(nstrcmp(PoreParnAEx, TempIndxm1)))
+        case PHOPHAN:
+            if (!(nstrcmp(PhoPhanAEx, TempIndxm1)))
             {
                 /* found cut before leading-consonant */
                 return(TempIndxm2);
             }
-            /* cut before SaraA */
+            /* cut before Sara E */
             return(TempIndxm1);
             break;
 
-        case ToreTong:
-            if (!(nstrcmp(ToreTongAEx, TempIndxm1)))
+        case THOTHONG:
+            if (!(nstrcmp(ThoThongAEx, TempIndxm1)))
             {
                 /* found cut before leading-consonant */
                 return(TempIndxm2);
             }
             break;
 
-        case JoreJarn:
-            if (!(nstrcmp(JoreJarnAEx, TempIndxm1)))
+        case CHOCHAN:
+            if (!(nstrcmp(ChoChanAEx, TempIndxm1)))
             {
                 /* found cut before leading-consonant */
                 return(TempIndxm2);
@@ -88,9 +88,9 @@ unsigned char *SaraARtn(unsigned char *TempIndx)
             break;
 
         default:
-            /* cut before SaraA */
+            /* cut before Sara E */
             return(TempIndxm1);
     }
-    /* cut before SaraA */
+    /* cut before Sara E */
     return(TempIndxm1);
 }

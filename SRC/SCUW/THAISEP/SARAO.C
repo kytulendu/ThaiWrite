@@ -3,40 +3,40 @@
 #include "Global.h"
 #include "Routine.h"
 
-/* ------------ SaraO Rtn ------------ */
+/* ------------ Sara O Rtn ------------ */
 /*  Programmer  : Subun Yenjaichon
     Date Written    : Wednesday, 11 May, 1988 10:08:10 AM
     Last Updated    : Monday, 16 May, 1988 4:26:17 PM
 */
 
-unsigned char *SaraORtn(register unsigned char *TempIndx)
+unsigned char *Sara_ORtn(register unsigned char *TempIndx)
 {
     register short i;
     unsigned char *TempIndxm1 = TempIndx -1;
-    short SoreSeoTbLen    = 6;      /*7-1*/
-    short OrAngTbLen      = 8;      /*9-1*/
-    short MoreMarTbLen    = 6;      /*7-1*/
-    short NoreNooTbLen    = 1;      /*2-1*/
-    short ShoreChangTbLen = 3;      /*4-1*/
-    static char *SoreSeoTable[] = {"ÊâÅÇì", "Êâ¹Çì", "ÊâµÃì", "ÊâÁÊÃ",
+    short SoSuaTbLen    = 6;      /*7-1*/
+    short OAngTbLen      = 8;      /*9-1*/
+    short MoMaTbLen    = 6;      /*7-1*/
+    short NoNuTbLen    = 1;      /*2-1*/
+    short ChoChangTbLen = 3;      /*4-1*/
+    static char *SoSuaTable[] = {"ÊâÅÇì", "Êâ¹Çì", "ÊâµÃì", "ÊâÁÊÃ",
         "Êâµ¹", "Êâ¤»", "ÊâÅá¡¹"};
-    static char *OrAngTable[] = {"Íâ³·ÑÂ", "ÍâÃ¤ÂÒ", "ÍâËÊÔ", "Íâ¹ªÒ",
+    static char *OAngTable[] = {"Íâ³·ÑÂ", "ÍâÃ¤ÂÒ", "ÍâËÊÔ", "Íâ¹ªÒ",
         "Íâ·ÊĞ", "ÍâÁËĞ", "ÍâÅÀĞ", "ÍâÅËĞ", "ÍâÈ¡"};
-    static char *MoreMarTable[] = {"ÁâËÃĞ·Ö¡", "ÁâËÃÊ¾", "ÁâËÌÒÃ", "ÁâËÃÕ",
+    static char *MoMaTable[] = {"ÁâËÃĞ·Ö¡", "ÁâËÃÊ¾", "ÁâËÌÒÃ", "ÁâËÃÕ",
         "ÁâËÊ¶", "Áâ¹ÀÒ¾", "Áâ¹¸ÃÃÁ"};
-    static char *NoreNooTable[] = {"¹âÂºÒÂ", "¹âÃ´Á"};
-    static char *ShoreChangTable[] = {"ªâÅºÅ", "ªâÅ¸Ã", "ªâÅÁ", "ªâÂ"};
-    static char ToreTaharnWord[] = "·âÁ¹";
-    static char RoreReoWord[] = "ÃâË°Ò¹";
-    static char YoreYakWord[] = "ÂâÊ";
-    static char KorKaiWord[] = "¢âÁÂ";
+    static char *NoNuTable[] = {"¹âÂºÒÂ", "¹âÃ´Á"};
+    static char *ChoChangTable[] = {"ªâÅºÅ", "ªâÅ¸Ã", "ªâÅÁ", "ªâÂ"};
+    static char ThoThaHanWord[] = "·âÁ¹";
+    static char RoRuaWord[] = "ÃâË°Ò¹";
+    static char YoYakWord[] = "ÂâÊ";
+    static char KhoKhaiWord[] = "¢âÁÂ";
 
     switch (*(TempIndxm1))
     {
-        case SoreSeo:           /* ÊâÅÇì Êâ¹Çì ÊâµÃì ÊâÁÊÃ Êâµ¹ Êâ¤» ÊâÅá¡¹*/
-            for (i = 0; i <= SoreSeoTbLen; ++i)
+        case SOSUA:           /* ÊâÅÇì Êâ¹Çì ÊâµÃì ÊâÁÊÃ Êâµ¹ Êâ¤» ÊâÅá¡¹*/
+            for (i = 0; i <= SoSuaTbLen; ++i)
             {
-                if (!(nstrcmp(SoreSeoTable[i], TempIndxm1)))
+                if (!(nstrcmp(SoSuaTable[i], TempIndxm1)))
                 {
                     /* cut before consonant that before Sara O */
                     return(TempIndx - 2);
@@ -46,10 +46,10 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             return(TempIndxm1);
             break;
 
-        case OrAng:         /* Íâ³·ÑÂ ÍâÃ¤ÂÒ ÍâËÊÔ Íâ¹ªÒ Íâ·ÊĞ ÍâÁËĞ ÍâÅÀĞ ÍâÅËĞ ÍâÈ¡*/
-            for (i = 0; i <= OrAngTbLen; ++i)
+        case OANG:         /* Íâ³·ÑÂ ÍâÃ¤ÂÒ ÍâËÊÔ Íâ¹ªÒ Íâ·ÊĞ ÍâÁËĞ ÍâÅÀĞ ÍâÅËĞ ÍâÈ¡*/
+            for (i = 0; i <= OAngTbLen; ++i)
             {
-                if (!(nstrcmp(OrAngTable[i], TempIndxm1)))
+                if (!(nstrcmp(OAngTable[i], TempIndxm1)))
                 {
                     /* cut before consonant that before Sara O */
                     return(TempIndx - 2);
@@ -59,10 +59,10 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             return(TempIndxm1);
             break;
 
-        case MoreMar:       /* ÁâËÃĞ·Ö¡, ÁâËÃÊ¾,ÁâËÌÒÃ,ÁâËÃ,ÁâËÊ¶ */
-            for (i = 0; i <= MoreMarTbLen; ++i)
+        case MOMA:       /* ÁâËÃĞ·Ö¡, ÁâËÃÊ¾,ÁâËÌÒÃ,ÁâËÃ,ÁâËÊ¶ */
+            for (i = 0; i <= MoMaTbLen; ++i)
             {
-                if (!(nstrcmp(MoreMarTable[i], TempIndxm1)))
+                if (!(nstrcmp(MoMaTable[i], TempIndxm1)))
                 {
                     /* cut before consonant that before Sara O */
                     return(TempIndx - 2);
@@ -72,18 +72,18 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             return(TempIndxm1);
             break;
 
-        case NoreNoo:       /* ¹âÂºÒÂ ¹âÃ´Á */
+        case NONU:       /* ¹âÂºÒÂ ¹âÃ´Á */
             if (!(nstrcmp("¹âÁ", TempIndxm1)) && !(istlvwl(*(TempIndx - 2))))
             {
                 if(!(isttnl(*(TempIndx + 2))))
                 {
-                    /* cut before NoreNoo */
+                    /* cut before NoNu */
                     return(TempIndx - 2);
                 }
             }
-            for (i = 0; i <= NoreNooTbLen; ++i)
+            for (i = 0; i <= NoNuTbLen; ++i)
             {
-                if (!(nstrcmp(NoreNooTable[i], TempIndxm1)))
+                if (!(nstrcmp(NoNuTable[i], TempIndxm1)))
                 {
                     /* cut before consonant that before Sara O */
                     return(TempIndx - 2);
@@ -93,10 +93,10 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             return(TempIndxm1);
             break;
 
-        case ShoreChang:        /* ªâÅºÅ ªâÅ¸Ã ªâÅÁ ªâÂ */
-            for (i = 0; i <= ShoreChangTbLen; ++i)
+        case CHOCHANG:        /* ªâÅºÅ ªâÅ¸Ã ªâÅÁ ªâÂ */
+            for (i = 0; i <= ChoChangTbLen; ++i)
             {
-                if (!(nstrcmp(ShoreChangTable[i], TempIndxm1)))
+                if (!(nstrcmp(ChoChangTable[i], TempIndxm1)))
                 {
                     /* cut before consonant that before Sara O */
                     return(TempIndx - 2);
@@ -106,8 +106,8 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             return(TempIndxm1);
             break;
 
-        case ToreTaharn:        /* ·âÁ¹ */
-            if (nstrcmp(ToreTaharnWord, TempIndxm1))
+        case THOTHAHAN:        /* ·âÁ¹ */
+            if (nstrcmp(ThoThaHanWord, TempIndxm1))
             {
                 /* cut before sara O */
                 return(TempIndxm1);
@@ -119,8 +119,8 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             }
             break;
 
-        case RoreReo:           /* ÃâË°Ò¹ */
-            if (nstrcmp(RoreReoWord, TempIndxm1))
+        case RORUA:           /* ÃâË°Ò¹ */
+            if (nstrcmp(RoRuaWord, TempIndxm1))
             {
                 /* cut before sara O */
                 return(TempIndxm1);
@@ -132,8 +132,8 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             }
             break;
 
-        case YoreYak:       /* ÂâÊ */
-            if (nstrcmp(YoreYakWord, TempIndxm1))
+        case YOYAK:       /* ÂâÊ */
+            if (nstrcmp(YoYakWord, TempIndxm1))
             {
                 /* cut before sara O */
                 return(TempIndxm1);
@@ -145,8 +145,8 @@ unsigned char *SaraORtn(register unsigned char *TempIndx)
             }
             break;
 
-        case KorKai:        /* ¢âÁÂ */
-            if (nstrcmp(KorKaiWord, TempIndxm1))
+        case KHOKHAI:        /* ¢âÁÂ */
+            if (nstrcmp(KhoKhaiWord, TempIndxm1))
             {
                 /* cut before sara O */
                 return(TempIndxm1);

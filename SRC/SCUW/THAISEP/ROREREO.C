@@ -2,9 +2,9 @@
 #include "TCtype.h"
 #include "Global.h"
 
-unsigned char *RoreReoRtn(register unsigned char *TempIndx)
+unsigned char *RoRuaRtn(register unsigned char *TempIndx)
 {
-    if (*(TempIndx - 1) != RoreReo)
+    if (*(TempIndx - 1) != RORUA)
     {
         return(FAIL);
     }

@@ -4,14 +4,14 @@
 
 
 /*------------------------------------------------------------------------
-Module name  : SaraUeRtn
+Module name  : Sara_UeRtn
 
 
 Date Written : 17 May, 1988 8:38:18 AM
 Last Update  : 18 May, 1988 2:19:20 PM
 ------------------------------------------------------------------------*/
 
-unsigned char *SaraUeRtn(unsigned char *TempIndx)
+unsigned char *Sara_UeRtn(unsigned char *TempIndx)
 {
     /* Check vowel routine here */
     if (isttnl(*(TempIndx + 1)))
@@ -25,7 +25,7 @@ unsigned char *SaraUeRtn(unsigned char *TempIndx)
     {
         switch (*(TempIndx - 1))
         {
-            case RoreReo:
+            case RORUA:
                 if (findchar(*(TempIndx + 1), "：換"))
                 {
                     if(!istrvwl(*(TempIndx + 2)) && TempIndx + 2 <= RightMargin)
@@ -38,18 +38,18 @@ unsigned char *SaraUeRtn(unsigned char *TempIndx)
                     return(TempIndx);
                 }
                 break;
-            case HorNokHook:
+            case HONOKHUK:
                 switch (*(TempIndx + 1))
                 {
-                case KoreGai:
-                case DoreDek:
-                case MoreMar:
+                case KOKAI:
+                case DODEK:
+                case MOMA:
                     return(TempIndx - 2);
                 default:
                     return(TempIndx);
                 }
-            case HorHeeb:
-                if (*(TempIndx + 1) == NgorNgoo)
+            case HOHIP:
+                if (*(TempIndx + 1) == NGONGU)
                 {
                     return(TempIndx - 2);
                 }
@@ -57,7 +57,7 @@ unsigned char *SaraUeRtn(unsigned char *TempIndx)
                 {
                     return(TempIndx);
                 }
-            case OrAng:
+            case OANG:
                 if (findchar(*(TempIndx+1), "：換"))
                 {
                     if(TempIndx + 1 <= RightMargin)
@@ -94,14 +94,14 @@ unsigned char *SaraUeRtn(unsigned char *TempIndx)
 
     switch (*(TempIndx - 1))
     {
-        case NoreNoo:
+        case NONU:
             if (!findchar(*(TempIndx - 2), "ぜ僕"))
             {
                 return(TempIndx - 2);
             }
             break;
-        case MoreMar:
-            if (*(TempIndx - 2) != HorHeeb)
+        case MOMA:
+            if (*(TempIndx - 2) != HOHIP)
             {
                 return(TempIndx-2);
             }
@@ -110,13 +110,13 @@ unsigned char *SaraUeRtn(unsigned char *TempIndx)
                 /* cut before HorHeep */
                 return(TempIndx - 3);
             }
-        case RoreReo:
+        case RORUA:
             if(!findchar(*(TempIndx - 2), "さ讃"))
             {
                 return(TempIndx - 2);
             }
             break;
-        case LoreLing:
+        case LOLING:
             if(!findchar(*(TempIndx - 2), "，脅瞥"))
             {
                 return(TempIndx - 2);

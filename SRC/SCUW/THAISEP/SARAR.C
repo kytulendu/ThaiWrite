@@ -9,7 +9,7 @@
     Last Updated : Friday, 20 May, 1988 12:01:14 PM
     ----------------------------------  */
 
-unsigned char *SaraRRtn(register unsigned char *TempIndx)
+unsigned char *Sara_AARtn(register unsigned char *TempIndx)
  {
     register unsigned char *TempIndxm3 = TempIndx -3; /* for return point before A-2 */
     register unsigned char *charPtr;
@@ -18,15 +18,15 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
 
     if (istcon(chbufm1))
     {
-        if (*(TempIndx - 2) == SaraA)
+        if (*(TempIndx - 2) == SARA_E)
         {
             /* After this comment is   à_Ò */
             switch (*(TempIndx +1))
             {
-                case SaraAh: /* à_ÒÐ */
+                case SARA_A: /* à_ÒÐ */
                     if ((TempIndx + 1) <=  RightMargin)
                     {
-                        if (*(TempIndx -1)  ==  ToreMontoe) /* à±ÒÐ */
+                        if (*(TempIndx -1)  ==  THONANGMONTHO) /* à±ÒÐ */
                         {
                             /* cut before a-2 */
                             return(TempIndxm3);
@@ -42,8 +42,8 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
                         /* cut before a-2*/
                         return(TempIndxm3);
                     }
-                case RoreReo:
-                    if (chbufm1== SoreSeo || chbufm1 == KoreKwai)  /* àÊÒÃì, à¤ÒÃ¾*/
+                case RORUA:
+                    if (chbufm1== SOSUA || chbufm1 == KHOKHWAI)  /* àÊÒÃì, à¤ÒÃ¾*/
                     {
                         /* cut before a-2  (/à_Ò) */
                         return(TempIndxm3);
@@ -53,8 +53,8 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
                         /* cut after a */
                         return(TempIndx);
                     }
-                case NoreNoo:
-                    if (chbufm1 == KoreKwai || chbufm1 == PorePla)   /* à¤Ò¹ì,à»Ò¹ì*/
+                case NONU:
+                    if (chbufm1 == KHOKHWAI || chbufm1 == POPLA)   /* à¤Ò¹ì,à»Ò¹ì*/
                     {
                         /* cut before a-2 */
                         return(TempIndxm3);
@@ -64,8 +64,8 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
                         /* cut after a */
                         return(TempIndx);
                     }
-                case WoreWaan:
-                    if (chbufm1 == SoreSeo || chbufm1 == ShoreChang || chbufm1 == YoreYak)
+                case WOWAEN:
+                    if (chbufm1 == SOSUA || chbufm1 == CHOCHANG || chbufm1 == YOYAK)
                     {
                         /* cut before a-2 */
                         return(TempIndxm3);
@@ -80,17 +80,17 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
                     return(TempIndx);
             }
         }
-        else /* isn't SaraA */
+        else /* isn't Sara E */
         {
-            if (chbufm3 == SaraA)
+            if (chbufm3 == SARA_E)
             {
                 Indx = TempIndxm3;
-                /* Jmp to SaraARtn */
+                /* Jmp to Sara_ERtn */
                 return((*FuncPtr[*Indx])(Indx));
             }
             else
             {
-                return(SaraRWithoutTnl(TempIndx));
+                return(Sara_AAWithoutTnl(TempIndx));
             }
         }
     }
@@ -99,10 +99,10 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
     {
         switch (chbufm1)
         {
-            case MaiTri:
-                if (*(TempIndx - 3)== SaraA)
+            case MAITRI:
+                if (*(TempIndx - 3)== SARA_E)
                 {
-                    if(*(TempIndx + 1) == SaraAh && TempIndx + 1 <= RightMargin)
+                    if(*(TempIndx + 1) == SARA_A && TempIndx + 1 <= RightMargin)
                     {
                         /*cut after a+1*/
                         return(TempIndx + 1);
@@ -114,17 +114,17 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
                 }
                 else
                 {
-                    return(SaraRWithMaiTri(TempIndx));
+                    return(Sara_AAWithMaiTri(TempIndx));
                 }
-            case MaiEk :
-            case MaiToe :
-            case MaiJattawa :
-                if (*(TempIndx - 3) == SaraA)
+            case MAIEK :
+            case MAITHO :
+            case MAICHATTAWA :
+                if (*(TempIndx - 3) == SARA_E)
                 {
                     /* cut after a */
                     return(TempIndx);
                 }
-                else if (*(TempIndx - 4) == SaraA)
+                else if (*(TempIndx - 4) == SARA_E)
                 {
                     Indx = TempIndx - 4;
                     /* Jmp to Sara A Rtn */
@@ -132,7 +132,7 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
                 }
                 else
                 {
-                    return(SaraRWithTonal(TempIndx));
+                    return(Sara_AAWithTonal(TempIndx));
                 }
             default:
                 return(NULL);
@@ -143,7 +143,7 @@ unsigned char *SaraRRtn(register unsigned char *TempIndx)
 /* SARA AR Without Tonal mark Rtn
     Date Written : Monday, 9 May, 1988 3:16:47 PM */
 
-unsigned char *SaraRWithoutTnl(register unsigned char *TempIndx)
+unsigned char *Sara_AAWithoutTnl(register unsigned char *TempIndx)
 {
     register unsigned char *TempIndxm2 = TempIndx - 2;  /* for return point before A-1 */
     register unsigned char *TempIndxm3 = TempIndx - 3;  /* for return point before A-2 */
@@ -159,98 +159,98 @@ unsigned char *SaraRWithoutTnl(register unsigned char *TempIndx)
     {
         switch (chbufp1)
         {
-            case PoreParn:
+            case PHOPHAN:
                 if (findchar(chbufm1, "¡ÀÃ") == 0)  /* ÀÒ¾ */
                 {
                     /* cut after a */
                     return(TempIndx);
                 }
                 break;
-            case KoreKwai:
+            case KHOKHWAI:
                 if (findchar(chbufm1, "¹ÀÃÍ")== 0)  /* ÀÒ¤ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case PorePla:
+            case POPLA:
                 if (findchar(chbufm1, "¤¬´ºÉÊ") == 0) /* ¤Ò» */
                 {
                     return(TempIndx);
                 }
                 break;
-            case SoreSeo:
+            case SOSUA:
                 if (findchar(chbufm1, "¡¤¾ÁÅÇÈÊÍ") == 0) /* ÇÒÊ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case KoreRakung:
-                if (chbufm1 != MoreMar)             /* ÁÒ¦ */
+            case KHORAKHANG:
+                if (chbufm1 != MOMA)             /* ÁÒ¦ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case JoreJarn:
+            case CHOCHAN:
                 if (findchar(chbufm1, "¡¹Í") == 0)  /* ¡Ò¨ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case ShoreChang:
-                if (chbufm1 != RoreReo && chbufm1 != OrAng) /* ÍÒª­Ò */
+            case CHOCHANG:
+                if (chbufm1 != RORUA && chbufm1 != OANG) /* ÍÒª­Ò */
                 {
                     return(TempIndx);
                 }
                 break;
-            case YoreYing:
+            case YOYING:
                 /* this mean if not found do (same as 'if (findchar(chbufm1, "¡ÃÅÇË") == 0) */
                 if (!(findchar(chbufm1, "¡ÃÅÇË")))  /* ¡Ò­¨¹ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case NoreNane:
-                if (chbufm1 != YoreYing && chbufm1 != MoreMar) /* ­Ò³*/
+            case NONEN:
+                if (chbufm1 != YOYING && chbufm1 != MOMA) /* ­Ò³*/
                     return(TempIndx);
                 break;
-            case ThorToong:
-                if (chbufm1 != NoreNoo)             /* ¹Ò¶ */
+            case THOTHUNG:
+                if (chbufm1 != NONU)             /* ¹Ò¶ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case ToreTong:
-                if (chbufm1 != YoreYak && chbufm1 != PoreParn) /* ¾Ò¸ */
+            case THOTHONG:
+                if (chbufm1 != YOYAK && chbufm1 != PHOPHAN) /* ¾Ò¸ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case ToreTaharn:
+            case THOTHAHAN:
                 if (!(findchar(chbufm1, "¹º¾ÁÇÊ"))) /* ÇÒ· */
                 {
                     return(TempIndx);
                 }
                 break;
-            case ForeFun:
-                if (chbufm1 != RoreReo && chbufm1 != LoreLing) /* ¡ÃÒ¿ */
+            case FOFAN:
+                if (chbufm1 != RORUA && chbufm1 != LOLING) /* ¡ÃÒ¿ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case PoreSumpao:
-                if (chbufm1 != LoreLing)            /* ÅÒÀ */
+            case PHOSAMPHAO:
+                if (chbufm1 != LOLING)            /* ÅÒÀ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case SoreSala:
+            case SOSALA:
                 if (!(findchar(chbufm1, "¡Ã¹ºÈ")))  /* ÍÒ¡ÒÈ */
                 {
                     return(TempIndx);
                 }
                 break;
-            case SoreRusi:
-                if (chbufm1 != DoreDek && chbufm1 != PoreSumpao) /* ´ÒÉ´Ò */
+            case SORUSI:
+                if (chbufm1 != DODEK && chbufm1 != PHOSAMPHAO) /* ´ÒÉ´Ò */
                 {
                     return(TempIndx);
                 }
@@ -266,24 +266,24 @@ unsigned char *SaraRWithoutTnl(register unsigned char *TempIndx)
     }
     else
     {
-        if (*TempIndxm2 == HorHeeb && findchar(chbufm1, "¹ÁÂÃÅÇ"))
+        if (*TempIndxm2 == HOHIP && findchar(chbufm1, "¹ÁÂÃÅÇ"))
         {
-            /* cut before HorHeeb */
+            /* cut before HoHip */
             return(TempIndxm3);
         }
         switch (chbufm1)
         {
-            case KoreGai:
-                if (chbufm2 != PorPeng && chbufm2 != SoreSeo) /* ¼¡Ò */
+            case KOKAI:
+                if (chbufm2 != PHOPHUNG && chbufm2 != SOSUA) /* ¼¡Ò */
                 {
                     /* cut before a-1 */
                     return(TempIndxm2);
                 }
                 break;
-            case NgorNgoo:
+            case NGONGU:
                 if (findchar(chbufp1, "´¹ºÁÂ"))
                 {
-                    if (chbufm2 != PorPeng && chbufm1 != HorHeeb)
+                    if (chbufm2 != PHOPHUNG && chbufm1 != HOHIP)
                     {
                         /* cut before a-1 */
                         return(TempIndxm2);
@@ -295,135 +295,135 @@ unsigned char *SaraRWithoutTnl(register unsigned char *TempIndx)
                     return(TempIndx);
                 }
                 break;
-            case JoreJarn:
-                if (!(chbufm2 == KorKai && chbufp1 == YoreYak)) /*  ¢¨ÒÂ */
+            case CHOCHAN:
+                if (!(chbufm2 == KHOKHAI && chbufp1 == YOYAK)) /*  ¢¨ÒÂ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 else
                 {
-                    /* cut before KorKai */
+                    /* cut before KhoKhai */
                     return(TempIndx - 3);
                 }
-            case PorePla:
-                if (chbufm2  != SoreSeo)            /* Ê»ÒÂ */
+            case POPLA:
+                if (chbufm2  != SOSUA)            /* Ê»ÒÂ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case NoreNane:
-                if (chbufm2 != PorePla)             /* »³ÒÁ */
+            case NONEN:
+                if (chbufm2 != POPLA)             /* »³ÒÁ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
-                else if (chbufp1 != MoreMar)
+                else if (chbufp1 != MOMA)
                 {
                     return(TempIndx);
                 }
                 break;
-            case NoreNoo:
+            case NONU:
                 if (!(findchar(chbufm2, "¢©·¸¾ÇÊËÍ"))) /* ¢¹Ò¹ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case SoreSeo:
-                if (chbufm2 != SoreSeo || chbufp1 !=  RoreReo ) /* ÊÊÒÃ */
+            case SOSUA:
+                if (chbufm2 != SOSUA || chbufp1 !=  RORUA ) /* ÊÊÒÃ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case RoreReo:
+            case RORUA:
                 if (!(findchar(chbufm2, "¡¢¤¦¨ªµ·¹º»¾¿ÈÊË"))) /* ¡ÃÒÂ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case MoreMar:
+            case MOMA:
                 if (!(findchar(chbufm2, "¢ªÉÊË")))  /* ÊÁÒ¤Á */
                 {
                     /* cut before a-1 */
                     return(TempIndxm2);
                 }
                 break;
-            case YoreYak:
+            case YOYAK:
                 if (!(findchar(chbufm2, "¢ª¾ÊËÍ"))) /* ¢ÂÒÂ */
                 {
                     /* cut before a-1 */
                     return(TempIndxm2);
                 }
                 break;
-            case WoreWaan:
+            case WOWAEN:
                 if (!(findchar(chbufm2, "¡¢¤¨ªµ¶·¼ÀÊË"))) /* ¡ÇÒ§ */
                 {
                     /* cut before a-1 */
                     return(TempIndxm2);
                 }
                 break;
-            case LoreLing:
+            case LOLING:
                 if (!(findchar(chbufm2, "¡¢¨©ª´µ¶·»¼¾¿ÁÊËÍ"))) /* ¡ÅÒ§ */
                 {
                     /* cut before a-1 */
                     return(TempIndxm2);
                 }
                 break;
-            case ToreTaharn:
-                if (chbufm2 != PorePla && chbufm2 !=  KoreGai && chbufm2 != KoreKwai) /* ¡·Ò */
+            case THOTHAHAN:
+                if (chbufm2 != POPLA && chbufm2 !=  KOKAI && chbufm2 != KHOKHWAI) /* ¡·Ò */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case ToreTao:
-                if (chbufm2 != SoreSeo && chbufm2 != KoreGai) /* ÊµÒ§¤ì */
+            case TOTAO:
+                if (chbufm2 != SOSUA && chbufm2 != KOKAI) /* ÊµÒ§¤ì */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case HorHeeb:
-                if (chbufm2 != MoreMar && chbufm2 != SoreSeo && chbufm2 != ToreTaharn) /* ËÁÒÂ */
+            case HOHIP:
+                if (chbufm2 != MOMA && chbufm2 != SOSUA && chbufm2 != THOTHAHAN) /* ËÁÒÂ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case BoreBaimai:
-                if (chbufm2 != SoreSeo && chbufm2 != ShoreChang) /* ÊºÒÂ */
+            case BOBAIMAI:
+                if (chbufm2 != SOSUA && chbufm2 != CHOCHANG) /* ÊºÒÂ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case PoreParn:
-                if (chbufm2 != SoreSeo)             /* Ê¾Ò¹ */
+            case PHOPHAN:
+                if (chbufm2 != SOSUA)             /* Ê¾Ò¹ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case ThorToong:
-                if (chbufm2 != SoreSeo && chbufm2 != ToreTao) /*  µ¶Ò */
+            case THOTHUNG:
+                if (chbufm2 != SOSUA && chbufm2 != TOTAO) /*  µ¶Ò */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case PoreSumpao:
-                if (chbufm2 != SoreSeo && chbufm2 != NoreNoo) /* ¹ÀÒ */
+            case PHOSAMPHAO:
+                if (chbufm2 != SOSUA && chbufm2 != NONU) /* ¹ÀÒ */
                 {
                     /* cut before a-1 */
                     return (TempIndxm2);
                 }
                 break;
-            case DoreChada:
-                if (chbufm2 != ShoreChang)          /* ª®Ò */
+            case DOCHADA:
+                if (chbufm2 != CHOCHANG)          /* ª®Ò */
                 {
                     /* cut before a-1 */
                     return(TempIndxm2);
@@ -435,19 +435,19 @@ unsigned char *SaraRWithoutTnl(register unsigned char *TempIndx)
     return (NULL);
 }
 
-unsigned char *SaraRWithMaiTri(register unsigned char *TempIndx)
+unsigned char *Sara_AAWithMaiTri(register unsigned char *TempIndx)
 {
     unsigned char chbufm2 = *(TempIndx - 2);
     register unsigned char *TempIndxm3 = TempIndx - 3;
     /* _êÒ Rtn */
-    if (chbufm2 != RoreReo && chbufm2 != WoreWaan)  /* ¡ÃêÒ¿ ¡ÇêÒ¹ */
+    if (chbufm2 != RORUA && chbufm2 != WOWAEN)  /* ¡ÃêÒ¿ ¡ÇêÒ¹ */
     {
         return(TempIndxm3);
     }
     return(NULL);
 }
 
-unsigned char *SaraRWithTonal(register unsigned char *TempIndx)
+unsigned char *Sara_AAWithTonal(register unsigned char *TempIndx)
 {
     register unsigned char *TempIndxm2 = TempIndx - 2; /* for return point before A-1 */
     register unsigned char *TempIndxm4 = TempIndx - 4;
@@ -457,115 +457,115 @@ unsigned char *SaraRWithTonal(register unsigned char *TempIndx)
 
     switch (*(TempIndx - 1))
     {
-        case MaiEk: /* _èÒ */
+        case MAIEK: /* _èÒ */
             switch (*(TempIndx - 2))
             {
-                case HorNokHook:
-                case KoreRakung:
+                case HONOKHUK:
+                case KHORAKHANG:
                         return(TempIndx);
-                case KorKai:
-                case NgorNgoo:
+                case KHOKHAI:
+                case NGONGU:
                     if (!(findchar(chbufp1, "§¹ÁÂÇ")))  /* §èÒ§ ¢èÒ§*/
                     {
                         return (TempIndx);
                     }
                     break;
-                case PoreParn:
-                case ToreTao:
-                case ThorToong:
+                case PHOPHAN:
+                case TOTAO:
+                case THOTHUNG:
                     if (findchar(chbufp1, "§¹Â"))       /* µèÒ ¶èÒ ¾èÒ */
                     {
                         return((TempIndx+1) <= RightMargin) ? TempIndx + 1 : TempIndx - 3;
                     }
                     /* cut after a+1 or before a-2 */
                     break;
-                case KoreKwai:
-                case ChorChing:
-                    if (chbufp1 != NgorNgoo && chbufp1 != YoreYak)
+                case KHOKHWAI:
+                case CHOCHING:
+                    if (chbufp1 != NGONGU && chbufp1 != YOYAK)
                     {
                         return(TempIndx);
                     }
                     break;
-                case HorHeeb:
-                case YoreYak:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != NoreNoo && chbufp1 != MoreMar) /*  ËèÒ§ */
+                case HOHIP:
+                case YOYAK:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != NONU && chbufp1 != MOMA) /*  ËèÒ§ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case KoreGai:
-                case ForFa:
-                    if (chbufp1 !=  YoreYak)            /* ½èÒÂ */
+                case KOKAI:
+                case FOFA:
+                    if (chbufp1 !=  YOYAK)            /* ½èÒÂ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case JoreJarn:
-                case BoreBaimai:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != YoreYak && chbufp1 != WoreWaan)  /* ºèÒÇ */
+                case CHOCHAN:
+                case BOBAIMAI:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != YOYAK && chbufp1 != WOWAEN)  /* ºèÒÇ */
                     {
                         return (TempIndx);
                     }
                     break;
-                case ShoreChang:
-                    if (chbufp1 != NgorNgoo)
+                case CHOCHANG:
+                    if (chbufp1 != NGONGU)
                     {
                         return(TempIndx);
                     }
                     return;
-                case SoreSoe:
-                    if (chbufp1 != NoreNoo)             /* «èÒ¹ */
+                case SOSO:
+                    if (chbufp1 != NONU)             /* «èÒ¹ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case DoreDek:
-                case PorPeng:
-                case OrAng:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != NoreNoo && chbufp1 != WoreWaan) /* ÍèÒÇ */
+                case DODEK:
+                case PHOPHUNG:
+                case OANG:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != NONU && chbufp1 != WOWAEN) /* ÍèÒÇ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case ToreTaharn:
-                    if (chbufp1 != NoreNoo && chbufp1 != MoreMar) /* ·èÒÁ ·èÒ¹ */
+                case THOTHAHAN:
+                    if (chbufp1 != NONU && chbufp1 != MOMA) /* ·èÒÁ ·èÒ¹ */
                     {
                         return (TempIndx);
                     }
                     break;
-                case NoreNoo:
-                case MoreMar:
-                    if (chbufp1 != NoreNoo && chbufp1 != YoreYak) /* ¹èÒ¹ ÁèÒÂ */
+                case NONU:
+                case MOMA:
+                    if (chbufp1 != NONU && chbufp1 != YOYAK) /* ¹èÒ¹ ÁèÒÂ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case PorePla:
-                case WoreWaan:
+                case POPLA:
+                case WOWAEN:
                     if (!(findchar(chbufp1, "§¹ÂÇ")))   /*  »èÒÇ ÇèÒ¹*/
                     {
                         return(TempIndx);
                     }
                     break;
-                case RoreReo:
+                case RORUA:
                     if (!(findchar(chbufp1, "§¹ÁÂ")))   /* ÃèÒ¹ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case LoreLing:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != MoreMar && chbufp1 !=WoreWaan) /* ËÅèÒÇ ÅèÒÁ */
+                case LOLING:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != MOMA && chbufp1 !=WOWAEN) /* ËÅèÒÇ ÅèÒÁ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case SoreSeo:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != NoreNoo && chbufp1 != YoreYak) /* ÊèÒ¹ */
+                case SOSUA:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != NONU && chbufp1 != YOYAK) /* ÊèÒ¹ */
                     {
                         break;
                     }
@@ -576,112 +576,112 @@ unsigned char *SaraRWithTonal(register unsigned char *TempIndx)
                 return(TempIndx - 3);
             }
             break;
-        case MaiToe:   /*  _éÒ */
+        case MAITHO:   /*  _éÒ */
         {
             switch (*(TempIndx - 2))
             {
-                case YoreYing:
-                case ThorToong:
-                case ForeFun:
-                caseHorNokHook:
+                case YOYING:
+                case THOTHUNG:
+                case FOFAN:
+                caseHONOKHUK:
                     return(TempIndx);
-                case DoreDek:
-                case RoreReo:
+                case DODEK:
+                case RORUA:
                     if (!(findchar(chbufp1, "§¹ÁÂÇ")))
                     {
                         return(TempIndx);
                     }
                     break;
-                case KoreGai:
+                case KOKAI:
                     if (!(findchar(chbufp1, "§¹ÁÇ")))   /* ¡éÒÇ */
                     {
                         return (TempIndx);
                     }
                     break;
-                case MoreMar:
-                case LoreLing:
+                case MOMA:
+                case LOLING:
                     if (!(findchar(chbufp1, "§¹ÁÂ")))   /* ËÁéÒÂ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case KorKai:
+                case KHOKHAI:
                     if (!(findchar(chbufp1, "§¹¾ÁÇ")))
                     {
                         return(TempIndx);
                     }
                     break;
-                case HorHeeb:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != MoreMar && chbufp1 != WoreWaan) /* ËéÒÁ */
+                case HOHIP:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != MOMA && chbufp1 != WOWAEN) /* ËéÒÁ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case KoreKwai:
-                    if (chbufp1 != NoreNoo && chbufp1 != NgorNgoo) /* ¤éÒ§ */
+                case KHOKHWAI:
+                    if (chbufp1 != NONU && chbufp1 != NGONGU) /* ¤éÒ§ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case NgorNgoo:
-                    if (chbufp1 != NgorNgoo && chbufp1 != WoreWaan) /* §éÒÇ */
+                case NGONGU:
+                    if (chbufp1 != NGONGU && chbufp1 != WOWAEN) /* §éÒÇ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case JoreJarn:
-                    if (chbufp1 != NgorNgoo &&
-                        chbufp1 != WoreWaan && chbufp1 != NoreNoo) /* ¨éÒ§ */
+                case CHOCHAN:
+                    if (chbufp1 != NGONGU &&
+                        chbufp1 != WOWAEN && chbufp1 != NONU) /* ¨éÒ§ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case ShoreChang:
-                    if (chbufp1 != NgorNgoo)            /* ªéÒ§ */
+                case CHOCHANG:
+                    if (chbufp1 != NGONGU)            /* ªéÒ§ */
                     {
                         return (TempIndx);
                     }
                     break;
-                case SoreSoe:
-                case PorPeng:
-                case ForFa:
-                case YoreYak:
-                    if (chbufp1 != YoreYak)             /* ÂéÒÂ */
+                case SOSO:
+                case PHOPHUNG:
+                case FOFA:
+                case YOYAK:
+                    if (chbufp1 != YOYAK)             /* ÂéÒÂ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case ToreTao:
-                    if (chbufp1 != YoreYak && chbufp1 != NoreNoo) /* µéÒ¹ */
+                case TOTAO:
+                    if (chbufp1 != YOYAK && chbufp1 != NONU) /* µéÒ¹ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case ToreTaharn:
-                    if (chbufp1 !=  YoreYak &&
-                        chbufp1 != NgorNgoo && chbufp1 != WoreWaan) /* ·éÒÇ */
+                case THOTHAHAN:
+                    if (chbufp1 !=  YOYAK &&
+                        chbufp1 != NGONGU && chbufp1 != WOWAEN) /* ·éÒÇ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case NoreNoo:
-                    if (chbufp1 !=  WoreWaan)           /* ¹éÒÇ */
+                case NONU:
+                    if (chbufp1 !=  WOWAEN)           /* ¹éÒÇ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case BoreBaimai:
-                case PorePla:
-                case WoreWaan:
-                    if (chbufp1 !=  YoreYak && chbufp1 != NgorNgoo &&
-                        chbufp1 != NoreNoo )            /* ÇéÒÂ */
+                case BOBAIMAI:
+                case POPLA:
+                case WOWAEN:
+                    if (chbufp1 !=  YOYAK && chbufp1 != NGONGU &&
+                        chbufp1 != NONU )            /* ÇéÒÂ */
                     {
                         return(TempIndx);
                     }
                     break;
-                case OrAng:
-                    if (chbufp1 !=  YoreYak && chbufp1 != NgorNgoo) /* ÍéÒ§ */
+                case OANG:
+                    if (chbufp1 !=  YOYAK && chbufp1 != NGONGU) /* ÍéÒ§ */
                     {
                         return(TempIndx);
                     }
@@ -694,12 +694,12 @@ unsigned char *SaraRWithTonal(register unsigned char *TempIndx)
             }
             break;
         }
-        case MaiJattawa:    /*  _ëÒ */
+        case MAICHATTAWA:    /*  _ëÒ */
             return(TempIndx);
     }
-    if (*(TempIndx - 3) == HorHeeb && findchar(*TempIndxm2, "¹ÁÂÃÅÇ"))
+    if (*(TempIndx - 3) == HOHIP && findchar(*TempIndxm2, "¹ÁÂÃÅÇ"))
     {
-        /* cut before HorHeeb */
+        /* cut before HoHip */
         return(TempIndxm4);
     }
     return(NULL);

@@ -19,7 +19,7 @@ unsigned char *CntlChar();
 unsigned char *PuncChar();
 unsigned char *TermChar();
 unsigned char *FCPuncChar();
-unsigned char *PaiYarnnoyRtn();
+unsigned char *PaiYanNoiRtn();
 unsigned char *MaiYamokRtn();
 
 /* Pointer to function */
@@ -243,32 +243,32 @@ unsigned char *( *FuncPtr[] )( ) = {
     dummy,      /*  character 0xC0  */
     dummy,      /*  character 0xC1  */
     dummy,      /*  character 0xC2  */
-    RoreReoRtn, /*  character 0xC3  */
-    RoreRuRtn,  /*  character 0xC4  */
+    RoRuaRtn,   /*  character 0xC3  */
+    RuRtn,      /*  character 0xC4  */
     dummy,      /*  character 0xC5  */
     dummy,      /*  character 0xC6  */
-    WoreWaanRtn,    /*  character 0xC7  */
+    WoWaenRtn,  /*  character 0xC7  */
 
     dummy,      /*  character 0xC8  */
     dummy,      /*  character 0xC9  */
     dummy,      /*  character 0xCA  */
-    HorHeebRtn, /*  character 0xCB  */
+    HoHipRtn,   /*  character 0xCB  */
     dummy,      /*  character 0xCC  */
-    OrAngRtn,   /*  character 0xCD  */
+    OAngRtn,    /*  character 0xCD  */
     LeadConRtn, /*  character 0xCE  */
-    PaiYarnnoyRtn,  /*  character 0xCF  */
+    PaiYanNoiRtn, /*  character 0xCF  */
 
-    SaraAhRtn,  /*  character 0xD0  */
-    HunAkadRtn, /*  character 0xD1  */
-    SaraRRtn,   /*  character 0xD2  */
-    SaraUmRtn,  /*  character 0xD3  */
-    SaraIeRtn,  /*  SaraIe character 0xD4 */
-    SaraERtn,   /*  character 0xD5  */
-    SaraUeRtn,  /*  character 0xD6  */
-    SaraUeeRtn, /*  character 0xD7  */
+    Sara_ARtn,  /*  character 0xD0  */
+    MaiHunAKatRtn, /*  character 0xD1  */
+    Sara_AARtn, /*  character 0xD2  */
+    Sara_AMRtn, /*  character 0xD3  */
+    Sara_IRtn,  /*  character 0xD4 */
+    Sara_IIRtn, /*  character 0xD5  */
+    Sara_UeRtn, /*  character 0xD6  */
+    Sara_UeeRtn,/*  character 0xD7  */
 
-    SaraURtn,   /*  character 0xD8  */
-    SaraUURtn,  /*  character 0xD9  */
+    Sara_URtn,  /*  character 0xD8  */
+    Sara_UuRtn, /*  character 0xD9  */
     TermChar,   /*  character 0xDA  */
     dummy,      /*  character 0xDB  */
     dummy,      /*  character 0xDC  */
@@ -276,14 +276,14 @@ unsigned char *( *FuncPtr[] )( ) = {
     dummy,      /*  character 0xDE  */
     PuncChar,   /*  character 0xDF  */
 
-    SaraARtn,   /*  character 0xE0  */
-    SaraAirRtn, /*  character 0xE1  */
-    SaraORtn,   /*  character 0xE2  */
+    Sara_ERtn,  /*  character 0xE0  */
+    Sara_AeRtn, /*  character 0xE1  */
+    Sara_ORtn,  /*  character 0xE2  */
     MaiMuanRtn, /*  character 0xE3  */
-    MaiMalaiRtn,    /*  character 0xE4  */
+    MaiMalaiRtn,/*  character 0xE4  */
     dummy,      /*  character 0xE5  */
-    MaiYamokRtn,    /*  character 0xE6  */
-    MaiTaiKuuRtn,   /*  character 0xE7  */
+    MaiYamokRtn,/*  character 0xE6  */
+    MaiTaiKhuRtn, /*  character 0xE7  */
 
     dummy,      /*  character 0xE8  */
     dummy,      /*  character 0xE9  */
@@ -395,7 +395,7 @@ unsigned char *FCPuncChar(unsigned char *TempIndx)
     return(TempIndx - 1);
 }
 
-unsigned char *PaiYarnnoyRtn(unsigned char *TempIndx)
+unsigned char *PaiYanNoiRtn(unsigned char *TempIndx)
 {
     unsigned char *TempIndxp1 = TempIndx + 1;
     unsigned char *TempIndxm1 = TempIndx - 1;
@@ -420,7 +420,7 @@ unsigned char *PaiYarnnoyRtn(unsigned char *TempIndx)
         return(TempIndx - 1);
     }
 
-    return(TempIndx);   /* cut after PaiYarnnoy */
+    return(TempIndx);   /* cut after PaiYanNoi */
 }
 
 unsigned char *MaiYamokRtn(unsigned char *TempIndx)

@@ -3,15 +3,15 @@
 #include "TCtype.h"
 #include "Routine.h"
 
-unsigned char *SaraURtn(register unsigned char *TempIndx)
+unsigned char *Sara_URtn(register unsigned char *TempIndx)
 {
     register unsigned char *plus1 = TempIndx + 1, *minus2 = TempIndx - 2;
 
     if (findchar(*(plus1), "¶©´¨±∂ºΩƒ«ÕŒ") ||
-        *plus1 == PoreSumpao && nstrcmp("Õ ", minus2) ||
-        *plus1 == RoreReo && *(TempIndx - 1) != ToreTong &&
+        *plus1 == PHOSAMPHAO && nstrcmp("Õ ", minus2) ||
+        *plus1 == RORUA && *(TempIndx - 1) != THOTHONG &&
         nstrcmp("Õ ", minus2) ||
-        *plus1 == HorHeeb && nstrcmp("æ¬", minus2))
+        *plus1 == HOHIP && nstrcmp("æ¬", minus2))
     {
         return(TempIndx);
     }
@@ -19,23 +19,23 @@ unsigned char *SaraURtn(register unsigned char *TempIndx)
     {
         if (isttnl(*(plus1)))
         {
-            if (*(plus1) == MaiTri)
+            if (*(plus1) == MAITRI)
             {
                 switch (*(TempIndx - 1))
                 {
-                    case JoreJarn:
-                        if (*(TempIndx + 2) != KoreGai && *(TempIndx + 2) != YoreYak)
+                    case CHOCHAN:
+                        if (*(TempIndx + 2) != KOKAI && *(TempIndx + 2) != YOYAK)
                         {
                             return(plus1);
                         }
                         break;
-                    case ToreTao:
+                    case TOTAO:
                         if (!findchar(*(TempIndx + 2), "°ß¥"))
                         {
                             return(plus1);
                         }
                         break;
-                    case PorePla:
+                    case POPLA:
                         if (!findchar(*(TempIndx + 2), "°¥∫"))
                         {
                             return(plus1);
@@ -57,35 +57,35 @@ unsigned char *SaraURtn(register unsigned char *TempIndx)
     {
         switch(*(TempIndx - 1))
         {
-            case KoreGai:
+            case KOKAI:
                 return((findchar(*minus2, "¡» Õ")) ? FAIL : minus2);
-            case NgorNgoo:
-                return((*minus2 == HorHeeb || *minus2 == OrAng) ? FAIL : minus2);
-            case DoreDek:
+            case NGONGU:
+                return((*minus2 == HOHIP || *minus2 == OANG) ? FAIL : minus2);
+            case DODEK:
                 return((findchar(*minus2, "º Õ")) ? FAIL : minus2);
-            case ToreTao:
+            case TOTAO:
                 if (!nstrcmp("‡À", TempIndx - 3) || !nstrcmp("∏“", TempIndx - 3))
                 {
                     return(TempIndx);
                 }
                 else
                 {
-                    return((*minus2 == JoreJarn) ? FAIL : minus2);
+                    return((*minus2 == CHOCHAN) ? FAIL : minus2);
                 }
-            case ThorToong:
-                return((*minus2 == SoreSeo || *plus1 == Karan) ? FAIL : minus2);
-            case ToreTaharn:
-                return((*minus2 == PorePla) ? FAIL : minus2);
-            case ToreTong:
-                return((*minus2 == MoreMar) ? FAIL : minus2);
-            case NoreNoo:
+            case THOTHUNG:
+                return((*minus2 == SOSUA || *plus1 == KARAN) ? FAIL : minus2);
+            case THOTHAHAN:
+                return((*minus2 == POPLA) ? FAIL : minus2);
+            case THOTHONG:
+                return((*minus2 == MOMA) ? FAIL : minus2);
+            case NONU:
                 return((findchar(*minus2, "¢µ∏¡ ÀÕ")) ? FAIL : minus2);
-            case MoreMar:
+            case MOMA:
                 return((findchar(*minus2, "¢ À")) ? FAIL : minus2);
-            case YoreYak:
+            case YOYAK:
                 return((findchar(*minus2, "æ ÀÕ")) ? FAIL : minus2);
-            case RoreReo:
-                if (*(TempIndx - 3) == SaraA && *(TempIndx - 2) == MoreMar)
+            case RORUA:
+                if (*(TempIndx - 3) == SARA_E && *(TempIndx - 2) == MOMA)
                 {
                     return(TempIndx);
                 }
@@ -93,16 +93,16 @@ unsigned char *SaraURtn(register unsigned char *TempIndx)
                 {
                     return((findchar(*minus2, "°§®¥µ∑ªºæ« ÀÕ")) ? FAIL : minus2);
                 }
-            case LoreLing:
+            case LOLING:
                 return((findchar(*minus2, "°¢§©∂ªºæø À")) ? FAIL : minus2);
-            case WoreWaan:
-                return((*minus2 == HorHeeb) ?   FAIL : minus2);
-            case SoreSeo:
-                return((*minus2 == PoreParn || *minus2 == OrAng) ? FAIL : minus2);
-            case HorHeeb:
-                return((*minus2 == PoreParn || *minus2 == LoreLing) ? FAIL : minus2);
-            case OrAng:
-                return((*minus2 == ShoreChang) ? FAIL : minus2);
+            case WOWAEN:
+                return((*minus2 == HOHIP) ?   FAIL : minus2);
+            case SOSUA:
+                return((*minus2 == PHOPHAN || *minus2 == OANG) ? FAIL : minus2);
+            case HOHIP:
+                return((*minus2 == PHOPHAN || *minus2 == LOLING) ? FAIL : minus2);
+            case OANG:
+                return((*minus2 == CHOCHANG) ? FAIL : minus2);
         }
     }
     return(FAIL);

@@ -3,7 +3,7 @@
 #include "TCtype.h"
 #include "Routine.h"
 
-unsigned char *HunAkadRtn(register unsigned char *TempIndx)
+unsigned char *MaiHunAKatRtn(register unsigned char *TempIndx)
 {
     register unsigned char *plus1 = TempIndx + 1;
     register unsigned char *minus2 = TempIndx - 2;
@@ -11,22 +11,22 @@ unsigned char *HunAkadRtn(register unsigned char *TempIndx)
     {
         switch(*(plus1))
         {
-            case KoreGai:
+            case KOKAI:
                 if (findchar(*(TempIndx - 1), "¡§ª«´µ¶º»¿ÁÇË"))
                 {
                     return(plus1);
                 }
                 break;
-            case NgorNgoo:
+            case NGONGU:
                 switch(*(TempIndx - 1))
                 {
-                    case SoreSeo:
-                        if (*(TempIndx + 2) != KorKai && *(TempIndx + 2) != KoreRakung)
+                    case SOSUA:
+                        if (*(TempIndx + 2) != KHOKHAI && *(TempIndx + 2) != KHORAKHANG)
                         {
                             return(plus1);
                         }
                         break;
-                    case RoreReo:
+                    case RORUA:
                         if (!nstrcmp("¡ÃÑ§´ì", minus2))
                         {
                             return(TempIndx - 3);
@@ -39,15 +39,15 @@ unsigned char *HunAkadRtn(register unsigned char *TempIndx)
                         return(plus1);
                 }
                 break;
-            case DoreDek:
+            case DODEK:
                 return(plus1);
-            case NoreNoo:
-                if (*(TempIndx + 3) != Karan)
+            case NONU:
+                if (*(TempIndx + 3) != KARAN)
                 {
                     return(plus1);
                 }
                 break;
-            case YoreYak:
+            case YOYAK:
                 if (!nstrcmp("¹ÑÂ¹ì", TempIndx - 1))
                 {
                     return(minus2);
@@ -56,23 +56,23 @@ unsigned char *HunAkadRtn(register unsigned char *TempIndx)
                 {
                     return(plus1);
                 }
-            case SoreSeo:
-                if (*(TempIndx + 4) != Karan)
+            case SOSUA:
+                if (*(TempIndx + 4) != KARAN)
                 {
                     return(plus1);
                 }
                 break;
-            case WoreWaan:
+            case WOWAEN:
                 switch(*(TempIndx + 2))
                 {
-                    case SaraAh:
+                    case SARA_A:
                         if (TempIndx + 2 <= RightMargin)
                         {
                             return(TempIndx + 2);
                         }
                         break;
-                     case RoreReo:
-                        if (*(TempIndx + 3) == Karan)
+                     case RORUA:
+                        if (*(TempIndx + 3) == KARAN)
                         {
                             return(minus2);
                         }
@@ -84,7 +84,7 @@ unsigned char *HunAkadRtn(register unsigned char *TempIndx)
             default:
                 if (isttnl(*(plus1)))
                 {
-                    if (*(TempIndx + 4) == Karan)
+                    if (*(TempIndx + 4) == KARAN)
                     {
                         return(minus2);
                     }
@@ -98,33 +98,33 @@ unsigned char *HunAkadRtn(register unsigned char *TempIndx)
 
         switch(*(TempIndx - 1))
         {
-            case NgorNgoo:
+            case NGONGU:
                 return(plus1);
-            case NoreNoo:
+            case NONU:
                 if (!findchar(*(plus1), "µ¹Â"))
                 {
                     return(plus1);
                 }
                 break;
-            case MoreMar:
+            case MOMA:
                 if (!findchar(*(plus1), "¤¹Ç"))
                 {
                     return(plus1);
                 }
                 break;
-            case RoreReo:
+            case RORUA:
                 if (!findchar(*(plus1), "¡µ¾È"))
                 {
                     return(plus1);
                 }
                 break;
-            case HorHeeb:
-                if (*(plus1) != ToreTao && *(plus1) != NoreNoo)
+            case HOHIP:
+                if (*(plus1) != TOTAO && *(plus1) != NONU)
                 {
                     return(plus1);
                 }
                 break;
-            case HorNokHook:
+            case HONOKHUK:
                 return(plus1);
         }
     }
@@ -137,41 +137,41 @@ unsigned char *HunAkadRtn(register unsigned char *TempIndx)
     {
         switch(*(TempIndx - 1))
         {
-            case KoreGai:
-                return(*minus2 == SoreSeo ? FAIL : minus2);
-            case NgorNgoo:
+            case KOKAI:
+                return(*minus2 == SOSUA ? FAIL : minus2);
+            case NGONGU:
                 switch(*minus2)
                 {
-                    case HorHeeb:
+                    case HOHIP:
                         return(TempIndx - 3);
-                    case SoreSeo:
+                    case SOSUA:
                         return(FAIL);
                     default:
                         return(minus2);
                 }
-            case JoreJarn:
-                return((*minus2 == KorKai) ? FAIL : minus2);
-            case DoreDek:
-                return((*minus2 == SoreSeo) ? FAIL : minus2);
-            case ToreTao:
-                return((*minus2 == KoreGai) ? FAIL : minus2);
-            case ToreTaharn:
+            case CHOCHAN:
+                return((*minus2 == KHOKHAI) ? FAIL : minus2);
+            case DODEK:
+                return((*minus2 == SOSUA) ? FAIL : minus2);
+            case TOTAO:
+                return((*minus2 == KOKAI) ? FAIL : minus2);
+            case THOTHAHAN:
                 switch(*minus2)
                 {
-                    case HorHeeb:
+                    case HOHIP:
                         return(TempIndx - 3);
-                    case WoreWaan:
+                    case WOWAEN:
                         return(FAIL);
                     default:
                         return(minus2);
                 }
-            case BoreBaimai:
-                return((*minus2 == ChorChing) ? TempIndx - 3 : minus2);
-            case PoreSumpao:
-                return((*minus2 == OrAng) ? FAIL : minus2);
-            case WoreWaan:
+            case BOBAIMAI:
+                return((*minus2 == CHOCHING) ? TempIndx - 3 : minus2);
+            case PHOSAMPHAO:
+                return((*minus2 == OANG) ? FAIL : minus2);
+            case WOWAEN:
                 return(findchar(*minus2, "¡¢¤¨©µ¶¸ÊË") ? FAIL : minus2);
-            case HorHeeb:
+            case HOHIP:
                 return(findchar(*minus2 ,"ÁÃÍ")? FAIL :minus2);
         }
     }

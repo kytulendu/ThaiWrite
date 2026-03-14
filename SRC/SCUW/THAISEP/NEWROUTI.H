@@ -2,7 +2,7 @@
 #define _NEWROUTI_H
 
 unsigned char *LeadConRtn();
-unsigned char *RoreReoRtn();
+unsigned char *RoRuaRtn();
 unsigned char *RoreRuRtn();
 unsigned char *WoreWaanRtn();
 unsigned char *HorHeebRtn();
