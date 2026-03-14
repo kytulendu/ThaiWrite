@@ -7,6 +7,7 @@
 #ifndef _COMMON_CONST_H
 #define _COMMON_CONST_H
 
-#define BLANK                ' '
+#define BLANK               ' '
+#define HUNAKADMITO         0xdb    /* treat as upper level */
 
 #endif /* _COMMON_CONST_H */
