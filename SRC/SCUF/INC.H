@@ -14,7 +14,6 @@
 #include "..\common\const.h"
 #include "..\common\cwtype.h"
 #include "..\common\proto.h"
-#include "const.h"
 #include "proto.h"
 
 #endif /* _INC_H */
