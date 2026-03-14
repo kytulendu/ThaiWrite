@@ -32,7 +32,7 @@ void writetab(void)
         }
         else
         {
-            prchar('!', 0, wind.col + i, 3);
+            prchar('|', 0, wind.col + i, 3);
         }
         i++;
     }
