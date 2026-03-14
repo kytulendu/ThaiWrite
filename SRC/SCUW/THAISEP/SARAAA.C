@@ -16,7 +16,6 @@ unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx);
 unsigned char *Sara_AaRtn(register unsigned char *TempIndx)
  {
     register unsigned char *TempIndxm3 = TempIndx -3; /* for return point before A-2 */
-    register unsigned char *charPtr;
     unsigned char chbufm1 = *(TempIndx - 1);
     unsigned char chbufm3 = *TempIndxm3;
 
@@ -471,7 +470,7 @@ unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx)
                 case NGONGU:
                     if (!(findchar(chbufp1, "งนมยว")))  /* ง่าง ข่าง*/
                     {
-                        return (TempIndx);
+                        return(TempIndx);
                     }
                     break;
                 case PHOPHAN:
@@ -510,7 +509,7 @@ unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx)
                     if (chbufp1 != NGONGU &&
                         chbufp1 != YOYAK && chbufp1 != WOWAEN)  /* บ่าว */
                     {
-                        return (TempIndx);
+                        return(TempIndx);
                     }
                     break;
                 case CHOCHANG:
@@ -518,7 +517,7 @@ unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx)
                     {
                         return(TempIndx);
                     }
-                    return;
+                    break;
                 case SOSO:
                     if (chbufp1 != NONU)             /* ซ่าน */
                     {
@@ -537,7 +536,7 @@ unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx)
                 case THOTHAHAN:
                     if (chbufp1 != NONU && chbufp1 != MOMA) /* ท่าม ท่าน */
                     {
-                        return (TempIndx);
+                        return(TempIndx);
                     }
                     break;
                 case NONU:
@@ -644,7 +643,7 @@ unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx)
                 case CHOCHANG:
                     if (chbufp1 != NGONGU)            /* ช้าง */
                     {
-                        return (TempIndx);
+                        return(TempIndx);
                     }
                     break;
                 case SOSO:

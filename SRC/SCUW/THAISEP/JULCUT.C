@@ -636,6 +636,7 @@ unsigned char *CheckOther(unsigned char *TempIndx)
             }
         }
     }
+    return(FAIL);
 }
 
 unsigned char *Sara_EeEkRtn(unsigned char *TempIndx)

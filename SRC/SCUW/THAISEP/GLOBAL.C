@@ -366,6 +366,7 @@ unsigned char *Indx, *RightMargin, *EndOfText, *LeftLimit;
 
 unsigned char *dummy(unsigned char *TempIndx)
 {
+    TempIndx = TempIndx;
     return(FAIL);
 }
 
@@ -398,8 +399,10 @@ unsigned char *FCPuncChar(unsigned char *TempIndx)
 
 unsigned char *PaiYanNoiRtn(unsigned char *TempIndx)
 {
+    /*
     unsigned char *TempIndxp1 = TempIndx + 1;
     unsigned char *TempIndxm1 = TempIndx - 1;
+    */
 
     if (!nstrcmp("оео",TempIndx - 2))
     {
