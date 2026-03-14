@@ -44,7 +44,6 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
             }
             /* cut before sara O */
             return(TempIndxm1);
-            break;
 
         case OANG:         /* Íâ³·ÑÂ ÍâÃ¤ÂÒ ÍâËÊÔ Íâ¹ªÒ Íâ·ÊĞ ÍâÁËĞ ÍâÅÀĞ ÍâÅËĞ ÍâÈ¡*/
             for (i = 0; i <= OAngTbLen; ++i)
@@ -57,7 +56,6 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
             }
             /* cut before sara O */
             return(TempIndxm1);
-            break;
 
         case MOMA:       /* ÁâËÃĞ·Ö¡, ÁâËÃÊ¾,ÁâËÌÒÃ,ÁâËÃ,ÁâËÊ¶ */
             for (i = 0; i <= MoMaTbLen; ++i)
@@ -70,7 +68,6 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
             }
             /* cut before sara O */
             return(TempIndxm1);
-            break;
 
         case NONU:       /* ¹âÂºÒÂ ¹âÃ´Á */
             if (!(nstrcmp("¹âÁ", TempIndxm1)) && !(istlvwl(*(TempIndx - 2))))
@@ -91,7 +88,6 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
             }
             /* cut before sara O */
             return(TempIndxm1);
-            break;
 
         case CHOCHANG:        /* ªâÅºÅ ªâÅ¸Ã ªâÅÁ ªâÂ */
             for (i = 0; i <= ChoChangTbLen; ++i)
@@ -104,7 +100,6 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
             }
             /* cut before sara O */
             return(TempIndxm1);
-            break;
 
         case THOTHAHAN:        /* ·âÁ¹ */
             if (nstrcmp(ThoThaHanWord, TempIndxm1))
@@ -117,7 +112,9 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
                 /* cut before consonant that before Sara O */
                 return(TempIndx - 2);
             }
+            /*
             break;
+            */
 
         case RORUA:           /* ÃâË°Ò¹ */
             if (nstrcmp(RoRuaWord, TempIndxm1))
@@ -130,7 +127,9 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
                 /* cut before consonant that before Sara O */
                 return(TempIndx - 2);
             }
+            /*
             break;
+            */
 
         case YOYAK:       /* ÂâÊ */
             if (nstrcmp(YoYakWord, TempIndxm1))
@@ -143,7 +142,9 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
                 /* cut before consonant that before Sara O */
                 return(TempIndx - 2);
             }
+            /*
             break;
+            */
 
         case KHOKHAI:        /* ¢âÁÂ */
             if (nstrcmp(KhoKhaiWord, TempIndxm1))
@@ -156,7 +157,9 @@ unsigned char *Sara_ORtn(register unsigned char *TempIndx)
                 /* cut before consonant that before Sara O */
                 return(TempIndx - 2);
             }
+            /*
             break;
+            */
 
         default:
             return(TempIndx - 1);

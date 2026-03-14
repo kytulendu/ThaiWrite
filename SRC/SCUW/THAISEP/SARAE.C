@@ -69,7 +69,6 @@ unsigned char *Sara_ERtn(unsigned char *TempIndx)
             }
             /* cut before Sara E */
             return(TempIndxm1);
-            break;
 
         case THOTHONG:
             if (!(nstrcmp(ThoThongAEx, TempIndxm1)))

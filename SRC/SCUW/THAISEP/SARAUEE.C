@@ -118,7 +118,9 @@ unsigned char *Sara_UeeFC(unsigned char *TempIndx)
                 /* cut before HoHip */
                 return(TempIndx - 3);
             }
+            /*
             break;
+            */
         case RORUA:
             if (!findchar(*TempIndxm2, "¤»Ë"))
             {
