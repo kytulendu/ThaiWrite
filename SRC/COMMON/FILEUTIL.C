@@ -5,6 +5,7 @@
 #include <fcntl.h>
 #include <dir.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "cwtype.h"
 
