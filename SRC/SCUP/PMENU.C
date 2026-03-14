@@ -28,7 +28,7 @@
 #include "inc.h"
 #include "..\common\cwgrphc.h"
 #include "..\common\kbdcode.h"
-#include "global.ext"
+#include "global.h"
 
 #define  DIRCOLMAX 5
 #define  DIRROWMAX 5

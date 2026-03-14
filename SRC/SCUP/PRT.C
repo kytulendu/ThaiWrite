@@ -35,7 +35,7 @@
 
 #include "inc.h"
 #include "24pins.h"
-#include "global.ext"
+#include "global.h"
 
 typedef struct {
     char byte1;

@@ -9,7 +9,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "24pins.h"
-#include "global.ext"
+#include "global.h"
 
 /* ------------------------------------------------------------------------ */
 /* Function         :   cp_init_textbuf                                     */

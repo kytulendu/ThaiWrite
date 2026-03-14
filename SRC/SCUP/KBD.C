@@ -4,7 +4,7 @@
 
 #include "inc.h"
 #include "..\common\cwgrphc.h"
-#include "global.ext"
+#include "global.h"
 
 void waitkbd(unsigned int x, unsigned int y)
 {

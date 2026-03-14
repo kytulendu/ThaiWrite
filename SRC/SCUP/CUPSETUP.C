@@ -12,7 +12,7 @@
 #include <dir.h>
 #include <process.h>
 #include "inc.h"
-#include "global.ext"
+#include "global.h"
 #include "..\common\grdetect.h"
 #include "..\common\cwgrphc.h"
 #include "..\common\kbdcode.h"

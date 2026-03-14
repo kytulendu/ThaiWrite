@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 #include "inc.h"
-#include "global.ext"
+#include "global.h"
 
 /* function prototype */
 void print_picture(char *point);

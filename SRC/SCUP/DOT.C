@@ -15,7 +15,7 @@
 #include <io.h>
 #include <ctype.h>
 #include "inc.h"
-#include "global.ext"
+#include "global.h"
 
 /* function prototype */
 void getfieldname(char rvstring[]);
@@ -40,7 +40,7 @@ extern int fieldcount;              /* define number of fields */
 extern int stdcode;                 /* define data file code used */
 
 /*********************************************
-   Global area already defined in printvar.ext
+   Global area already defined in printvar.h
  *********************************************/
 
 /******************************************

@@ -13,7 +13,7 @@
 #include <dir.h>
 
 #include "inc.h"
-#include "global.ext"
+#include "global.h"
 
 FILE *cfp;
 

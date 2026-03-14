@@ -21,7 +21,7 @@
 #include "cpthai.h"
 #include "table.h"
 #include "..\common\cwgrphc.h"
-#include "global.ext"
+#include "global.h"
 
 /* ---- define buffer used in 24pins.c module ----- */
 struct cp_textbuf cp_buf;

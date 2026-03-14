@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "inc.h"
 #include "24pins.h"
-#include "global.ext"
+#include "global.h"
 
 void ClearTempBuffer(int memclear)
 {

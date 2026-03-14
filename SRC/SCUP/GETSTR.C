@@ -6,7 +6,7 @@
 #include <string.h>
 #include "..\common\kbdcode.h"
 #include "inc.h"
-#include "global.ext"
+#include "global.h"
 
 /*****************************************************************************/
 /* get string                                                                */

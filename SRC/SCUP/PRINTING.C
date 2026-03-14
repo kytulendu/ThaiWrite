@@ -19,7 +19,7 @@
 #include <ctype.h>
 
 #include "inc.h"
-#include "global.ext"
+#include "global.h"
 #include "24pins.h"
 
 /* local function prototype use internal module only */

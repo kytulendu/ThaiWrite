@@ -3,7 +3,7 @@
 #include <io.h>
 #include <alloc.h>
 #include <string.h>
-#include "global.ext"
+#include "global.h"
 
 char dfont [5121];
 char ditalicfont [5121];
