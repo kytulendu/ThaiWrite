@@ -1,6 +1,6 @@
 @echo off
 cd ..
-del cuprint.exe
+del twprint.exe
 cd src
 cd scup
 echo Building printer.

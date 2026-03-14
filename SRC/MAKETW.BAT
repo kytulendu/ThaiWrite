@@ -1,6 +1,6 @@
 @echo off
 cd ..
-del cw.exe
+del tw.exe
 cd src
 cd scuw
 cd thaisep

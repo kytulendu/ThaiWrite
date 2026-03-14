@@ -1,6 +1,6 @@
 @echo off
 cd ..
-del cufont.exe
+del twfont.exe
 cd src
 cd scuf
 echo Building font editor.
