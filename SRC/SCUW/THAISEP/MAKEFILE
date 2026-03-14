@@ -8,23 +8,23 @@ INCPATH1 = ..\..\COMMON
 CFLAGS = $(CCFLAGS) -I$(INCPATH);$(INCPATH1)
 
 main: \
-        mainsyls.obj thaieng.obj worewaan.obj findchar.obj horeheeb.obj \
+        mainsyls.obj thaieng.obj wowaen.obj findchar.obj hohip.obj \
         hunakad.obj julcut.obj karan.obj leadcon.obj \
-        maimalai.obj maimuan.obj nopcut.obj nstrcmp.obj rorereo.obj \
-        roreru.obj saraa.obj saraah.obj saraair.obj saraie.obj \
-        sarao.obj sarar.obj sarau.obj saraue.obj sarauee.obj \
-        saraum.obj global.obj
+        maimalai.obj maimuan.obj oang.obj nstrcmp.obj rorua.obj \
+        ru.obj sarae.obj saraa.obj saraae.obj saraie.obj \
+        sarao.obj saraaa.obj sarau.obj saraue.obj sarauee.obj \
+        saraam.obj global.obj
 
 mainsyls.obj: mainsyls.c
     $(CC) $(CFLAGS) mainsyls.c
 thaieng.obj: thaieng.c
     $(CC) $(CFLAGS) thaieng.c
-worewaan.obj: worewaan.c
-    $(CC) $(CFLAGS) worewaan.c
+wowaen.obj: wowaen.c
+    $(CC) $(CFLAGS) wowaen.c
 findchar.obj: findchar.c
     $(CC) $(CFLAGS) findchar.c
-horeheeb.obj: horeheeb.c
-    $(CC) $(CFLAGS) horeheeb.c
+hohip.obj: hohip.c
+    $(CC) $(CFLAGS) hohip.c
 hunakad.obj: hunakad.c
     $(CC) $(CFLAGS) hunakad.c
 julcut.obj: julcut.c
@@ -37,33 +37,33 @@ maimalai.obj: maimalai.c
     $(CC) $(CFLAGS) maimalai.c
 maimuan.obj: maimuan.c
     $(CC) $(CFLAGS) maimuan.c
-nopcut.obj: nopcut.c
-    $(CC) $(CFLAGS) nopcut.c
+oang.obj: oang.c
+    $(CC) $(CFLAGS) oang.c
 nstrcmp.obj: nstrcmp.c
     $(CC) $(CFLAGS) nstrcmp.c
-rorereo.obj: rorereo.c
-    $(CC) $(CFLAGS) rorereo.c
-roreru.obj: roreru.c
-    $(CC) $(CFLAGS) roreru.c
+rorua.obj: rorua.c
+    $(CC) $(CFLAGS) rorua.c
+ru.obj: ru.c
+    $(CC) $(CFLAGS) ru.c
+sarae.obj: sarae.c
+    $(CC) $(CFLAGS) sarae.c
 saraa.obj: saraa.c
     $(CC) $(CFLAGS) saraa.c
-saraah.obj: saraah.c
-    $(CC) $(CFLAGS) saraah.c
-saraair.obj: saraair.c
-    $(CC) $(CFLAGS) saraair.c
+saraae.obj: saraae.c
+    $(CC) $(CFLAGS) saraae.c
 saraie.obj: saraie.c
     $(CC) $(CFLAGS) saraie.c
 sarao.obj: sarao.c
     $(CC) $(CFLAGS) sarao.c
-sarar.obj: sarar.c
-    $(CC) $(CFLAGS) sarar.c
+saraaa.obj: saraaa.c
+    $(CC) $(CFLAGS) saraaa.c
 sarau.obj: sarau.c
     $(CC) $(CFLAGS) sarau.c
 saraue.obj: saraue.c
     $(CC) $(CFLAGS) saraue.c
 sarauee.obj: sarauee.c
     $(CC) $(CFLAGS) sarauee.c
-saraum.obj: saraum.c
-    $(CC) $(CFLAGS) saraum.c
+saraam.obj: saraam.c
+    $(CC) $(CFLAGS) saraam.c
 global.obj: global.c
     $(CC) $(CFLAGS) global.c

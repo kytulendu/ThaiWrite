@@ -5,7 +5,7 @@
 #ifndef _ROUTINE_H
 #define _ROUTINE_H
 
-/* horeheeb.c */
+/* hohip.c */
 unsigned char *HoHipRtn(unsigned char *TempIndx);
 
 /* hunakad.c */
@@ -28,28 +28,28 @@ unsigned char *MaiMalaiRtn(register unsigned char *TempIndx);
 /* maimuan.c */
 unsigned char *MaiMuanRtn(unsigned char *TempIndx);
 
-/* nopcut.c */
+/* oang.c */
 unsigned char *OAngRtn(unsigned char *TempIndx);
 
-/* rorereo.c */
+/* rorua.c */
 unsigned char *RoRuaRtn(register unsigned char *TempIndx);
 
-/* roreru.c */
+/* ru.c */
 unsigned char *RuRtn(unsigned char *TempIndx);
 
-/* saraah.c */
+/* saraa.c */
 unsigned char *Sara_ARtn(register unsigned char *TempIndx);
 
-/* sarar.c */
+/* saraaa.c */
 unsigned char *Sara_AaRtn(register unsigned char *TempIndx);
 
-/* saraair.c */
+/* saraae.c */
 unsigned char *Sara_AeRtn(register unsigned char *TempIndx);
 
-/* saraum.c */
+/* saraam.c */
 unsigned char *Sara_AmRtn(register unsigned char *TempIndx);
 
-/* saraa.c */
+/* sarae.c */
 unsigned char *Sara_ERtn(unsigned char *TempIndx);
 
 /* saraie.c */
@@ -67,7 +67,7 @@ unsigned char *Sara_UeRtn(unsigned char *TempIndx);
 /* sarauue.c */
 unsigned char *Sara_UeeRtn(register unsigned char *TempIndx);
 
-/* worewaan.c */
+/* wowaen.c */
 unsigned char *WoWaenRtn(register unsigned char *TempIndx);
 
 #endif /* _ROUTINE_H */

@@ -7,11 +7,11 @@ scrn getstr tutil1 edit ins del +
 menu status kbd move movement wrap onscrn file search block cw +
 cwsetup +
 stampdat +
-.\thaisep\mainsyls .\thaisep\thaieng .\thaisep\worewaan .\thaisep\findchar +
-.\thaisep\horeheeb .\thaisep\hunakad .\thaisep\julcut .\thaisep\karan +
-.\thaisep\leadcon .\thaisep\maimalai .\thaisep\maimuan .\thaisep\nopcut +
-.\thaisep\nstrcmp .\thaisep\rorereo .\thaisep\roreru .\thaisep\saraa +
-.\thaisep\saraah .\thaisep\saraair .\thaisep\saraie .\thaisep\sarao +
-.\thaisep\sarar .\thaisep\sarau .\thaisep\saraue .\thaisep\sarauee +
-.\thaisep\saraum .\thaisep\global +
+.\thaisep\mainsyls .\thaisep\thaieng .\thaisep\wowaen .\thaisep\findchar +
+.\thaisep\hohip .\thaisep\hunakad .\thaisep\julcut .\thaisep\karan +
+.\thaisep\leadcon .\thaisep\maimalai .\thaisep\maimuan .\thaisep\oang +
+.\thaisep\nstrcmp .\thaisep\rorua .\thaisep\ru .\thaisep\sarae +
+.\thaisep\saraa .\thaisep\saraae .\thaisep\saraie .\thaisep\sarao +
+.\thaisep\saraaa .\thaisep\sarau .\thaisep\saraue .\thaisep\sarauee +
+.\thaisep\saraam .\thaisep\global +
 ,\tw\tw,\tw\tw,c:\tc\lib\cl.lib
