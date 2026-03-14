@@ -15,6 +15,14 @@ Last Update  : Monday, 9 May, 1988 2:19:20 PM
 ------------------------------------------------------------------------*/
 
 unsigned char *CheckOther(unsigned char *TempIndx);
+unsigned char *Sara_IirEkRtn(unsigned char *TempIndx);
+unsigned char *Sara_IirToeRtn(unsigned char *TempIndx);
+unsigned char *Sara_IirRtn(unsigned char *TempIndx);
+unsigned char *Sara_EeEkRtn(unsigned char *TempIndx);
+unsigned char *Sara_EeToeRtn(unsigned char *TempIndx);
+unsigned char *Sara_EeTriRtn(unsigned char *TempIndx);
+unsigned char *Sara_EeJatRtn(unsigned char *TempIndx);
+unsigned char *Sara_EeRtn(unsigned char *TempIndx);
 
 unsigned char *MaiTaiKhuRtn(unsigned char *TempIndx)
 {
@@ -312,7 +320,7 @@ unsigned char *Sara_UuRtn(unsigned char *TempIndx)
     return(FAIL);
 }
 
-unsigned char *Sara_IIRtn(unsigned char *TempIndx)
+unsigned char *Sara_IiRtn(unsigned char *TempIndx)
 {
     unsigned char *charPtr;
 
@@ -585,25 +593,16 @@ unsigned char *Sara_IIRtn(unsigned char *TempIndx)
 
 unsigned char *CheckOther(unsigned char *TempIndx)
 {
-    unsigned char *Sara_IIrEkRtn();
-    unsigned char *Sara_IIrToeRtn();
-    unsigned char *Sara_IIrRtn();
-    unsigned char *Sara_EEEkRtn();
-    unsigned char *Sara_EEToeRtn();
-    unsigned char *Sara_EETriRtn();
-    unsigned char *Sara_EEJatRtn();
-    unsigned char *Sara_EERtn();
-
     if (*(TempIndx - 3) == SARA_E)
     {
         switch (*(TempIndx + 1))
         {
             case MAIEK:
-                return(Sara_IIrEkRtn(TempIndx));
+                return(Sara_IirEkRtn(TempIndx));
             case MAITHO:
-                return(Sara_IIrToeRtn(TempIndx));
+                return(Sara_IirToeRtn(TempIndx));
             case YOYAK:
-                return(Sara_IIrRtn(TempIndx));
+                return(Sara_IirRtn(TempIndx));
         }
     }
     else
@@ -613,15 +612,15 @@ unsigned char *CheckOther(unsigned char *TempIndx)
             switch (*(TempIndx + 1))
             {
                 case MAIEK:
-                    return(Sara_EEEkRtn(TempIndx));
+                    return(Sara_EeEkRtn(TempIndx));
                 case MAITHO:
-                    return(Sara_EEToeRtn(TempIndx));
+                    return(Sara_EeToeRtn(TempIndx));
                 case MAITRI:
-                    return(Sara_EETriRtn(TempIndx));
+                    return(Sara_EeTriRtn(TempIndx));
                 case MAICHATTAWA:
-                    return(Sara_EEJatRtn(TempIndx));
+                    return(Sara_EeJatRtn(TempIndx));
                 case YOYAK:
-                    return(Sara_EERtn(TempIndx));
+                    return(Sara_EeRtn(TempIndx));
             }
         }
         else
@@ -639,7 +638,7 @@ unsigned char *CheckOther(unsigned char *TempIndx)
     }
 }
 
-unsigned char *Sara_EEEkRtn(unsigned char *TempIndx)
+unsigned char *Sara_EeEkRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
@@ -668,7 +667,7 @@ unsigned char *Sara_EEEkRtn(unsigned char *TempIndx)
     return(TempIndx - 3);
 }
 
-unsigned char *Sara_EEToeRtn(unsigned char *TempIndx)
+unsigned char *Sara_EeToeRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
@@ -707,7 +706,7 @@ unsigned char *Sara_EEToeRtn(unsigned char *TempIndx)
     }
 }
 
-unsigned char *Sara_EETriRtn(unsigned char *TempIndx)
+unsigned char *Sara_EeTriRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 3) <= RightMargin)
     {
@@ -719,7 +718,7 @@ unsigned char *Sara_EETriRtn(unsigned char *TempIndx)
     }
 }
 
-unsigned char *Sara_EEJatRtn(unsigned char *TempIndx)
+unsigned char *Sara_EeJatRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 3) <= RightMargin)
     {
@@ -731,7 +730,7 @@ unsigned char *Sara_EEJatRtn(unsigned char *TempIndx)
     return(TempIndx - 3);
 }
 
-unsigned char *Sara_EERtn(unsigned char *TempIndx)
+unsigned char *Sara_EeRtn(unsigned char *TempIndx)
 {
     if (TempIndx + 1 <= RightMargin)
     {
@@ -767,7 +766,7 @@ unsigned char *Sara_EERtn(unsigned char *TempIndx)
     return(TempIndx - 3);
 }
 
-unsigned char *Sara_IIrEkRtn(unsigned char *TempIndx)
+unsigned char *Sara_IirEkRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 3) <= RightMargin)
     {
@@ -786,7 +785,7 @@ unsigned char *Sara_IIrEkRtn(unsigned char *TempIndx)
     return(FAIL);
 }
 
-unsigned char *Sara_IIrToeRtn(unsigned char *TempIndx)
+unsigned char *Sara_IirToeRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {
@@ -814,7 +813,7 @@ unsigned char *Sara_IIrToeRtn(unsigned char *TempIndx)
     return(FAIL);
 }
 
-unsigned char *Sara_IIrRtn(unsigned char *TempIndx)
+unsigned char *Sara_IirRtn(unsigned char *TempIndx)
 {
     if ((TempIndx + 2) <= RightMargin)
     {

@@ -9,7 +9,11 @@
     Last Updated : Friday, 20 May, 1988 12:01:14 PM
     ----------------------------------  */
 
-unsigned char *Sara_AARtn(register unsigned char *TempIndx)
+unsigned char *Sara_AaWithoutTnl(register unsigned char *TempIndx);
+unsigned char *Sara_AaWithMaiTri(register unsigned char *TempIndx);
+unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx);
+
+unsigned char *Sara_AaRtn(register unsigned char *TempIndx)
  {
     register unsigned char *TempIndxm3 = TempIndx -3; /* for return point before A-2 */
     register unsigned char *charPtr;
@@ -90,7 +94,7 @@ unsigned char *Sara_AARtn(register unsigned char *TempIndx)
             }
             else
             {
-                return(Sara_AAWithoutTnl(TempIndx));
+                return(Sara_AaWithoutTnl(TempIndx));
             }
         }
     }
@@ -114,7 +118,7 @@ unsigned char *Sara_AARtn(register unsigned char *TempIndx)
                 }
                 else
                 {
-                    return(Sara_AAWithMaiTri(TempIndx));
+                    return(Sara_AaWithMaiTri(TempIndx));
                 }
             case MAIEK :
             case MAITHO :
@@ -132,7 +136,7 @@ unsigned char *Sara_AARtn(register unsigned char *TempIndx)
                 }
                 else
                 {
-                    return(Sara_AAWithTonal(TempIndx));
+                    return(Sara_AaWithTonal(TempIndx));
                 }
             default:
                 return(NULL);
@@ -143,7 +147,7 @@ unsigned char *Sara_AARtn(register unsigned char *TempIndx)
 /* SARA AR Without Tonal mark Rtn
     Date Written : Monday, 9 May, 1988 3:16:47 PM */
 
-unsigned char *Sara_AAWithoutTnl(register unsigned char *TempIndx)
+unsigned char *Sara_AaWithoutTnl(register unsigned char *TempIndx)
 {
     register unsigned char *TempIndxm2 = TempIndx - 2;  /* for return point before A-1 */
     register unsigned char *TempIndxm3 = TempIndx - 3;  /* for return point before A-2 */
@@ -435,7 +439,7 @@ unsigned char *Sara_AAWithoutTnl(register unsigned char *TempIndx)
     return (NULL);
 }
 
-unsigned char *Sara_AAWithMaiTri(register unsigned char *TempIndx)
+unsigned char *Sara_AaWithMaiTri(register unsigned char *TempIndx)
 {
     unsigned char chbufm2 = *(TempIndx - 2);
     register unsigned char *TempIndxm3 = TempIndx - 3;
@@ -447,7 +451,7 @@ unsigned char *Sara_AAWithMaiTri(register unsigned char *TempIndx)
     return(NULL);
 }
 
-unsigned char *Sara_AAWithTonal(register unsigned char *TempIndx)
+unsigned char *Sara_AaWithTonal(register unsigned char *TempIndx)
 {
     register unsigned char *TempIndxm2 = TempIndx - 2; /* for return point before A-1 */
     register unsigned char *TempIndxm4 = TempIndx - 4;

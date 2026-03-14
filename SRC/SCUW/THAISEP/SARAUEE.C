@@ -10,9 +10,13 @@
         Date Modified       23 May, 1988
         ---------------------------- */
 
-unsigned char *Ueer1(), *Ueer2(), *Ueer3(), *Ueer4();
-unsigned char *Ueer5(), *Ueer6();
-unsigned char *Sara_UeeFC();
+unsigned char *Ueer1(unsigned char *TempIndx);
+unsigned char *Ueer2(unsigned char *TempIndx);
+unsigned char *Ueer3(unsigned char *TempIndx);
+unsigned char *Ueer4(unsigned char *TempIndx);
+unsigned char *Ueer5(unsigned char *TempIndx);
+unsigned char *Ueer6(unsigned char *TempIndx);
+unsigned char *Sara_UeeFC(unsigned char *TempIndx);
 
 unsigned char *Sara_UeeRtn(register unsigned char *TempIndx)
 {

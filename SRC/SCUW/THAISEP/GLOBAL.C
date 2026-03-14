@@ -14,13 +14,13 @@
     ----------------------------------------- */
 
 /*-------------------------Global declaration-------------------------*/
-unsigned char *dummy();
-unsigned char *CntlChar();
-unsigned char *PuncChar();
-unsigned char *TermChar();
-unsigned char *FCPuncChar();
-unsigned char *PaiYanNoiRtn();
-unsigned char *MaiYamokRtn();
+unsigned char *dummy(unsigned char *TempIndx);
+unsigned char *CntlChar(unsigned char *TempIndx);
+unsigned char *PuncChar(unsigned char *TempIndx);
+unsigned char *TermChar(unsigned char *TempIndx);
+unsigned char *FCPuncChar(unsigned char *TempIndx);
+unsigned char *PaiYanNoiRtn(unsigned char *TempIndx);
+unsigned char *MaiYamokRtn(unsigned char *TempIndx);
 
 /* Pointer to function */
 unsigned char *( *FuncPtr[] )( ) = {
@@ -260,10 +260,10 @@ unsigned char *( *FuncPtr[] )( ) = {
 
     Sara_ARtn,  /*  character 0xD0  */
     MaiHunAKatRtn, /*  character 0xD1  */
-    Sara_AARtn, /*  character 0xD2  */
-    Sara_AMRtn, /*  character 0xD3  */
+    Sara_AaRtn, /*  character 0xD2  */
+    Sara_AmRtn, /*  character 0xD3  */
     Sara_IRtn,  /*  character 0xD4 */
-    Sara_IIRtn, /*  character 0xD5  */
+    Sara_IiRtn, /*  character 0xD5  */
     Sara_UeRtn, /*  character 0xD6  */
     Sara_UeeRtn,/*  character 0xD7  */
 

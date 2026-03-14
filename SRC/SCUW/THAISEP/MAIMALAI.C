@@ -9,6 +9,8 @@
     Last Updated    : Saturday, 14 May, 1988 12:08:05 PM
 */
 
+unsigned char *MaiMalaiFC(unsigned char *TempIndx);
+
 unsigned char *MaiMalaiRtn(register unsigned char *TempIndx)
 {
     register short i;
