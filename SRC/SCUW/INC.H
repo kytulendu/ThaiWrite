@@ -25,5 +25,6 @@
 #include "const.h"
 #include "var.h"
 #include "proto.h"
+#include "mainsyls.h"
 
 #endif /* _INC_H */

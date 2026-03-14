@@ -6,9 +6,8 @@
 
 !include "..\config.mak"
 
-#INCPATH1 = ..\scuw\thaisyls
-#CFLAGS = $(CCFLAGS) -I$(INCPATH);$(INCPATH1)
-CFLAGS = $(CCFLAGS) -I$(INCPATH)
+INCPATH1 = ..\scuw\thaisep
+CFLAGS = $(CCFLAGS) -I$(INCPATH);$(INCPATH1)
 
 \tw\tw.exe: \
         ..\common\edisp.obj ..\common\hdisp.obj ..\common\adisp.obj \
@@ -20,13 +19,7 @@ CFLAGS = $(CCFLAGS) -I$(INCPATH)
         scrn.obj getstr.obj tutil1.obj edit.obj ins.obj del.obj \
         menu.obj \
         kbd.obj status.obj move.obj movement.obj wrap.obj \
-        onscrn.obj file.obj search.obj block.obj cw.obj cwsetup.obj \
-        mainsyls.obj thaieng.obj worewaan.obj findchar.obj horeheeb.obj \
-        hunakad.obj julcut.obj karan.obj leadcon.obj \
-        maimalai.obj maimuan.obj nopcut.obj nstrcmp.obj rorereo.obj \
-        roreru.obj saraa.obj saraah.obj saraair.obj saraie.obj \
-        sarao.obj sarar.obj sarau.obj saraue.obj sarauee.obj \
-        saraum.obj global.obj
+        onscrn.obj file.obj search.obj block.obj cw.obj cwsetup.obj
     $(CC) -c ..\common\stampdate.c
     $(LINKER) $(LFLAGS) @scuw.tlr
 
@@ -83,60 +76,3 @@ cw.obj: cw.c var.h ..\common\cwgrphc.h
 
 cwsetup.obj: cwsetup.c var.h
     $(CC) $(CFLAGS) cwsetup.c
-
-#
-# Thai word separation
-#
-
-mainsyls.obj: mainsyls.c
-    $(CC) $(CFLAGS) mainsyls.c
-thaieng.obj: thaieng.c
-    $(CC) $(CFLAGS) thaieng.c
-worewaan.obj: worewaan.c
-    $(CC) $(CFLAGS) worewaan.c
-findchar.obj: findchar.c
-    $(CC) $(CFLAGS) findchar.c
-horeheeb.obj: horeheeb.c
-    $(CC) $(CFLAGS) horeheeb.c
-hunakad.obj: hunakad.c
-    $(CC) $(CFLAGS) hunakad.c
-julcut.obj: julcut.c
-    $(CC) $(CFLAGS) julcut.c
-karan.obj: karan.c
-    $(CC) $(CFLAGS) karan.c
-leadcon.obj: leadcon.c
-    $(CC) $(CFLAGS) leadcon.c
-maimalai.obj: maimalai.c
-    $(CC) $(CFLAGS) maimalai.c
-maimuan.obj: maimuan.c
-    $(CC) $(CFLAGS) maimuan.c
-nopcut.obj: nopcut.c
-    $(CC) $(CFLAGS) nopcut.c
-nstrcmp.obj: nstrcmp.c
-    $(CC) $(CFLAGS) nstrcmp.c
-rorereo.obj: rorereo.c
-    $(CC) $(CFLAGS) rorereo.c
-roreru.obj: roreru.c
-    $(CC) $(CFLAGS) roreru.c
-saraa.obj: saraa.c
-    $(CC) $(CFLAGS) saraa.c
-saraah.obj: saraah.c
-    $(CC) $(CFLAGS) saraah.c
-saraair.obj: saraair.c
-    $(CC) $(CFLAGS) saraair.c
-saraie.obj: saraie.c
-    $(CC) $(CFLAGS) saraie.c
-sarao.obj: sarao.c
-    $(CC) $(CFLAGS) sarao.c
-sarar.obj: sarar.c
-    $(CC) $(CFLAGS) sarar.c
-sarau.obj: sarau.c
-    $(CC) $(CFLAGS) sarau.c
-saraue.obj: saraue.c
-    $(CC) $(CFLAGS) saraue.c
-sarauee.obj: sarauee.c
-    $(CC) $(CFLAGS) sarauee.c
-saraum.obj: saraum.c
-    $(CC) $(CFLAGS) saraum.c
-global.obj: global.c
-    $(CC) $(CFLAGS) global.c
