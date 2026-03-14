@@ -6,8 +6,8 @@
 /*        Updated :                                                      */
 /*-----------------------------------------------------------------------*/
 
-#ifndef __CWGRPHC_H_
-#define __CWGRPHC_H_
+#ifndef _COMMON_CWGRPHC_H
+#define _COMMON_CWGRPHC_H
 
 #ifdef  DEFINE_VAR
 #define EXTERN
@@ -140,4 +140,4 @@ EXTERN PGwind_ptr  putwind_ptr, getwind_ptr;
 
 #define wrchardot(x, y)             (*wrchardot_ptr)(x, y)
 
-#endif /* __CWGRPHC_H_ */
+#endif /* _COMMON_CWGRPHC_H */

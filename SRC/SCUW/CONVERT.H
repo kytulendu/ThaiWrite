@@ -15,5 +15,10 @@
 /*       80 cols (V1.2 Hercules/EGA/VGA)      */
 /*--------------------------------------------*/
 
+#ifndef _CONVERT_H
+#define _CONVERT_H
+
 #define SHRINK_FACTOR   10           /* Columns decreased    */
 #define CENTER_FACTOR    5           /* Shifting left factor */
+
+#endif /* _CONVERT_H */

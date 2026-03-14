@@ -1,3 +1,6 @@
+#ifndef _POPUP_H
+#define _POPUP_H
+
 #define CENTER 1
 
 #define OLD    1
@@ -6,3 +9,5 @@
 
 void popup_message(char *item[]);
 int popup_menu(char *item[], char** buff);
+
+#endif /* _POPUP_H */

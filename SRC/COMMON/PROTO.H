@@ -9,6 +9,9 @@
 Sun  07-30-1989  17:56:53
 */
 
+#ifndef _COMMON_PROTO_H
+#define _COMMON_PROTO_H
+
 /* From cwgraphc.c edisp.asm hdisp.asm */
 void prchar(unsigned int c, unsigned int attr, unsigned int x, unsigned int y);
 void prblank(unsigned int x, unsigned int y);
@@ -66,3 +69,5 @@ void errorsound(void);
 
 /* cusong.c */
 void cusong(void);
+
+#endif /* _COMMON_PROTO_H */

@@ -1,3 +1,6 @@
+#ifndef _KEY_H
+#define _KEY_H
+
 #define NORMAL 0
 #define EXTEND 0xff
 #define ENTER 13
@@ -26,3 +29,5 @@
 #define F8 0x42
 #define F9 0x43
 #define F10 0x44
+
+#endif /* _KEY_H */

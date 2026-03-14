@@ -2,6 +2,9 @@
     Routine.h
 */
 
+#ifndef _ROUTINE_H
+#define _ROUTINE_H
+
 unsigned char *dummy();
 unsigned char *SaraUmRtn();
 unsigned char *SaraAhRtn();
@@ -45,3 +48,5 @@ unsigned char *SaraAirRtn();
 unsigned char *MaiMalaiRtn();
 unsigned char *MaiMalaiFC();
 unsigned char *LeadConRtn();
+
+#endif /* _ROUTINE_H */

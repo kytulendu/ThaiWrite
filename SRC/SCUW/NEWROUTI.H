@@ -1,3 +1,6 @@
+#ifndef _NEWROUTI_H
+#define _NEWROUTI_H
+
 unsigned char *LeadConRtn();
 unsigned char *RoreReoRtn();
 unsigned char *RoreRuRtn();
@@ -21,3 +24,5 @@ unsigned char *MaiMuanRtn();
 unsigned char *MaiMalaiRtn();
 unsigned char *MaiTaiKuuRtn();
 unsigned char *KaranRtn();
+
+#endif /* _NEWROUTI_H */

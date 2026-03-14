@@ -3,6 +3,10 @@
 /*  Updated: Suttipong Kanakakorn                                           */
 /*           Sun  08-06-1989  13:24:38                                      */
 /****************************************************************************/
+
+#ifndef _COMMON_KBDCODE_H
+#define _COMMON_KBDCODE_H
+
 /**********************************/
 /*    key code constant   6/11/87 */
 /**********************************/
@@ -180,3 +184,5 @@
 #define    AF8KEY       0x06F00
 #define    AF9KEY       0x07000
 #define    AF10KEY      0x07100
+
+#endif /* _COMMON_KBDCODE_H */

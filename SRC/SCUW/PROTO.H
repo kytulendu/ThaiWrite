@@ -3,6 +3,9 @@ Sun  07-30-1989  17:56:53
 Sun  08-06-1989  11:20:06
 */
 
+#ifndef _PROTO_H
+#define _PROTO_H
+
 /***SCRN.C*******************************************************************/
 void cls(void);
 
@@ -215,3 +218,5 @@ unsigned int linearcolumn(char *textstream, unsigned int thaicol, font_attr *fon
 /***GETSTR.C*****************************************************************/
 int getstring(char textst[], unsigned int x, unsigned int y, unsigned int maxlen, char attr, strtype mode);
 int getname(char textst[], unsigned int x, unsigned int y, unsigned int maxlen, char attr);
+
+#endif /* _PROTO_H */

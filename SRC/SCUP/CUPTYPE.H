@@ -1,3 +1,6 @@
+#ifndef _CUPTYPE_H
+#define _CUPTYPE_H
+
 typedef enum Set_linespace_mode {
     INTERACTIVE,
     BATCH
@@ -10,3 +13,5 @@ typedef enum Ctrl_char {
     CR   =               13,       /* carriage return */
     ESC  =               27        /* escape code */
 } ctrl_char;
+
+#endif /* _CUPTYPE_H */

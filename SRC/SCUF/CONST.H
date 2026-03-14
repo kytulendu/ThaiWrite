@@ -4,5 +4,10 @@
              Sun  08-06-1989  10:04:26                                      */
 /****************************************************************************/
 
+#ifndef _CONST_H
+#define _CONST_H
+
 #define MAXCOL 256
 #define HUNAKADMITO 0xdb  /* treat as upper level */
+
+#endif /* _CONST_H */

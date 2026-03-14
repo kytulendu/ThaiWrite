@@ -37,10 +37,10 @@
 
     ----------------------------------------------------------- */
 
-extern short int _tctype[];
+#ifndef _TCTYPE_H
+#define _TCTYPE_H
 
-#ifndef __TCTYPE__
-#define __TCTYPE__
+extern short int _tctype[];
 
 #define _CSN_   0x80
 #define _LCSN_  0x40
@@ -70,4 +70,4 @@ extern short int _tctype[];
 #define ispunc(c)       (isbpunc(c) || isfpunc(c))
 #endif
 
-#endif __TCTYPE__
+#endif /* _TCTYPE_H */

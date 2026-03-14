@@ -2,6 +2,9 @@
 /*  INC.H 15 JAN 89                                                         */
 /****************************************************************************/
 
+#ifndef _INC_H
+#define _INC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,3 +16,5 @@
 #include "..\common\proto.h"
 #include "const.h"
 #include "proto.h"
+
+#endif /* _INC_H */

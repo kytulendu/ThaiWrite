@@ -1,3 +1,6 @@
+#ifndef _GLOBAL_H
+#define _GLOBAL_H
+
 /*------------------Global Reference------------------*/
 
 extern unsigned char *(*FuncPtr[])(unsigned char *);
@@ -15,3 +18,5 @@ int nstrcmp(register char *source, register char *destination);
 /*---------------Symbol that used often---------------*/
 #define NULL 0
 #define FAIL 0
+
+#endif /* _GLOBAL_H */

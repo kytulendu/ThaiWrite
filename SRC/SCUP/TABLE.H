@@ -1,3 +1,6 @@
+#ifndef _TABLE_H
+#define _TABLE_H
+
 #define CP_MIDMIDDLE    0x8F
 #define CP_BOTTOMMIDDLE 0x90
 #define CP_TOPMIDDLE    0x91
@@ -15,3 +18,5 @@
 #define CP_RIGHTBOTTOM  0x9D
 
 #define cp_istablechar(ch)  (((ch) >= CP_MIDMIDDLE)&&((ch) <= CP_RIGHTBOTTOM))
+
+#endif /* _TABLE_H */

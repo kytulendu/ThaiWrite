@@ -8,6 +8,9 @@
 /*      : 22 June 1990  Extend Bar Table                                 */
 /* --------------------------------------------------------------------- */
 
+#ifndef _24PINS_H
+#define _24PINS_H
+
 /* ----- define error and success value ------- */
 #define CP_ERROR        -1
 #define CP_SUCCESS      0
@@ -174,3 +177,5 @@ void cp_printing(int cpi, int nchar);
 
 /* --- set control flag --- */
 int cp_set_reset(unsigned char ch, unsigned char *cntptr);
+
+#endif /* _24PINS_H */

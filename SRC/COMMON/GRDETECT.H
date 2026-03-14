@@ -8,6 +8,9 @@
 /*           Updated : Sun  08-27-1989 20:25:09                            */
 /*-------------------------------------------------------------------------*/
 
+#ifndef _COMMON_GRDETECT_H
+#define _COMMON_GRDETECT_H
+
 typedef enum Graphics_hardware
 {
     DETECT, /* request autodetection */
@@ -23,3 +26,5 @@ void egavga_class(graphics_hardware *mode_ptr);
 int is_egavga(void);
 int is_mcga(void);
 int check_vretrace(void);
+
+#endif /* _COMMON_GRDETECT_H */

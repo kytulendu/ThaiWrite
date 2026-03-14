@@ -6,8 +6,8 @@
 /*  CUCC   : Add more comments                          */
 /****************************************************************************/
 
-#ifndef __VAR_H_
-#define __VAR_H_
+#ifndef _VAR_H
+#define _VAR_H
 
 #ifdef  DEFINE_VAR
 #define EXTERN
@@ -245,4 +245,4 @@ EXTERN unsigned int command_tab[] = {
 
 #undef EXTERN /* restore it */
 
-#endif /* __VAR_H */
+#endif /* _VAR_H */

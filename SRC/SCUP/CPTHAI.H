@@ -1,3 +1,6 @@
+#ifndef _CPTHAI_H
+#define _CPTHAI_H
+
 /* ------ Define constant ---- */
 #define CP_UPPER    0
 #define CP_MIDDLE   1
@@ -15,3 +18,5 @@ extern char cp_thaitable[];
 #define cp_isuplev(ch)      ((cp_thaitable[ch] == CP_UPPER))
 #define cp_islowlev(ch)     ((cp_thaitable[ch] == CP_LOWER))
 #define cp_isuppest(ch)     ((cp_thaitable[ch] == CP_UPPEST))
+
+#endif /* _CPTHAI_H */

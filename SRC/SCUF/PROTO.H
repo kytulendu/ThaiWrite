@@ -3,6 +3,9 @@ proto.h for cufont.exe
 By Suttipong Kanakakorn Fri  08-25-1989  22:34:30
 */
 
+#ifndef _PROTO_H
+#define _PROTO_H
+
 /***GETSTR.C*****************************************************************/
 int getstring(char textst[], unsigned int x, unsigned int y,
     unsigned maxlen, char attr, strtype mode);
@@ -21,3 +24,5 @@ int readkbd(void);
 
 /***FILE.C*******************************************************************/
 search_file_mode find_file(char *filename, char *search_path);
+
+#endif /* _PROTO_H */

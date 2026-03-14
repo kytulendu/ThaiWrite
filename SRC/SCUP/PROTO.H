@@ -2,6 +2,9 @@
    Written Suttipong Kanakakorn Mon  08-07-1989  00:29:50
 */
 
+#ifndef _PROTO_H
+#define _PROTO_H
+
 /* kbd.c */
 void waitkbd(unsigned int x, unsigned int y);
 int readkbd(void);
@@ -122,3 +125,5 @@ void execerror(char *s, char *t);
 int smenu(register int x, register int y, int number,
             char *messege[], int *curmenu);
 unsigned int find_menu_len(register int number, char *messege[]);
+
+#endif /* _PROTO_H */

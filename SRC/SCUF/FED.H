@@ -1,3 +1,6 @@
+#ifndef _FED_H
+#define _FED_H
+
 #define BYTE_X(X)   (_ceil((X),8))
 #define STOP        0
 #define EDIT_FONT   1
@@ -32,3 +35,5 @@ extern char cuprintpath[];
 
 #define SIGN "FONT EDITOR Version 1.0"
 #define SIGN_LENGTH strlen(SIGN)
+
+#endif /* _FED_H */

@@ -6,8 +6,8 @@
     All rights reserved.
 */
 
-#ifndef __THAI__
-#define __THAI__
+#ifndef _THAI_H
+#define _THAI_H
 
 #define KoreGai     (unsigned char) 0xA1    /*  ¡    */
 #define KorKai      (unsigned char) 0xA2    /*  ¢    */
@@ -97,4 +97,4 @@
 #define _RightBrace (unsigned char) 0x7D    /* } */
 #define _Baht       (unsigned char) 0xDF    /* ß    */
 
-# endif __THAI__
+# endif _THAI_H

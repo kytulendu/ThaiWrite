@@ -1,3 +1,6 @@
+#ifndef _CONST_H
+#define _CONST_H
+
 /* macro for control code of printer */
 #define SET_1_8_LINE_SPACE   0x30      /* set 1/8 inch line spacing */
 #define SET_1_6_LINE_SPACE   0x32      /* set 1/6 inch line spacing */
@@ -58,3 +61,5 @@
 #define ML_TEXT_9       (((pagelength)-1) * 216 / IPL_TEXT_9)
 #define ML_GRPH_24      (((pagelength)-1) * 180 / IPL_GRPH_24)
 #define ML_GRPH_9       (((pagelength)-1) * 216 / IPL_GRPH_9)
+
+#endif /* _CONST_H */
