@@ -192,7 +192,7 @@ unsigned char *KaranRtn(unsigned char *TempIndx)
                 case POPLA:
                     for (i = 0; i <= 0; ++i)
                     {
-                        if(!(nstrcmp(LoLingRoRuaTable5[i],TempIndxm3)))
+                        if(!(nstrcmp(PoPlaRoRuaTable5[i],TempIndxm3)))
                         {
                             return((TempIndxp1 <= RightMargin) ? TempIndxp1 : TempIndxm4);
                         }
