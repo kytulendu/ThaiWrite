@@ -6,7 +6,7 @@ cd scup
 del *.obj
 cd ..
 cd ..
-del cuprint.exe
+del twprint.exe
 cd src
 echo Finish!
 echo.

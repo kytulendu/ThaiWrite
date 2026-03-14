@@ -3,11 +3,11 @@ cd ..
 del cw.exe
 cd src
 cd scuw
-rem cd thaisep
-rem echo Building Thai word separation library.
-rem make
-rem echo Done!
-rem cd..
+cd thaisep
+echo Building Thai word separation library.
+make
+echo Done!
+cd..
 echo Building editor.
 make
 echo Done!

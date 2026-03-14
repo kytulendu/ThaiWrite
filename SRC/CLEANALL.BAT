@@ -8,9 +8,9 @@ del *.err
 cd ..
 cd scuw
 del *.obj
-rem cd thaisyls
-rem del *.obj
-rem cd ..
+cd thaisep
+del *.obj
+cd ..
 cd ..
 cd scup
 del *.obj

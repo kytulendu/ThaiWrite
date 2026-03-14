@@ -4,12 +4,12 @@ echo Cleaning editor ...
 del *.log
 cd scuw
 del *.obj
-rem cd thaisep
-rem del *.obj
-rem cd ..
+cd thaisep
+del *.obj
 cd ..
 cd ..
-del cw.exe
+cd ..
+del tw.exe
 cd src
 echo Finish!
 echo.

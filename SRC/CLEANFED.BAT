@@ -6,7 +6,7 @@ cd scuf
 del *.obj
 cd ..
 cd ..
-del cufont.exe
+del twfont.exe
 cd src
 echo Finish!
 echo.

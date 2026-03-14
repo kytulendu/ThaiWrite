@@ -11,11 +11,11 @@ make >> ..\log.log
 echo Done!
 cd ..
 cd scuw
-rem cd thaisep
-rem echo Building Thai word separation library.
-rem make >> ..\..\log.log
-rem echo Done!
-rem cd..
+cd thaisep
+echo Building Thai word separation library.
+make >> ..\..\log.log
+echo Done!
+cd..
 echo Building editor.
 make >> ..\log.log
 echo Done!
