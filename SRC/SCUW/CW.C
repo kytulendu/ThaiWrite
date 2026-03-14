@@ -508,24 +508,25 @@ void main(int argc, char *argv[])
                             keymain = ESCKEY;
                             break;
                         default:
-                        {
-                            keymain = alt_char_map(keymain);
-                            if (insertmode)
+                            if ((alt_char_map(keymain)) != -1)
                             {
-                                if (!insert_char(keymain, &x, &y))
+                                keymain = alt_char_map(keymain);
+                                if (insertmode)
                                 {
-                                    linetoolong();
+                                    if (!insert_char(keymain, &x, &y))
+                                    {
+                                        linetoolong();
+                                    }
                                 }
-                            }
-                            else
-                            {
-                                if (!ovrwrite_char(keymain, &x, &y))
+                                else
                                 {
-                                    linetoolong();
+                                    if (!ovrwrite_char(keymain, &x, &y))
+                                    {
+                                        linetoolong();
+                                    }
                                 }
+                                refreshline(x, y);
                             }
-                            refreshline(x, y);
-                        }
                     }
                 }
                 adjustcol(&x);
