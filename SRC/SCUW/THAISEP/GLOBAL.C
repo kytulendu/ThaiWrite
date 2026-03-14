@@ -1,6 +1,6 @@
-#include "Thai.h"
-#include "Ctype.h"
-#include "TCtype.h"
+#include "thai.h"
+#include "ctype.h"
+#include "tctype.h"
 #include "routine.h"
 #include "global.h"
 

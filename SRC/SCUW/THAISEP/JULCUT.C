@@ -1,5 +1,5 @@
-#include "Thai.h"
-#include "Global.h"
+#include "thai.h"
+#include "global.h"
 
 /*------------------------------------------------------------------------
 Module name  : Syl_Sep  (Syllable Separation)

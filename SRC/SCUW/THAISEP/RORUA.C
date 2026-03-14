@@ -1,6 +1,6 @@
-#include "Thai.h"
-#include "TCtype.h"
-#include "Global.h"
+#include "thai.h"
+#include "tctype.h"
+#include "global.h"
 
 unsigned char *RoRuaRtn(register unsigned char *TempIndx)
 {

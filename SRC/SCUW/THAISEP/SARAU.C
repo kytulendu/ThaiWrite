@@ -1,7 +1,7 @@
-#include "Thai.h"
-#include "Global.h"
-#include "TCtype.h"
-#include "Routine.h"
+#include "thai.h"
+#include "global.h"
+#include "tctype.h"
+#include "routine.h"
 
 unsigned char *Sara_URtn(register unsigned char *TempIndx)
 {

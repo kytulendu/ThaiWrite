@@ -1,6 +1,6 @@
-#include "Thai.h"
-#include "Global.h"
-#include "Routine.h"
+#include "thai.h"
+#include "global.h"
+#include "routine.h"
 
 /* ------------ Sara E Rtn ------------ */
 /*  Programmer  : Subun Yenjaichon

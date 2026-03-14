@@ -1,6 +1,6 @@
-#include "Thai.h"
-#include "Global.h"
-#include "TCtype.h"
+#include "thai.h"
+#include "global.h"
+#include "tctype.h"
 
 /*------------------------------------------------------------------------
 Module name  : Syl_Sep  (Syllable Separation)

@@ -1,6 +1,6 @@
-#include "TCtype.h"
-#include "Thai.h"
-#include "Global.h"
+#include "tctype.h"
+#include "thai.h"
+#include "global.h"
 
 /*  -------------SARA Ie Rtn ------------
     Programmer : Subun Yenjaichon

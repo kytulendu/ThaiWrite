@@ -1,7 +1,7 @@
-#include "Thai.h"
-#include "Global.h"
-#include "Routine.h"
-#include "TCtype.h"
+#include "thai.h"
+#include "global.h"
+#include "routine.h"
+#include "tctype.h"
 
 /* ------------ MaiMalai Rtn ------------ */
 /*  Programmer  : Subun Yenjaichon

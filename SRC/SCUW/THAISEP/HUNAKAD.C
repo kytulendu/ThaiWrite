@@ -1,7 +1,7 @@
-#include "Thai.h"
-#include "Global.h"
-#include "TCtype.h"
-#include "Routine.h"
+#include "thai.h"
+#include "global.h"
+#include "tctype.h"
+#include "routine.h"
 
 unsigned char *MaiHunAKatRtn(register unsigned char *TempIndx)
 {

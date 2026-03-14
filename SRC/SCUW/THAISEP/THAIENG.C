@@ -1,7 +1,7 @@
-#include "Thai.h"
-#include "TCtype.h"
-#include "Ctype.h"
-#include "Global.h"
+#include "thai.h"
+#include "tctype.h"
+#include "ctype.h"
+#include "global.h"
 
 /*  -------------------------------------------
     Routine     :   Thai English Cut Rtn

@@ -1,6 +1,6 @@
-#include "Thai.h"
-#include "Global.h"
-#include "Routine.h"
+#include "thai.h"
+#include "global.h"
+#include "routine.h"
 
 /* ------------ Ru  Rtn ------------ */
 /*  Programmer  : Subun Yenjaichon

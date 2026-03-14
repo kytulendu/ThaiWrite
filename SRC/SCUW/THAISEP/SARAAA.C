@@ -1,7 +1,7 @@
-#include "TCtype.h"
-#include "Thai.h"
-#include "Global.h"
-#include "Routine.h"
+#include "tctype.h"
+#include "thai.h"
+#include "global.h"
+#include "routine.h"
 
 /*  -------------SARA AR Rtn ------------
     Programmer : Subun Yenjaichon
